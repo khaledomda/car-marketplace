@@ -191,10 +191,160 @@
     choose: { ar: 'اختر', en: 'Choose' },
   };
 
+  // Urdu text, merged into T below.
+  const UR = {
+    brand: 'دلیل',
+    tagline: 'استعمال شدہ گاڑی خریدنے میں آپ کا ماہر',
+    trial: 'آزمائشی مدت: فی الحال ایپ آپ سے کوئی رقم نہیں مانگے گی۔ ادائیگی کی سہولت بند ہے۔',
+    navHome: 'ہوم',
+    navRequest: 'گاڑی تلاش کریں',
+    navPlatforms: 'پلیٹ فارمز',
+    navSafety: 'محفوظ خریداری',
+    navRate: 'ریٹنگ دیں',
+    heroEyebrow: 'استعمال شدہ گاڑیاں · سعودی عرب',
+    heroTitle: 'اپنی استعمال شدہ گاڑی <em>ماہر کے ساتھ</em> خریدیں جو آپ کے لیے بہترین سودا ڈھونڈے',
+    heroLead: 'ہمیں بتائیں آپ کو کون سی گاڑی چاہیے، یا صرف یہ کہ آپ کے پاس کتنی رقم ہے، چاہے 5,000 ریال ہی ہوں، اور ہم قابلِ اعتماد پلیٹ فارمز اور بیچنے والوں میں سے بہترین آپشن تجویز کریں گے۔ پہلی بار خریدنے والوں اور ان خواتین کے لیے جو قابلِ اعتماد مشیر چاہتی ہیں۔',
+    ctaBudget: 'میرا بجٹ ہے',
+    ctaSpecific: 'مجھے خاص گاڑی چاہیے',
+    statVisits: 'وزٹس',
+    statRequests: 'گاڑی کی درخواستیں',
+    statRating: 'صارفین کی ریٹنگ',
+    demoNote: 'ڈیمو موڈ: ڈیٹا صرف اسی ڈیوائس پر محفوظ ہے۔',
+    plateCaption: 'چاہے آپ کا بجٹ 5,000 ریال ہو، ہم رہنمائی کریں گے۔',
+    point1: 'ہر پلیٹ فارم کا اعتماد اسکور، معائنہ، وارنٹی اور ریویوز کی بنیاد پر',
+    point2: 'کسی سے ملنے سے پہلے بیچنے والے کے اعتماد کی جانچ',
+    point3: 'درخواست پر خاتون مشیر، اور چاہیں تو صرف واٹس ایپ پر رابطہ',
+    reqEyebrow: 'مرحلہ 1',
+    reqTitle: 'آپ کیا تلاش کر رہے ہیں؟',
+    reqLead: 'بجٹ تبدیل کریں اور فوراً دیکھیں کہ اس میں کیا ملتا ہے۔ درخواست بھیجیں، ہماری ٹیم بہترین اشتہارات کے ساتھ آپ سے رابطہ کرے گی۔',
+    modeBudget: 'میرا بجٹ',
+    modeSpecific: 'خاص گاڑی',
+    budgetLabel: 'آپ کا بجٹ (ریال)',
+    budgetNote: 'کوئی بجٹ چھوٹا نہیں۔ 5,000 ریال سے اوپر، ہم مناسب گاڑی ڈھونڈ دیں گے۔',
+    make: 'کمپنی',
+    model: 'ماڈل',
+    yearFrom: 'سالِ ساخت (سے)',
+    bodyType: 'گاڑی کی قسم',
+    usage: 'استعمال',
+    name: 'نام',
+    phone: 'موبائل نمبر',
+    city: 'شہر',
+    contact: 'رابطے کا طریقہ',
+    femaleAdvisor: 'خاتون مشیر کو ترجیح',
+    firstCar: 'یہ میری پہلی گاڑی کی خریداری ہے',
+    notes: 'نوٹس (رنگ، گیئر باکس، جو بھی اہم ہو)',
+    consent: 'میں اتفاق کرتا/کرتی ہوں کہ پرائیویسی پالیسی کے مطابق میری معلومات محفوظ کی جائیں اور اس درخواست کے بارے میں مجھ سے رابطہ کیا جائے۔',
+    submit: 'مفت درخواست بھیجیں',
+    sending: 'بھیجا جا رہا ہے…',
+    sentOk: 'آپ کی درخواست موصول ہو گئی۔ ہم 24 گھنٹوں میں رابطہ کریں گے۔ یاد رہے: فی الحال ہم آپ سے کوئی رقم نہیں مانگیں گے۔',
+    sentLocal: 'درخواست محفوظ ہو گئی (ڈیمو موڈ)۔ اصل ایپ میں یہ سیدھی ٹیم کو پہنچتی ہے۔',
+    errFields: 'نام اور درست موبائل نمبر لکھیں اور پرائیویسی شرائط قبول کریں۔',
+    guideTitle: 'آپ کے بجٹ میں کیا ملتا ہے',
+    searchOn: 'اس بجٹ کے لیے تلاش کی بہترین جگہیں:',
+    bestHead: 'آپ کا بہترین آپشن',
+    bestLocked: 'بہترین آپشن چھپا ہوا ہے',
+    bestLockedText: 'دیکھنے کے لیے شرائط قبول کریں۔ ابھی کوئی ادائیگی نہیں۔',
+    revealBtn: 'شرائط دیکھیں',
+    bModel: 'مطلوبہ ماڈل',
+    bPrice: 'مناسب قیمت',
+    bOpen: 'بات چیت یہاں سے شروع کریں',
+    bKm: 'زیادہ سے زیادہ کلومیٹر',
+    bWhere: 'یہاں تلاش کریں',
+    bWhy: 'کیوں؟',
+    bNote: 'سعودی مارکیٹ کی اندازاً قیمتیں۔ ہماری ٹیم آپ کو حقیقی اشتہارات بھیجے گی۔',
+    confidence: 'اعتماد',
+    platEyebrow: 'اعتماد اسکور',
+    platTitle: 'کہاں سے خریدیں: اعتماد کے لحاظ سے پلیٹ فارمز',
+    platLead: 'ہر اسکور 6 معیارات سے بنتا ہے: معائنہ، وارنٹی اور واپسی، بیچنے والے کی تصدیق، ریویوز، شفافیت، اور فروخت کے بعد سپورٹ۔',
+    filterAll: 'سب',
+    filterCertified: 'معائنہ شدہ اور وارنٹی',
+    filterMarket: 'مارکیٹ پلیسز',
+    filterClassified: 'انفرادی اشتہارات',
+    typeCertified: 'معائنہ شدہ',
+    typeMarketplace: 'مارکیٹ پلیس',
+    typeClassifieds: 'انفرادی اشتہارات',
+    pros: 'خوبیاں',
+    cons: 'احتیاط',
+    breakdown: 'اسکور کی تفصیل',
+    visit: 'ویب سائٹ دیکھیں',
+    c_inspection: 'معائنہ',
+    c_warranty: 'وارنٹی',
+    c_sellerCheck: 'تصدیق',
+    c_reviews: 'ریویوز',
+    c_transparency: 'شفافیت',
+    c_support: 'سپورٹ',
+    method: 'یہ اسکور دلیل ٹیم کے اندازے ہیں (ستمبر 2026)، جو پلیٹ فارمز کی شائع شدہ پالیسیوں، ایپ اسٹور ریٹنگز اور صارفین کے ریویوز پر مبنی ہیں اور ہر سہ ماہی اپڈیٹ ہوتے ہیں۔ یہ سرکاری ریٹنگ نہیں ہے۔',
+    safeEyebrow: 'محفوظ خریداری',
+    safeTitle: 'گاڑی سے پہلے بیچنے والے کو جانچیں',
+    safeLead: 'خاص طور پر حراج اور اوپن سوق پر: یہ سوالات زیادہ تر دھوکے پکڑ لیتے ہیں۔',
+    sellerTitle: 'بیچنے والے کا اعتماد چیکر',
+    sellerLead: 'جو باتیں بیچنے والے پر درست ہوں ان پر نشان لگائیں۔',
+    sellerScore: 'اعتماد اسکور',
+    vLow: 'زیادہ خطرہ: رک جائیں اور کوئی رقم نہ بھیجیں۔',
+    vMid: 'درمیانہ: احتیاط سے آگے بڑھیں، معائنہ لازمی ہے۔',
+    vHigh: 'اچھا: غالباً قابلِ اعتماد۔ معائنہ کروائیں اور ابشر کے ذریعے ملکیت منتقل کریں۔',
+    stepsTitle: 'محفوظ خریداری کے مراحل',
+    s1: 'چیسس نمبر (VIN) مانگیں اور موجز رپورٹ نکالیں: حادثات اور مالکان کی تعداد۔',
+    s2: 'گاڑی خود دیکھنے سے پہلے کبھی بیعانہ نہ بھیجیں۔',
+    s3: 'عوامی جگہ یا معائنہ مرکز پر ملیں، بہتر ہے کسی کو ساتھ لے جائیں۔',
+    s4: 'گاڑی کا معائنہ اپنی پسند کے مرکز پر کروائیں، بیچنے والے کی پسند پر نہیں۔',
+    s5: 'تصدیق کریں کہ استمارہ اور فحص دوری درست ہیں اور کوئی جرمانہ نہیں۔',
+    s6: 'ملکیت ابشر کے ذریعے منتقل کریں اور صرف قابلِ تصدیق بینک ٹرانسفر سے ادائیگی کریں۔',
+    officialTitle: 'مفید سرکاری ٹولز',
+    respTitle: 'آپ کی ذمہ داری اور ہماری',
+    resp1: 'ہم آپ کی رہنمائی کرتے ہیں اور آپ کو بہترین آپشن دیتے ہیں، لیکن خریدنے سے پہلے مکینیکل معائنہ اور دیگر ضروری جانچ کی ذمہ داری آپ کی ہے۔',
+    resp2: 'بعد میں ہم خود معائنہ کریں گے، اور ممکن ہے مرمت اور ڈیلیوری بھی شامل کریں۔',
+    roadEyebrow: 'جلد آ رہا ہے',
+    roadTitle: 'آج ہم رہنمائی کرتے ہیں، بعد میں گھر تک سروس',
+    nowLbl: 'ابھی دستیاب · مفت',
+    soonLbl: 'جلد آ رہا ہے',
+    r1t: 'رہنمائی اور بہترین آپشن',
+    r1d: 'ہم تلاش کرتے ہیں، تجویز دیتے ہیں اور قیمت طے کرنے میں مدد کرتے ہیں۔',
+    r2t: 'معائنہ',
+    r2d: 'واضح رپورٹ کے ساتھ مکینیکل اور الیکٹریکل معائنہ۔',
+    r3t: 'مرمت',
+    r3d: 'طے شدہ قیمتوں پر قابلِ اعتماد ورکشاپس۔',
+    r4t: 'ڈیلیوری',
+    r4d: 'گاڑی آپ کے دروازے تک۔',
+    rateEyebrow: 'آپ کی رائے اہم ہے',
+    rateTitle: 'دلیل کے ساتھ اپنے تجربے کی ریٹنگ دیں',
+    rateLead: 'ریٹنگز دوسروں کو اعتماد دیتی ہیں اور ہمیں بہتر بننے میں مدد کرتی ہیں۔',
+    rateName: 'آپ کا نام (اختیاری)',
+    rateComment: 'آپ کا تبصرہ',
+    rateSubmit: 'ریٹنگ بھیجیں',
+    rateThanks: 'ریٹنگ کا شکریہ!',
+    rateNeedStars: 'پہلے ستاروں کی تعداد منتخب کریں۔',
+    ratings: 'ریٹنگز',
+    noReviews: 'دلیل کو ریٹنگ دینے والے پہلے فرد بنیں۔',
+    guest: 'صارف',
+    footer1: 'دلیل ایک رہنمائی سروس ہے اور کسی بھی فروخت میں فریق نہیں۔ آزمائشی مدت کے دوران ہم آپ سے کوئی رقم نہیں مانگیں گے۔',
+    footerTerms: 'شرائط و ضوابط',
+    footerPrivacy: 'پرائیویسی پالیسی',
+    termsTitle: 'شرائط و ضوابط',
+    termsFree: 'فی الحال ہم آپ سے کوئی رقم نہیں مانگیں گے۔ آزمائشی مدت میں ادائیگی بند ہے۔',
+    t1: 'اگر آپ ہماری تجویز کردہ گاڑی کی خریداری مکمل کرتے ہیں تو آپ دلیل کو 500 سعودی ریال سروس فیس منتقل کرنے پر متفق ہیں (آزمائشی مدت ختم ہونے اور ادائیگی شروع ہونے کے بعد)۔',
+    t2: 'یہ فیس ادا کرنا آپ کی اپنی ذمہ داری اور امانت پر ہے۔',
+    t3: 'ہم اس فیس کے سلسلے میں آپ کے خلاف کوئی مقدمہ یا قانونی کارروائی نہیں کریں گے۔',
+    t4: 'ہم آپ کی رہنمائی کرتے ہیں اور بہترین آپشن دیتے ہیں، لیکن مکینیکل معائنہ، کاغذات کی جانچ اور حتمی فیصلہ آپ کی ذمہ داری ہے۔ دلیل فروخت میں فریق نہیں ہے۔',
+    t5: 'ہم آپ کا ڈیٹا صرف آپ کی درخواست پوری کرنے اور سروس بہتر بنانے کے لیے استعمال کرتے ہیں، اور کبھی فروخت نہیں کرتے۔',
+    termsCheck: 'میں نے شرائط پڑھ لی ہیں اور قبول کرتا/کرتی ہوں',
+    termsAgree: 'میں متفق ہوں، بہترین آپشن دکھائیں',
+    termsCancel: 'ابھی نہیں',
+    privacyTitle: 'پرائیویسی پالیسی',
+    privacyText: 'ہم جمع کرتے ہیں: نام، موبائل نمبر، شہر، گاڑی اور بجٹ کی تفصیلات، ریٹنگز، اور گمنام وزٹ ڈیٹا (صفحہ، زبان، ریفرر، ڈیوائس کی قسم)۔ ہم اسے آپ کی درخواست کے بارے میں رابطے اور سروس بہتر بنانے کے لیے، سعودی ذاتی ڈیٹا تحفظ قانون کے مطابق استعمال کرتے ہیں۔ ہم آپ کا ڈیٹا فروخت نہیں کرتے۔ ڈیٹا حذف کروانے کے لیے ہم سے رابطہ کریں، ہم 30 دن میں حذف کر دیں گے۔',
+    close: 'بند کریں',
+    revealed: 'ہو گیا! یہ رہا آپ کا بہترین آپشن۔',
+    sar: 'ریال',
+    km: 'کلومیٹر',
+    choose: 'منتخب کریں',
+  };
+  for (const [k, v] of Object.entries(UR)) if (T[k]) T[k].ur = v;
+
   const OPTS = {
-    bodyType: [['any', 'أي نوع', 'Any'], ['sedan', 'سيدان', 'Sedan'], ['suv', 'SUV / جيب', 'SUV'], ['hatch', 'هاتشباك', 'Hatchback'], ['pickup', 'بيك أب / غمارة', 'Pickup'], ['van', 'فان عائلي', 'Family van']],
-    usage: [['daily', 'دوام ومشاوير', 'Daily commute'], ['family', 'عائلة', 'Family'], ['travel', 'سفر وطرق طويلة', 'Road trips'], ['first', 'أول سيارة / تعليم', 'First car / learning'], ['work', 'شغل وتوصيل', 'Work / delivery']],
-    contact: [['whatsapp', 'واتساب فقط', 'WhatsApp only'], ['call', 'اتصال', 'Phone call'], ['sms', 'رسالة نصية', 'SMS']],
+    // [value, ar, en, ur]
+    bodyType: [['any', 'أي نوع', 'Any', 'کوئی بھی'], ['sedan', 'سيدان', 'Sedan', 'سیڈان'], ['suv', 'SUV / جيب', 'SUV', 'SUV / جیپ'], ['hatch', 'هاتشباك', 'Hatchback', 'ہیچ بیک'], ['pickup', 'بيك أب / غمارة', 'Pickup', 'پک اپ'], ['van', 'فان عائلي', 'Family van', 'فیملی وین']],
+    usage: [['daily', 'دوام ومشاوير', 'Daily commute', 'روزانہ آنا جانا'], ['family', 'عائلة', 'Family', 'فیملی'], ['travel', 'سفر وطرق طويلة', 'Road trips', 'لمبے سفر'], ['first', 'أول سيارة / تعليم', 'First car / learning', 'پہلی گاڑی / سیکھنا'], ['work', 'شغل وتوصيل', 'Work / delivery', 'کام / ڈیلیوری']],
+    contact: [['whatsapp', 'واتساب فقط', 'WhatsApp only', 'صرف واٹس ایپ'], ['call', 'اتصال', 'Phone call', 'فون کال'], ['sms', 'رسالة نصية', 'SMS', 'ایس ایم ایس']],
   };
 
   // ---------- state ----------
@@ -202,13 +352,14 @@
     get(k, d) { try { const v = localStorage.getItem('daleel:' + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
     set(k, v) { try { localStorage.setItem('daleel:' + k, JSON.stringify(v)); } catch { /* storage unavailable */ } },
   };
-  let lang = store.get('lang', 'ar');
+  const LANGS = ['ar', 'en', 'ur'];
+  let lang = LANGS.includes(store.get('lang', 'ar')) ? store.get('lang', 'ar') : 'ar';
   let mode = 'budget';
   let online = true;
   let starPick = 0;
   let platFilter = 'all';
   const visitorId = store.get('vid', null) || (() => { const id = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)); store.set('vid', id); return id; })();
-  const t = (k) => (T[k] ? T[k][lang] : k);
+  const t = (k) => (T[k] ? T[k][lang] ?? T[k].en : k);
   const L = (o) => (o && typeof o === 'object' ? o[lang] ?? o.en : o);
   const fmt = (n) => Number(n).toLocaleString(lang === 'ar' ? 'ar-SA' : 'en-US');
   const fmtEn = (n) => Number(n).toLocaleString('en-US');
@@ -241,10 +392,10 @@
   // ---------- render: i18n ----------
   function applyLang() {
     document.documentElement.lang = lang;
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.dir = lang === 'en' ? 'ltr' : 'rtl';
     $$('[data-i]').forEach((el) => { el.textContent = t(el.dataset.i); });
     $$('[data-ih]').forEach((el) => { el.innerHTML = t(el.dataset.ih); });
-    $('#langBtn').textContent = lang === 'ar' ? 'English' : 'العربية';
+    $('#langSel').value = lang;
     for (const [id, list] of Object.entries(OPTS)) fillSelect($('#' + id), list);
     fillSelect($('#city'), D.cities, true);
     renderChips(); renderGuide(); renderPlatforms(); renderSeller(); renderOfficial(); renderStars(); renderStats(lastStats);
@@ -253,7 +404,7 @@
   function fillSelect(sel, list, withChoose) {
     const cur = sel.value;
     sel.innerHTML = (withChoose ? `<option value="">${t('choose')}</option>` : '') +
-      list.map(([v, ar, en]) => `<option value="${v}">${lang === 'ar' ? ar : en}</option>`).join('');
+      list.map((o) => `<option value="${o[0]}">${o[1 + LANGS.indexOf(lang)] || o[2]}</option>`).join('');
     if (cur) sel.value = cur;
   }
 
@@ -341,7 +492,7 @@
   const sellerState = new Set();
   function renderSeller() {
     $('#sellerChecks').innerHTML = D.sellerSignals.map((s) => `
-      <label class="check"><input type="checkbox" data-sid="${s.id}" ${sellerState.has(s.id) ? 'checked' : ''}><span>${esc(s[lang])}</span></label>`).join('');
+      <label class="check"><input type="checkbox" data-sid="${s.id}" ${sellerState.has(s.id) ? 'checked' : ''}><span>${esc(s[lang] || s.en)}</span></label>`).join('');
     updateSeller();
   }
   function updateSeller() {
@@ -395,7 +546,7 @@
   function closeModal(id) { $('#' + id).hidden = true; }
 
   // ---------- events ----------
-  $('#langBtn').addEventListener('click', () => { lang = lang === 'ar' ? 'en' : 'ar'; store.set('lang', lang); applyLang(); });
+  $('#langSel').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'ar'; store.set('lang', lang); applyLang(); });
   budgetEl.addEventListener('input', renderGuide);
   $('#budgetChips').addEventListener('click', (e) => { const b = e.target.closest('[data-v]'); if (b) { budgetEl.value = b.dataset.v; renderGuide(); } });
   $('#modeBudget').addEventListener('click', () => setMode('budget'));

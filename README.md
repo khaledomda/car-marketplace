@@ -2,7 +2,7 @@
 
 Daleel helps people who have little experience buying used cars (first-time buyers, and women who want a
 trusted advisor) find the best deal from trusted platforms and sellers. It installs on a phone as an app (PWA)
-and works in Arabic (default) and English.
+and works in Arabic (default), English and Urdu (اردو).
 
 **Trial period:** the app does not ask for or collect any money. There are no payment endpoints in the code.
 
@@ -27,14 +27,33 @@ Stored in `data/db.json` (ignored by git): visits (anonymous visitor id, page, l
 hashed IP, user agent), car requests, terms acceptances and ratings. The privacy policy in the app describes this
 in line with the Saudi Personal Data Protection Law (PDPL).
 
-## Run
+## Deploy to Vercel
+
+1. Upload this folder to Vercel (drag the unzipped folder into **vercel.com/new**, or push it to GitHub and import
+   the repo). Framework preset: **Other**. No build command is needed; `vercel.json` sets everything.
+2. The site works straight away in **demo mode** (each visitor's data stays on their own device).
+3. To save requests, visits and ratings for real: in the Vercel project open **Storage → Marketplace →
+   Upstash for Redis** (free plan), create a database and connect it to the project. It adds
+   `KV_REST_API_URL` and `KV_REST_API_TOKEN` (or `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN`).
+4. In **Settings → Environment Variables** add `ADMIN_TOKEN` with a long secret, then **Redeploy**.
+5. Open `https://<your-site>.vercel.app/admin` and enter the token.
+
+On Vercel the visits log also records the visitor's country, region and city from Vercel's geo headers.
+
+## Run on your own server
 
 ```bash
 ADMIN_TOKEN=choose-a-long-secret npm start     # http://localhost:3000, admin at /admin
 ```
 
-No dependencies; Node 18+. `npm run build:demo` writes a static backend-free copy to `dist/demo`
-(demo mode keeps data on the device only).
+No dependencies; Node 20+. Data is saved to `data/db.json`. `npm run build:demo` writes a static
+backend-free copy to `dist/demo`.
+
+## Code map
+
+- `public/` the app (static files): `index.html`, `styles.css`, `app.js` (logic + Arabic/English/Urdu text), `data.js` (content)
+- `lib/core.js` the API shared by both setups; `lib/file-store.js` JSON storage; `lib/redis-store.js` Upstash storage
+- `api/index.js` Vercel function; `server.js` local server; `vercel.json` Vercel settings
 
 ## Updating content
 
