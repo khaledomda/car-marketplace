@@ -1,0 +1,14 @@
+{
+  "name": "daleel-cars",
+  "version": "0.1.0",
+  "description": "Daleel — expert used-car buying guide for Saudi Arabia (trial: no payments).",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "ADMIN_TOKEN=dev node server.js",
+    "build:demo": "node scripts/build-demo.js"
+  },
+  "engines": { "node": ">=18" },
+  "license": "UNLICENSED",
+  "private": true
+}

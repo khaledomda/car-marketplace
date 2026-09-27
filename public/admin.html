@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Daleel Admin</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<style>
+  body { padding-bottom: 40px; }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-block: 16px; }
+  .kpis div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px; }
+  .kpis b { display: block; font-size: 1.6rem; font-variant-numeric: tabular-nums; }
+  .kpis span { color: var(--muted); font-size: .8rem; }
+  .tbl { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+  table { border-collapse: collapse; width: 100%; font-size: .85rem; }
+  th, td { text-align: start; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; white-space: nowrap; }
+  td.wrap-cell { white-space: normal; min-width: 200px; }
+  th { background: var(--surface-2); font-weight: 600; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  h2 { margin-top: 26px; margin-bottom: 10px; }
+  select.st { border: 1px solid var(--line); border-radius: 8px; padding: 4px; background: var(--bg); }
+  .days { display: flex; align-items: flex-end; gap: 4px; height: 90px; padding: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+  .days i { flex: 1; background: var(--accent); border-radius: 3px 3px 0 0; min-height: 2px; position: relative; }
+</style>
+</head>
+<body>
+<div class="wrap" style="padding-block:20px">
+  <h1 style="font-size:1.5rem">Daleel admin</h1>
+  <form id="login" class="row" style="margin-top:12px">
+    <input id="token" type="password" placeholder="Admin token" style="border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--surface)">
+    <button class="btn btn-primary" type="submit">Open dashboard</button>
+    <span id="err" class="muted"></span>
+  </form>
+
+  <div id="dash" hidden>
+    <div class="kpis" id="kpis"></div>
+    <h2>Visits, last 14 days</h2>
+    <div class="days" id="days"></div>
+    <div class="row" style="margin-top:14px">
+      <span class="muted">Export CSV:</span>
+      <a class="btn btn-ghost" data-x="requests">Requests</a>
+      <a class="btn btn-ghost" data-x="visits">Visits</a>
+      <a class="btn btn-ghost" data-x="ratings">Ratings</a>
+      <a class="btn btn-ghost" data-x="termsAcceptances">Terms acceptances</a>
+    </div>
+    <h2>Car requests</h2>
+    <div class="tbl"><table id="reqT"></table></div>
+    <h2>Ratings</h2>
+    <div class="tbl"><table id="rateT"></table></div>
+  </div>
+</div>
+<script>
+(function () {
+  const $ = (s) => document.querySelector(s);
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  let token = sessionStorage.getItem('daleel:admin') || '';
+  const STATUSES = ['new', 'contacted', 'searching', 'matched', 'bought', 'closed'];
+
+  async function load() {
+    const res = await fetch('api/admin/data', { headers: { Authorization: 'Bearer ' + token } });
+    if (!res.ok) { $('#err').textContent = 'Wrong token, or ADMIN_TOKEN is not set on the server.'; return; }
+    sessionStorage.setItem('daleel:admin', token);
+    const d = await res.json();
+    $('#login').hidden = true; $('#dash').hidden = false;
+    const s = d.stats;
+    const bought = d.requests.filter((r) => r.status === 'bought').length;
+    $('#kpis').innerHTML = [
+      [s.visits, 'Visits'], [s.uniqueVisitors, 'Unique visitors'], [s.requests, 'Car requests'],
+      [d.termsAcceptances.length, 'Accepted terms'], [bought, 'Bought (500 SAR due later)'],
+      [s.ratingCount ? s.ratingAvg + ' ★' : '–', `Rating (${s.ratingCount})`],
+      [d.requests.filter((r) => r.femaleAdvisor).length, 'Asked for female advisor'],
+    ].map(([v, l]) => `<div><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join('');
+
+    const counts = {};
+    d.visits.forEach((v) => { const k = v.at.slice(0, 10); counts[k] = (counts[k] || 0) + 1; });
+    const days = [...Array(14)].map((_, i) => new Date(Date.now() - (13 - i) * 864e5).toISOString().slice(0, 10));
+    const max = Math.max(1, ...days.map((k) => counts[k] || 0));
+    $('#days').innerHTML = days.map((k) => `<i title="${k}: ${counts[k] || 0}" style="height:${((counts[k] || 0) / max) * 100}%"></i>`).join('');
+
+    $('#reqT').innerHTML = '<tr><th>Date</th><th>Status</th><th>Name</th><th>Phone</th><th>City</th><th>Type</th><th>Budget</th><th>Car</th><th>Use</th><th>Contact</th><th>Female adv.</th><th>First car</th><th>Notes</th></tr>' +
+      d.requests.slice().reverse().map((r) => `<tr>
+        <td>${esc(r.at.slice(0, 16).replace('T', ' '))}</td>
+        <td><select class="st" data-id="${esc(r.id)}">${STATUSES.map((x) => `<option ${x === r.status ? 'selected' : ''}>${x}</option>`).join('')}</select></td>
+        <td>${esc(r.name)}</td><td>${esc(r.phone)}</td><td>${esc(r.city)}</td><td>${esc(r.mode)}</td>
+        <td>${esc((r.budget || 0).toLocaleString('en-US'))}</td><td>${esc([r.make, r.model, r.yearFrom && '≥' + r.yearFrom].filter(Boolean).join(' '))}</td>
+        <td>${esc(r.usage)} / ${esc(r.bodyType)}</td><td>${esc(r.contact)}</td><td>${r.femaleAdvisor ? 'Yes' : ''}</td><td>${r.firstCar ? 'Yes' : ''}</td>
+        <td class="wrap-cell">${esc(r.notes)}</td></tr>`).join('');
+
+    $('#rateT').innerHTML = '<tr><th>Date</th><th>Stars</th><th>Name</th><th>Comment</th></tr>' +
+      d.ratings.slice().reverse().map((r) => `<tr><td>${esc(r.at.slice(0, 16).replace('T', ' '))}</td><td>${'★'.repeat(r.stars)}</td><td>${esc(r.name)}</td><td class="wrap-cell">${esc(r.comment)}</td></tr>`).join('');
+  }
+
+  $('#login').addEventListener('submit', (e) => { e.preventDefault(); token = $('#token').value; load(); });
+  document.addEventListener('change', async (e) => {
+    if (!e.target.matches('select.st')) return;
+    await fetch('api/admin/requests/' + e.target.dataset.id, {
+      method: 'PATCH', headers: { Authorization: 'Bearer ' + token, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ status: e.target.value }),
+    });
+  });
+  document.querySelectorAll('[data-x]').forEach((a) => { a.href = 'api/admin/export/' + a.dataset.x + '.csv?token=' + encodeURIComponent(token); a.addEventListener('click', () => { a.href = 'api/admin/export/' + a.dataset.x + '.csv?token=' + encodeURIComponent(token); }); });
+  if (token) load();
+})();
+</script>
+</body>
+</html>
