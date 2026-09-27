@@ -1,4 +1,4 @@
-// Daleel content data. Scores and price ranges are editorial estimates
+// Afdal Al-Maaroud (أفضل المعروض) content data. Scores and price ranges are editorial estimates
 // (September 2026) and should be reviewed by the team every quarter.
 // Every text has ar / en / ur versions.
 window.DALEEL_DATA = {
@@ -287,4 +287,70 @@ window.DALEEL_DATA = {
     ['qassim', 'القصيم', 'Qassim', 'قصیم'], ['abha', 'أبها', 'Abha', 'ابہا'], ['tabuk', 'تبوك', 'Tabuk', 'تبوک'],
     ['hail', 'حائل', 'Hail', 'حائل'], ['jazan', 'جازان', 'Jazan', 'جازان'], ['other', 'مدينة أخرى', 'Other city', 'دوسرا شہر'],
   ],
+};
+
+// ---------- search catalog ----------
+// Makes and models with the slugs each platform uses in its URLs and the Arabic
+// word sellers write in Haraj ads. body: sedan | suv | pickup | van.
+window.DALEEL_DATA.catalog = [
+  { slug: 'toyota', en: 'Toyota', ar: 'تويوتا', models: [
+    ['camry', 'Camry', 'كامري', 'sedan'], ['corolla', 'Corolla', 'كورولا', 'sedan'], ['yaris', 'Yaris', 'يارس', 'sedan'],
+    ['avalon', 'Avalon', 'افالون', 'sedan'], ['land-cruiser', 'Land Cruiser', 'لاند كروزر', 'suv'], ['prado', 'Prado', 'برادو', 'suv'],
+    ['rav4', 'RAV4', 'راف فور', 'suv'], ['fortuner', 'Fortuner', 'فورتشنر', 'suv'], ['hilux', 'Hilux', 'هايلكس', 'pickup'],
+    ['innova', 'Innova', 'انوفا', 'van'] ] },
+  { slug: 'hyundai', en: 'Hyundai', ar: 'هونداي', models: [
+    ['accent', 'Accent', 'اكسنت', 'sedan'], ['elantra', 'Elantra', 'النترا', 'sedan'], ['sonata', 'Sonata', 'سوناتا', 'sedan'],
+    ['azera', 'Azera', 'ازيرا', 'sedan'], ['tucson', 'Tucson', 'توسان', 'suv'], ['santa-fe', 'Santa Fe', 'سنتافي', 'suv'],
+    ['creta', 'Creta', 'كريتا', 'suv'] ] },
+  { slug: 'kia', en: 'Kia', ar: 'كيا', models: [
+    ['rio', 'Rio', 'ريو', 'sedan'], ['pegas', 'Pegas', 'بيجاس', 'sedan'], ['cerato', 'Cerato', 'سيراتو', 'sedan'],
+    ['k5', 'K5', 'K5', 'sedan'], ['sportage', 'Sportage', 'سبورتاج', 'suv'], ['sorento', 'Sorento', 'سورينتو', 'suv'],
+    ['carnival', 'Carnival', 'كرنفال', 'van'] ] },
+  { slug: 'nissan', en: 'Nissan', ar: 'نيسان', models: [
+    ['sunny', 'Sunny', 'صني', 'sedan'], ['sentra', 'Sentra', 'سنترا', 'sedan'], ['altima', 'Altima', 'التيما', 'sedan'],
+    ['patrol', 'Patrol', 'باترول', 'suv'], ['x-trail', 'X-Trail', 'اكس تريل', 'suv'], ['pathfinder', 'Pathfinder', 'باثفايندر', 'suv'],
+    ['navara', 'Navara', 'نافارا', 'pickup'] ] },
+  { slug: 'honda', en: 'Honda', ar: 'هوندا', models: [
+    ['civic', 'Civic', 'سيفيك', 'sedan'], ['accord', 'Accord', 'اكورد', 'sedan'], ['cr-v', 'CR-V', 'CRV', 'suv'] ] },
+  { slug: 'lexus', en: 'Lexus', ar: 'لكزس', models: [
+    ['es', 'ES', 'لكزس ES', 'sedan'], ['ls', 'LS', 'لكزس LS', 'sedan'], ['rx', 'RX', 'لكزس RX', 'suv'],
+    ['gx', 'GX', 'لكزس GX', 'suv'], ['lx', 'LX', 'لكزس LX', 'suv'] ] },
+  { slug: 'chevrolet', en: 'Chevrolet', ar: 'شفروليه', models: [
+    ['malibu', 'Malibu', 'ماليبو', 'sedan'], ['captiva', 'Captiva', 'كابتيفا', 'suv'], ['tahoe', 'Tahoe', 'تاهو', 'suv'],
+    ['silverado', 'Silverado', 'سلفرادو', 'pickup'] ] },
+  { slug: 'gmc', en: 'GMC', ar: 'جمس', models: [
+    ['yukon', 'Yukon', 'يوكن', 'suv'], ['sierra', 'Sierra', 'سييرا', 'pickup'] ] },
+  { slug: 'ford', en: 'Ford', ar: 'فورد', models: [
+    ['taurus', 'Taurus', 'تورس', 'sedan'], ['explorer', 'Explorer', 'اكسبلورر', 'suv'], ['expedition', 'Expedition', 'اكسبديشن', 'suv'],
+    ['f-150', 'F-150', 'F150', 'pickup'] ] },
+  { slug: 'mazda', en: 'Mazda', ar: 'مازدا', models: [
+    ['cx-5', 'CX-5', 'مازدا CX5', 'suv'], ['cx-9', 'CX-9', 'مازدا CX9', 'suv'] ] },
+  { slug: 'mitsubishi', en: 'Mitsubishi', ar: 'ميتسوبيشي', models: [
+    ['attrage', 'Attrage', 'اتراج', 'sedan'], ['lancer', 'Lancer', 'لانسر', 'sedan'], ['pajero', 'Pajero', 'باجيرو', 'suv'] ] },
+];
+
+// Features the buyer can tick. `q` is the word sellers write in ads (used in deep search).
+window.DALEEL_DATA.features = [
+  { id: 'auto', q: 'اوتوماتيك', ar: 'قير أوتوماتيك', en: 'Automatic', ur: 'آٹومیٹک گیئر' },
+  { id: 'full', q: 'فل كامل', ar: 'فل كامل', en: 'Full option', ur: 'فل آپشن' },
+  { id: 'agency', q: 'صيانة وكالة', ar: 'صيانة وكالة', en: 'Dealer-serviced', ur: 'ڈیلر سے سروس شدہ' },
+  { id: 'saudi', q: 'سعودي', ar: 'سعودي (وكالة)', en: 'Saudi spec', ur: 'سعودی اسپیک' },
+  { id: 'owner', q: 'مالك واحد', ar: 'مالك واحد', en: 'Single owner', ur: 'ایک مالک' },
+  { id: 'noacc', q: 'بدون حوادث', ar: 'بدون حوادث', en: 'No accidents', ur: 'بغیر حادثے' },
+  { id: 'sunroof', q: 'فتحة سقف', ar: 'فتحة سقف', en: 'Sunroof', ur: 'سن روف' },
+  { id: 'leather', q: 'جلد', ar: 'مقاعد جلد', en: 'Leather seats', ur: 'چمڑے کی سیٹیں' },
+  { id: 'camera', q: 'كاميرا خلفية', ar: 'كاميرا خلفية', en: 'Rear camera', ur: 'ریئر کیمرہ' },
+  { id: 'cruise', q: 'مثبت سرعة', ar: 'مثبت سرعة', en: 'Cruise control', ur: 'کروز کنٹرول' },
+  { id: 'nav', q: 'شاشة', ar: 'شاشة وملاحة', en: 'Screen & navigation', ur: 'اسکرین اور نیویگیشن' },
+  { id: 'hybrid', q: 'هايبرد', ar: 'هايبرد', en: 'Hybrid', ur: 'ہائبرڈ' },
+  { id: 'diesel', q: 'ديزل', ar: 'ديزل', en: 'Diesel', ur: 'ڈیزل' },
+  { id: 'warranty', q: 'ضمان', ar: 'عليها ضمان', en: 'Under warranty', ur: 'وارنٹی میں' },
+];
+
+// City names as each platform writes them in URLs (only cities with a known format).
+window.DALEEL_DATA.cityUrls = {
+  haraj: { riyadh: 'الرياض', jeddah: 'جده', dammam: 'الشرقيه', khobar: 'الشرقيه', makkah: 'مكه', madinah: 'المدينه', qassim: 'القصيم', abha: 'ابها', tabuk: 'تبوك', hail: 'حائل', jazan: 'جازان' },
+  carswitch: { riyadh: 'riyadh', jeddah: 'jeddah' },
+  opensooq: { riyadh: 'riyadh', jeddah: 'jeddah', dammam: 'dammam' },
+  motory: { riyadh: 'riyadh-haraj', jeddah: 'jeddah-haraj', dammam: 'dammam-haraj' },
 };

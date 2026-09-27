@@ -1,4 +1,4 @@
-# Daleel | دليل — expert used-car buying guide for Saudi Arabia
+# موقع أفضل المعروض للسيارات — Best Car Offers (used-car search engine, Saudi Arabia)
 
 Daleel helps people who have little experience buying used cars (first-time buyers, and women who want a
 trusted advisor) find the best deal from trusted platforms and sellers. It installs on a phone as an app (PWA)
@@ -8,23 +8,29 @@ and works in Arabic (default), English and Urdu (اردو).
 
 ## What is in the app
 
-| Feature | Where |
+A search engine that saves buyers time: choose budget (from 5,000 SAR), make, model, years, city, body type
+and features, and get **direct links to live results** on each platform, ranked by trust score.
+
+| Feature | Notes |
 | --- | --- |
-| Trial banner: "the app will not ask you for any money for now" | top of every screen, terms, footer |
-| Two request modes: "I want a specific car" or "My budget" (from 5,000 SAR) | `#request` |
-| Live budget guidance: models, expected age/mileage, best places to search | right of the form |
-| **Best option, blurred** until the buyer accepts the terms (500 SAR fee on completed purchase, on the buyer's own liability, "we will not sue you", no money now) | `#best`, terms modal |
-| Trust score (%) for each platform from 6 weighted criteria, with breakdown | `#platforms`, `public/data.js` |
-| Seller trust checker (%) for individual sellers on Haraj/OpenSooq | `#safety` |
-| Responsibility notice: we guide you; you are responsible for the mechanical and other checks; later we will inspect, and maybe add maintenance and delivery | `#safety`, `#roadmap` |
-| Ratings (stars + comments) and visit counter shown publicly | hero stats, `#rate` |
-| Female advisor option, WhatsApp-only contact option | request form |
-| Admin dashboard: visits per day, requests, ratings, terms acceptances, CSV export, request status | `/admin` |
+| Direct links per platform | Haraj `/tags/<city>_<model year>/`, Syarah `/en/autos/<make>/<model>/<year>`, CarSwitch `/en/<city>/used-cars/<make>/<model>/<year>-price`, OpenSooq `/en/<city>/cars/cars-for-sale/<make>/<model>/<year>`, Motory `/en/cars-for-sale/<city>-haraj/<make>/<model>/`, YallaMotor `/used-cars/<make>/<model>/<year>` (URL formats checked Sept 2026; builders in `public/app.js` → `LINKS`) |
+| Deep search | Google search limited to the six sites, with the model, years, city and chosen features (e.g. "فتحة سقف", "مالك واحد") so it matches words inside the ads |
+| Real options for your budget | Models that fit the amount, each with direct Haraj / OpenSooq / Syarah / deep-search links |
+| Best option, blurred until terms accepted | 500 SAR on completed purchase, buyer's own liability, no legal action, no money now |
+| Liability in red | "We guide you; you are responsible for inspection, verification and avoiding fraud" above results, in Safety, terms and footer |
+| No contact details collected | Name / phone / WhatsApp are off until official paperwork is complete (shown as "coming soon") |
+| Trust score per platform, seller trust checker, ratings, visit counter | as before |
+| Languages | Arabic (default), English, Urdu |
+
+Why links and not copied listings: the platforms' ads are their content; copying (scraping) them breaks their
+terms. Linking to their filtered live results is allowed and always up to date. A later phase can add official
+data feeds or partnerships.
 
 ## Data collected
 
-Stored in `data/db.json` (ignored by git): visits (anonymous visitor id, page, language, referrer, UTM, screen size,
-hashed IP, user agent), car requests, terms acceptances and ratings. The privacy policy in the app describes this
+Stored in `data/db.json` locally or Upstash Redis on Vercel: visits (anonymous visitor id, page, language, referrer, UTM, screen size,
+hashed IP, user agent, country/city on Vercel), searches (budget, make, model, years, city, body, features), terms acceptances and ratings.
+The admin page shows top searched models, cities and features. The privacy policy in the app describes this
 in line with the Saudi Personal Data Protection Law (PDPL).
 
 ## Deploy to Vercel

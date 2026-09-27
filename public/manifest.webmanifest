@@ -1,7 +1,7 @@
 {
-  "name": "دليل | Daleel Cars",
-  "short_name": "دليل",
-  "description": "خبيرك في شراء السيارات المستعملة في السعودية",
+  "name": "أفضل المعروض للسيارات",
+  "short_name": "أفضل المعروض",
+  "description": "محرك بحث يجمع أفضل عروض السيارات المستعملة في السعودية",
   "start_url": "/",
   "display": "standalone",
   "dir": "rtl",

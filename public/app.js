@@ -340,11 +340,115 @@
   };
   for (const [k, v] of Object.entries(UR)) if (T[k]) T[k].ur = v;
 
+  // Search-engine text (overrides and additions), in ar / en / ur.
+  Object.assign(T, {
+    brand: { ar: 'أفضل المعروض للسيارات', en: 'Best Car Offers', ur: 'بہترین پیشکش کاریں' },
+    tagline: { ar: 'محرك بحث السيارات المستعملة في السعودية', en: 'Used-car search engine for Saudi Arabia', ur: 'سعودی عرب میں استعمال شدہ گاڑیوں کا سرچ انجن' },
+    navSearch: { ar: 'ابحث', en: 'Search', ur: 'تلاش' },
+    heroEyebrow: { ar: 'محرك بحث السيارات المستعملة · السعودية', en: 'Used-car search engine · Saudi Arabia', ur: 'استعمال شدہ گاڑیوں کا سرچ انجن · سعودی عرب' },
+    heroTitle: {
+      ar: 'كل عروض السيارات <em>في بحث واحد</em>، بروابط مباشرة لأفضل المعروض',
+      en: 'Every used-car offer <em>in one search</em>, with direct links to the best ones',
+      ur: 'تمام گاڑیوں کی پیشکشیں <em>ایک ہی تلاش میں</em>، بہترین پیشکشوں کے براہِ راست لنکس کے ساتھ',
+    },
+    heroLead: {
+      ar: 'اختر الموديل والمواصفات أو اكتب كم معك، ولو ٥٠٠٠ ريال، ونفتح لك نتائج حراج وسيارة والسوق المفتوح وموتري ويلا موتور وكار سويتش مباشرة، مرتبة حسب الثقة. وفّر وقت البحث.',
+      en: 'Pick the model and features, or just enter how much you have, even 5,000 SAR, and we open the matching results on Haraj, Syarah, OpenSooq, Motory, YallaMotor and CarSwitch directly, ranked by trust. Save hours of searching.',
+      ur: 'ماڈل اور خصوصیات منتخب کریں یا صرف بتائیں آپ کے پاس کتنی رقم ہے، چاہے 5,000 ریال، اور ہم حراج، سیارہ، اوپن سوق، موٹری، یلا موٹر اور کار سوئچ کے متعلقہ نتائج براہِ راست کھول دیں گے، اعتماد کے لحاظ سے ترتیب دے کر۔ تلاش کا وقت بچائیں۔',
+    },
+    ctaSearch: { ar: 'ابحث الآن', en: 'Search now', ur: 'ابھی تلاش کریں' },
+    ctaPlatforms: { ar: 'المواقع الموثوقة', en: 'Trusted sites', ur: 'قابلِ اعتماد سائٹس' },
+    statSearches: { ar: 'عملية بحث', en: 'searches', ur: 'تلاشیں' },
+    plateCaption: { ar: 'حتى لو معك ٥٠٠٠ ريال، نوريك أفضل المعروض.', en: 'Even with 5,000 SAR, we show you the best offers.', ur: 'چاہے 5,000 ریال ہوں، ہم آپ کو بہترین پیشکشیں دکھائیں گے۔' },
+    point1: { ar: 'روابط مباشرة لنتائج كل موقع حسب الموديل والسنة والمدينة', en: 'Direct links to each site\'s results by model, year and city', ur: 'ماڈل، سال اور شہر کے مطابق ہر سائٹ کے نتائج کے براہِ راست لنکس' },
+    point2: { ar: 'بحث عميق داخل نص كل إعلان عن المواصفات اللي تبيها', en: 'Deep search inside every ad\'s text for the features you want', ur: 'ہر اشتہار کے متن میں آپ کی مطلوبہ خصوصیات کی گہری تلاش' },
+    point3: { ar: 'نسبة ثقة لكل موقع وفاحص ثقة للبائع', en: 'A trust score for every site and a seller trust checker', ur: 'ہر سائٹ کا اعتماد اسکور اور بیچنے والے کا اعتماد چیکر' },
+    searchEyebrow: { ar: 'محرك البحث', en: 'Search engine', ur: 'سرچ انجن' },
+    searchTitle: { ar: 'وش تدور عليه؟', en: 'What are you looking for?', ur: 'آپ کیا تلاش کر رہے ہیں؟' },
+    searchLead: {
+      ar: 'حدد ميزانيتك، وإذا تبي اختر الشركة والموديل والسنة والمواصفات. النتائج تتحدث مباشرة.',
+      en: 'Set your budget, and if you like pick the make, model, year and features. Results update instantly.',
+      ur: 'اپنا بجٹ طے کریں، اور چاہیں تو کمپنی، ماڈل، سال اور خصوصیات منتخب کریں۔ نتائج فوراً اپڈیٹ ہوتے ہیں۔',
+    },
+    yearTo: { ar: 'إلى سنة', en: 'Year to', ur: 'سال تک' },
+    yearFrom: { ar: 'من سنة', en: 'Year from', ur: 'سال سے' },
+    anyMake: { ar: 'كل الشركات', en: 'Any make', ur: 'تمام کمپنیاں' },
+    anyModel: { ar: 'كل الموديلات', en: 'Any model', ur: 'تمام ماڈلز' },
+    anyYear: { ar: 'أي سنة', en: 'Any year', ur: 'کوئی بھی سال' },
+    anyCity: { ar: 'كل المدن', en: 'All cities', ur: 'تمام شہر' },
+    featuresLabel: { ar: 'المواصفات (اختر اللي يهمك)', en: 'Features (pick what matters)', ur: 'خصوصیات (جو اہم ہو منتخب کریں)' },
+    searchBtn: { ar: 'ابحث في كل المواقع', en: 'Search all sites', ur: 'تمام سائٹس پر تلاش کریں' },
+    liability: {
+      ar: 'تنبيه: نحن نرشدك لأفضل العروض فقط، وأنت المسؤول وحدك عن فحص السيارة والتأكد من البائع والأوراق وتجنّب الاحتيال. لا تحوّل أي مبلغ قبل المعاينة ونقل الملكية عبر أبشر.',
+      en: 'Warning: we only guide you to the best offers. You alone are responsible for inspecting the car, verifying the seller and papers, and avoiding fraud. Never send money before seeing the car and transferring ownership through Absher.',
+      ur: 'انتباہ: ہم صرف بہترین پیشکشوں تک آپ کی رہنمائی کرتے ہیں۔ گاڑی کا معائنہ، بیچنے والے اور کاغذات کی تصدیق اور دھوکے سے بچنا صرف آپ کی ذمہ داری ہے۔ گاڑی دیکھے اور ابشر کے ذریعے ملکیت منتقل کیے بغیر کبھی رقم نہ بھیجیں۔',
+    },
+    footerLiability: {
+      ar: 'نحن نرشدك، لكن أنت المسؤول عن الفحص والتحقق وتجنّب الاحتيال.',
+      en: 'We guide you, but you are responsible for inspection, verification and avoiding fraud.',
+      ur: 'ہم رہنمائی کرتے ہیں، لیکن معائنہ، تصدیق اور دھوکے سے بچاؤ آپ کی ذمہ داری ہے۔',
+    },
+    resultsFor: { ar: 'نتائج', en: 'Results for', ur: 'نتائج' },
+    resultsAll: { ar: 'كل السيارات ضمن ميزانيتك', en: 'All cars within your budget', ur: 'آپ کے بجٹ میں تمام گاڑیاں' },
+    resSubModel: {
+      ar: 'اضغط على أي موقع لفتح إعلاناته الحية مباشرة. المواقع مرتبة حسب نسبة الثقة.',
+      en: 'Tap any site to open its live listings directly. Sites are ranked by trust score.',
+      ur: 'کسی بھی سائٹ پر ٹیپ کریں اور اس کے لائیو اشتہارات براہِ راست کھولیں۔ سائٹس اعتماد اسکور کے لحاظ سے ترتیب میں ہیں۔',
+    },
+    resSubPick: {
+      ar: 'اختر موديل من الخيارات تحت، أو من القائمة، عشان نفتح لك نتائجه بالضبط.',
+      en: 'Pick a model from the options below, or from the list, to open its exact results.',
+      ur: 'نیچے دیے گئے آپشنز یا فہرست سے ماڈل منتخب کریں تاکہ ہم اس کے درست نتائج کھولیں۔',
+    },
+    allYears: { ar: 'كل السنوات', en: 'All years', ur: 'تمام سال' },
+    openResults: { ar: 'افتح النتائج', en: 'Open results', ur: 'نتائج کھولیں' },
+    trust: { ar: 'ثقة', en: 'trust', ur: 'اعتماد' },
+    deepTitle: { ar: 'بحث عميق في كل الإعلانات', en: 'Deep search across every ad', ur: 'تمام اشتہارات میں گہری تلاش' },
+    deepSub: {
+      ar: 'يبحث داخل نص الإعلانات في كل المواقع عن: ',
+      en: 'Searches the text of ads on all sites for: ',
+      ur: 'تمام سائٹس کے اشتہارات کے متن میں تلاش: ',
+    },
+    optionsTitle: { ar: 'خيارات حقيقية لميزانيتك', en: 'Real options for your budget', ur: 'آپ کے بجٹ کے لیے حقیقی آپشنز' },
+    optionsSub: { ar: 'موديلات تناسب مبلغك، مع روابط مباشرة لإعلاناتها الآن.', en: 'Models that fit your money, with direct links to their listings right now.', ur: 'آپ کی رقم کے مطابق ماڈلز، ان کے موجودہ اشتہارات کے براہِ راست لنکس کے ساتھ۔' },
+    useThis: { ar: 'اعرض كل النتائج', en: 'Show all results', ur: 'تمام نتائج دکھائیں' },
+    haraj: { ar: 'حراج', en: 'Haraj', ur: 'حراج' },
+    deepShort: { ar: 'بحث عميق', en: 'Deep search', ur: 'گہری تلاش' },
+    searched: { ar: 'تم فتح نتائج البحث. تذكّر: أنت المسؤول عن الفحص وتجنّب الاحتيال.', en: 'Results ready. Remember: you are responsible for inspection and avoiding fraud.', ur: 'نتائج تیار ہیں۔ یاد رکھیں: معائنہ اور دھوکے سے بچاؤ آپ کی ذمہ داری ہے۔' },
+    r5t: { ar: 'مستشار شخصي وواتساب', en: 'Personal advisor & WhatsApp', ur: 'ذاتی مشیر اور واٹس ایپ' },
+    r5d: { ar: 'بعد استكمال الأوراق الرسمية.', en: 'After our official paperwork is complete.', ur: 'سرکاری کاغذات مکمل ہونے کے بعد۔' },
+    r1t: { ar: 'محرك البحث وأفضل خيار', en: 'Search engine and best option', ur: 'سرچ انجن اور بہترین آپشن' },
+    r1d: { ar: 'روابط مباشرة لأفضل المعروض في كل المواقع.', en: 'Direct links to the best offers on every site.', ur: 'ہر سائٹ پر بہترین پیشکشوں کے براہِ راست لنکس۔' },
+    footer1: {
+      ar: 'موقع أفضل المعروض للسيارات محرك بحث وإرشاد وليس طرفاً في أي عملية بيع. خلال الفترة التجريبية لن نطلب منك أي مبلغ.',
+      en: 'Best Car Offers is a search and guidance service and is not a party to any sale. During the trial period we will not ask you for any money.',
+      ur: 'بہترین پیشکش کاریں ایک تلاش اور رہنمائی کی سروس ہے اور کسی فروخت میں فریق نہیں۔ آزمائشی مدت میں ہم آپ سے کوئی رقم نہیں مانگیں گے۔',
+    },
+    privacyText: {
+      ar: 'لا نطلب اسمك أو رقم جوالك حالياً. نجمع فقط بيانات استخدام مجهولة: عمليات البحث (الميزانية، الموديل، المدينة، المواصفات)، التقييمات، وبيانات الزيارة (الصفحة، اللغة، مصدر الزيارة، نوع الجهاز، الدولة والمدينة التقريبية). نستخدمها لتحسين النتائج، وفق نظام حماية البيانات الشخصية في المملكة، ولا نبيعها.',
+      en: 'We do not ask for your name or phone number for now. We only collect anonymous usage data: searches (budget, model, city, features), ratings, and visit data (page, language, referrer, device type, approximate country and city). We use it to improve results, in line with the Saudi Personal Data Protection Law, and never sell it.',
+      ur: 'فی الحال ہم آپ کا نام یا فون نمبر نہیں مانگتے۔ ہم صرف گمنام استعمال کا ڈیٹا جمع کرتے ہیں: تلاشیں (بجٹ، ماڈل، شہر، خصوصیات)، ریٹنگز، اور وزٹ ڈیٹا (صفحہ، زبان، ریفرر، ڈیوائس کی قسم، اندازاً ملک اور شہر)۔ ہم اسے نتائج بہتر بنانے کے لیے، سعودی ذاتی ڈیٹا تحفظ قانون کے مطابق استعمال کرتے ہیں اور کبھی فروخت نہیں کرتے۔',
+    },
+    t5: {
+      ar: 'نستخدم بيانات الاستخدام المجهولة لتحسين الخدمة فقط، ولا نبيعها لأي طرف.',
+      en: 'We use anonymous usage data only to improve the service, and never sell it.',
+      ur: 'ہم گمنام استعمال کا ڈیٹا صرف سروس بہتر بنانے کے لیے استعمال کرتے ہیں اور کبھی فروخت نہیں کرتے۔',
+    },
+    bestLockedText: {
+      ar: 'وافق على الشروط لعرض أفضل خيار مع روابطه المباشرة. ما في أي دفع الآن.',
+      en: 'Accept the terms to reveal it with its direct links. No payment now.',
+      ur: 'شرائط قبول کریں تاکہ یہ اپنے براہِ راست لنکس کے ساتھ ظاہر ہو۔ ابھی کوئی ادائیگی نہیں۔',
+    },
+    bNote: {
+      ar: 'أسعار تقديرية للسوق السعودي. الروابط تفتح الإعلانات الحية الآن.',
+      en: 'Estimated Saudi market prices. The links open live listings now.',
+      ur: 'سعودی مارکیٹ کی اندازاً قیمتیں۔ لنکس ابھی کے لائیو اشتہارات کھولتے ہیں۔',
+    },
+  });
+
   const OPTS = {
     // [value, ar, en, ur]
-    bodyType: [['any', 'أي نوع', 'Any', 'کوئی بھی'], ['sedan', 'سيدان', 'Sedan', 'سیڈان'], ['suv', 'SUV / جيب', 'SUV', 'SUV / جیپ'], ['hatch', 'هاتشباك', 'Hatchback', 'ہیچ بیک'], ['pickup', 'بيك أب / غمارة', 'Pickup', 'پک اپ'], ['van', 'فان عائلي', 'Family van', 'فیملی وین']],
-    usage: [['daily', 'دوام ومشاوير', 'Daily commute', 'روزانہ آنا جانا'], ['family', 'عائلة', 'Family', 'فیملی'], ['travel', 'سفر وطرق طويلة', 'Road trips', 'لمبے سفر'], ['first', 'أول سيارة / تعليم', 'First car / learning', 'پہلی گاڑی / سیکھنا'], ['work', 'شغل وتوصيل', 'Work / delivery', 'کام / ڈیلیوری']],
-    contact: [['whatsapp', 'واتساب فقط', 'WhatsApp only', 'صرف واٹس ایپ'], ['call', 'اتصال', 'Phone call', 'فون کال'], ['sms', 'رسالة نصية', 'SMS', 'ایس ایم ایس']],
+    bodyType: [['any', 'أي نوع', 'Any type', 'کوئی بھی قسم'], ['sedan', 'سيدان', 'Sedan', 'سیڈان'], ['suv', 'SUV / جيب', 'SUV', 'SUV / جیپ'], ['pickup', 'بيك أب / غمارة', 'Pickup', 'پک اپ'], ['van', 'فان عائلي', 'Family van', 'فیملی وین']],
   };
 
   // ---------- state ----------
@@ -354,16 +458,18 @@
   };
   const LANGS = ['ar', 'en', 'ur'];
   let lang = LANGS.includes(store.get('lang', 'ar')) ? store.get('lang', 'ar') : 'ar';
-  let mode = 'budget';
   let online = true;
   let starPick = 0;
   let platFilter = 'all';
+  let activeYear = null; // null = all years
+  const features = new Set();
   const visitorId = store.get('vid', null) || (() => { const id = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)); store.set('vid', id); return id; })();
   const t = (k) => (T[k] ? T[k][lang] ?? T[k].en : k);
   const L = (o) => (o && typeof o === 'object' ? o[lang] ?? o.en : o);
   const fmt = (n) => Number(n).toLocaleString(lang === 'ar' ? 'ar-SA' : 'en-US');
   const fmtEn = (n) => Number(n).toLocaleString('en-US');
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const THIS_YEAR = 2026;
 
   // ---------- API with local fallback ----------
   async function api(path, body) {
@@ -376,79 +482,245 @@
     const ct = res.headers.get('content-type') || '';
     if (!ct.includes('application/json')) { online = false; throw new Error('no_api'); }
     const data = await res.json();
-    if (!res.ok) throw Object.assign(new Error(data.error || 'error'), { status: res.status });
+    if (!res.ok) { if (res.status === 503) online = false; throw Object.assign(new Error(data.error || 'error'), { status: res.status }); }
     return data;
   }
   function localStats() {
     const ratings = store.get('ratings', []);
     const avg = ratings.length ? ratings.reduce((a, r) => a + r.stars, 0) / ratings.length : 0;
     return {
-      visits: store.get('visits', 0), requests: store.get('requests', []).length,
+      visits: store.get('visits', 0), searches: store.get('searches', 0),
       ratingAvg: Math.round(avg * 10) / 10, ratingCount: ratings.length,
       recentReviews: ratings.filter((r) => r.comment).slice(-6).reverse(),
     };
+  }
+
+  // ---------- catalog helpers ----------
+  const makeBySlug = (s) => D.catalog.find((m) => m.slug === s);
+  const modelOf = (mk, s) => mk && mk.models.find((m) => m[0] === s);
+  // Parses "Toyota Camry 2017–2019 GL" into { mk, md, from, to }.
+  function parseModel(text) {
+    for (const mk of D.catalog) {
+      if (!text.startsWith(mk.en + ' ')) continue;
+      const rest = text.slice(mk.en.length + 1);
+      const md = mk.models.slice().sort((a, b) => b[1].length - a[1].length).find((m) => rest.startsWith(m[1]));
+      const yrs = (rest.match(/\d{4}/g) || []).map(Number);
+      return { mk, md, from: yrs[0] || null, to: yrs[1] || yrs[0] || null };
+    }
+    return null;
+  }
+  const modelName = (mk, md) => (lang === 'en' ? `${mk.en} ${md ? md[1] : ''}` : `${mk.ar} ${md ? (/^[A-Z0-9-]+$/.test(md[1]) ? md[1] : md[2]) : ''}`).trim();
+
+  // ---------- direct links ----------
+  // Each builder returns a URL for the platform's live search results.
+  const cityUrl = (p, c) => (D.cityUrls[p] || {})[c] || '';
+  const LINKS = {
+    haraj({ mk, md, year, city }) {
+      const kw = md ? `${md[2]}${year ? ' ' + year : ''}` : mk ? mk.ar : 'حراج السيارات';
+      const c = cityUrl('haraj', city);
+      return `https://haraj.com.sa/tags/${encodeURIComponent(c && (md || mk) ? `${c}_${kw}` : kw)}/`;
+    },
+    syarah({ mk, md, year }) {
+      return 'https://syarah.com/en/autos' + (mk ? `/${mk.slug}` : '') + (mk && md ? `/${md[0]}` : '') + (md && year ? `/${year}` : '');
+    },
+    carswitch({ mk, md, year, city }) {
+      const c = cityUrl('carswitch', city) || 'saudi';
+      return `https://ksa.carswitch.com/en/${c}/used-cars` + (mk ? `/${mk.slug}` : '/search') + (mk && md ? `/${md[0]}` : '') + (md && year ? `/${year}-price` : '');
+    },
+    opensooq({ mk, md, year, city }) {
+      const c = cityUrl('opensooq', city);
+      return `https://sa.opensooq.com/en/${c ? c + '/' : ''}cars/cars-for-sale` + (mk ? `/${mk.slug}` : '') + (mk && md ? `/${md[0]}` : '') + (md && year ? `/${year}` : '');
+    },
+    motory({ mk, md, year, city }) {
+      const c = cityUrl('motory', city);
+      return 'https://ksa.motory.com/en/cars-for-sale/' + (c ? c + '/' : '') + (mk ? mk.slug + '/' : '') + (mk && md ? md[0] + '/' : '') + (md && year && !c ? year + '/' : '');
+    },
+    yallamotor({ mk, md, year }) {
+      return 'https://ksa.yallamotor.com/used-cars' + (mk ? `/${mk.slug}` : '') + (mk && md ? `/${md[0]}` : '') + (md && year ? `/${year}` : '');
+    },
+  };
+  const SITES = ['haraj.com.sa', 'syarah.com', 'sa.opensooq.com', 'ksa.motory.com', 'ksa.yallamotor.com', 'ksa.carswitch.com'];
+  // Google search restricted to the six platforms: finds ads whose text mentions the chosen features.
+  function deepLink({ mk, md, years, city }) {
+    const parts = ['(' + SITES.map((s) => 'site:' + s).join(' OR ') + ')'];
+    if (md) parts.push(`("${md[2]}" OR "${mk.en} ${md[1]}")`);
+    else if (mk) parts.push(`("${mk.ar}" OR "${mk.en}")`);
+    else parts.push('سيارة للبيع');
+    if (years && years.length) parts.push(years.length === 1 ? String(years[0]) : '(' + years.slice(0, 6).join(' OR ') + ')');
+    const c = cityUrl('haraj', city);
+    if (c) parts.push(`"${c}"`);
+    D.features.filter((f) => features.has(f.id)).forEach((f) => parts.push(`"${f.q}"`));
+    return 'https://www.google.com/search?q=' + encodeURIComponent(parts.join(' '));
+  }
+  function deepWords({ mk, md, years, city }) {
+    const w = [];
+    if (md) w.push(modelName(mk, md)); else if (mk) w.push(lang === 'en' ? mk.en : mk.ar);
+    if (years && years.length) w.push(years.length === 1 ? years[0] : `${years[0]}–${years[years.length - 1]}`);
+    const c = D.cities.find((x) => x[0] === city);
+    if (c) w.push(c[1 + LANGS.indexOf(lang)]);
+    D.features.filter((f) => features.has(f.id)).forEach((f) => w.push(f[lang] || f.en));
+    return w.join(' · ') || t('anyModel');
   }
 
   // ---------- render: i18n ----------
   function applyLang() {
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'en' ? 'ltr' : 'rtl';
+    document.title = t('brand');
     $$('[data-i]').forEach((el) => { el.textContent = t(el.dataset.i); });
     $$('[data-ih]').forEach((el) => { el.innerHTML = t(el.dataset.ih); });
     $('#langSel').value = lang;
-    for (const [id, list] of Object.entries(OPTS)) fillSelect($('#' + id), list);
-    fillSelect($('#city'), D.cities, true);
-    renderChips(); renderGuide(); renderPlatforms(); renderSeller(); renderOfficial(); renderStars(); renderStats(lastStats);
-    if ($('#submitBtn').dataset.busy) $('#submitBtn').textContent = t('sending');
+    fillSelect($('#bodyType'), OPTS.bodyType);
+    fillSelect($('#city'), [['', 'كل المدن', 'All cities', 'تمام شہر'], ...D.cities]);
+    fillMakes(); fillModels(); fillYears();
+    renderChips(); renderFeatures(); renderAll(); renderPlatforms(); renderSeller(); renderOfficial(); renderStars(); renderStats(lastStats);
   }
-  function fillSelect(sel, list, withChoose) {
+  function fillSelect(sel, list) {
     const cur = sel.value;
-    sel.innerHTML = (withChoose ? `<option value="">${t('choose')}</option>` : '') +
-      list.map((o) => `<option value="${o[0]}">${o[1 + LANGS.indexOf(lang)] || o[2]}</option>`).join('');
-    if (cur) sel.value = cur;
+    sel.innerHTML = list.map((o) => `<option value="${o[0]}">${esc(o[1 + LANGS.indexOf(lang)] || o[2])}</option>`).join('');
+    if (cur !== '') sel.value = cur;
+    if (sel.selectedIndex < 0) sel.selectedIndex = 0;
+  }
+  function fillMakes() {
+    fillSelect($('#make'), [['', t('anyMake'), t('anyMake'), t('anyMake')], ...D.catalog.map((m) => [m.slug, m.ar, m.en, m.ar])]);
+  }
+  function fillModels() {
+    const mk = makeBySlug($('#make').value);
+    const body = $('#bodyType').value;
+    const list = mk ? mk.models.filter((m) => body === 'any' || m[3] === body) : [];
+    const cur = $('#model').value;
+    $('#model').innerHTML = `<option value="">${esc(t('anyModel'))}</option>` +
+      list.map((m) => `<option value="${m[0]}">${esc(lang === 'en' ? m[1] : (/^[A-Z0-9-]+$/.test(m[1]) ? m[1] : m[2]))}</option>`).join('');
+    $('#model').value = list.some((m) => m[0] === cur) ? cur : '';
+    $('#model').disabled = !mk;
+  }
+  function fillYears() {
+    const years = [];
+    for (let y = THIS_YEAR; y >= 2000; y--) years.push(y);
+    for (const id of ['yearFrom', 'yearTo']) {
+      const sel = $('#' + id); const cur = sel.value;
+      sel.innerHTML = `<option value="">${esc(t('anyYear'))}</option>` + years.map((y) => `<option value="${y}">${y}</option>`).join('');
+      sel.value = cur;
+    }
   }
 
-  // ---------- budget + guidance ----------
+  // ---------- budget ----------
   const budgetEl = $('#budget');
   const toArDigits = (s) => String(s).replace(/\d/g, (d) => '٠١٢٣٤٥٦٧٨٩'[d]);
   function renderChips() {
     $('#budgetChips').innerHTML = [5000, 10000, 20000, 35000, 60000, 100000, 180000]
       .map((v) => `<button type="button" class="chip num" data-v="${v}">${fmt(v)}</button>`).join('');
   }
-  function tierFor(b) { return D.tiers.find((x) => b >= x.min && b < x.max) || D.tiers[0]; }
+  function renderFeatures() {
+    $('#featureChips').innerHTML = D.features.map((f) =>
+      `<button type="button" class="chip feat" data-f="${f.id}" aria-pressed="${features.has(f.id)}">${esc(f[lang] || f.en)}</button>`).join('');
+  }
+  const tierFor = (b) => D.tiers.find((x) => b >= x.min && b < x.max) || D.tiers[0];
   const platById = (id) => D.platforms.find((p) => p.id === id);
 
-  function renderGuide() {
+  // ---------- current selection ----------
+  function selection() {
+    const mk = makeBySlug($('#make').value) || null;
+    const md = modelOf(mk, $('#model').value) || null;
+    let from = Number($('#yearFrom').value) || null;
+    let to = Number($('#yearTo').value) || null;
+    if (from && to && from > to) [from, to] = [to, from];
+    if (from && !to) to = Math.min(THIS_YEAR, from + 5);
+    if (to && !from) from = Math.max(2000, to - 5);
+    const years = [];
+    if (from && to) for (let y = to; y >= from && years.length < 10; y--) years.push(y);
+    return { mk, md, years: years.reverse(), city: $('#city').value, budget: Number(budgetEl.value) };
+  }
+
+  function renderAll() {
     const b = Number(budgetEl.value);
     $('#budgetOut').textContent = `${fmt(b)} ${t('sar')}`;
     $('#plateAr').textContent = toArDigits(b);
     $('#plateEn').textContent = String(b);
     const tier = tierFor(b);
     $('#tierTag').textContent = L(tier.label);
-    $('#tierExpect').textContent = L(tier.expect);
-    $('#modelList').innerHTML = tier.models.map((m) => {
-      const [name, yrs] = m.split(/ (?=\d{4})/);
-      return `<li><span>${esc(name)}</span><span class="muted num">${esc(yrs || '')}</span></li>`;
-    }).join('');
-    $('#whereList').innerHTML = tier.where.map((id) => {
-      const p = platById(id);
-      return `<a href="${p.url}" target="_blank" rel="noopener">${esc(L(p.name))} · <span class="num">${trustScore(p)}%</span></a>`;
-    }).join('');
+    renderResults(tier);
+    renderOptions(tier);
+    renderBest(tier);
+  }
 
+  function platformRows(sel) {
+    return D.platforms
+      .filter((p) => LINKS[p.id])
+      .map((p) => ({ p, s: trustScore(p), url: LINKS[p.id](sel) }))
+      .sort((a, b) => b.s - a.s);
+  }
+
+  function renderResults() {
+    const sel = selection();
+    const { mk, md, years } = sel;
+    if (activeYear && !years.includes(activeYear)) activeYear = null;
+    $('#resTitle').textContent = mk ? `${t('resultsFor')}: ${modelName(mk, md)}${activeYear ? ' ' + activeYear : ''}` : t('resultsAll');
+    $('#resSub').textContent = md ? t('resSubModel') : t('resSubPick');
+    $('#yearChips').innerHTML = md && years.length
+      ? [`<button type="button" class="chip" data-y="" aria-pressed="${!activeYear}">${t('allYears')}</button>`,
+        ...years.map((y) => `<button type="button" class="chip num" data-y="${y}" aria-pressed="${activeYear === y}">${y}</button>`)].join('')
+      : '';
+    const linkSel = { ...sel, year: md ? activeYear : null };
+    const typeKey = { certified: 'typeCertified', marketplace: 'typeMarketplace', classifieds: 'typeClassifieds' };
+    $('#platLinks').innerHTML = platformRows(linkSel).map(({ p, s, url }) => `
+      <a class="plat-link" href="${esc(url)}" target="_blank" rel="noopener">
+        <span class="pl-score num" style="--c:${scoreColor(s)}">${s}%</span>
+        <span class="pl-name"><b>${esc(L(p.name))}</b><small>${t(typeKey[p.type])} · ${t('trust')} ${s}%</small></span>
+        <span class="pl-go">${t('openResults')} ↗</span>
+      </a>`).join('');
+    const deepSel = { ...sel, years: activeYear ? [activeYear] : years };
+    $('#deepLink').href = deepLink(deepSel);
+    $('#deepSub').textContent = t('deepSub') + deepWords(deepSel);
+  }
+
+  function renderOptions(tier) {
+    const mkSel = makeBySlug($('#make').value);
+    let list = tier.models.map(parseModel).filter(Boolean);
+    if (mkSel && list.some((o) => o.mk === mkSel)) list = list.filter((o) => o.mk === mkSel);
+    $('#optionsSub').textContent = `${L(tier.label)} · ${L(tier.expect)} ${t('optionsSub')}`;
+    $('#options').innerHTML = list.map((o, i) => {
+      const mid = o.from && o.to ? Math.round((o.from + o.to) / 2) : o.from;
+      const sel = { mk: o.mk, md: o.md, year: mid, city: $('#city').value };
+      const yrs = []; for (let y = o.from; y && y <= o.to; y++) yrs.push(y);
+      return `<div class="opt">
+        <div class="opt-head"><b>${esc(modelName(o.mk, o.md))}</b><span class="num muted">${o.from}${o.to !== o.from ? '–' + o.to : ''}</span></div>
+        <div class="opt-links">
+          <a href="${esc(LINKS.haraj(sel))}" target="_blank" rel="noopener">${t('haraj')} ${mid} ↗</a>
+          <a href="${esc(LINKS.opensooq(sel))}" target="_blank" rel="noopener">OpenSooq ${mid} ↗</a>
+          <a href="${esc(LINKS.syarah(sel))}" target="_blank" rel="noopener">Syarah ${mid} ↗</a>
+          <a href="${esc(deepLink({ ...sel, years: yrs }))}" target="_blank" rel="noopener">${t('deepShort')} ↗</a>
+        </div>
+        <button type="button" class="linkish" data-use="${i}">${t('useThis')}</button>
+      </div>`;
+    }).join('');
+    $('#options').dataset.list = JSON.stringify(list.map((o) => [o.mk.slug, o.md && o.md[0], o.from, o.to]));
+  }
+
+  function renderBest(tier) {
     const pk = tier.pick;
+    const b = Number(budgetEl.value);
     const maxPrice = Math.min(pk.price[1], Math.max(b, pk.price[0]));
+    const o = parseModel(pk.model);
+    const mid = o && o.from && o.to ? o.to : o && o.from;
+    const sel = o ? { mk: o.mk, md: o.md, year: mid, city: $('#city').value } : null;
     const bestPlat = platById(tier.where[0]);
+    const firstUrl = sel && LINKS[bestPlat.id] ? LINKS[bestPlat.id](sel) : bestPlat.url;
     $('#bestConf').textContent = `${Math.round(pk.open * 100)}% ${t('confidence')}`;
     $('#bestBody').innerHTML = `
       <span class="muted" style="font-size:.78rem">${t('bModel')}</span>
-      <div class="model">${esc(mode === 'specific' && $('#make').value ? `${$('#make').value} ${$('#model').value}`.trim() : pk.model)}</div>
+      <div class="model">${esc(pk.model)}</div>
       <div class="kv">
         <div><span>${t('bPrice')}</span><b>${fmtEn(pk.price[0])}–${fmtEn(maxPrice)}</b></div>
         <div><span>${t('bOpen')}</span><b>${fmtEn(Math.round((pk.price[0] * pk.open) / 500) * 500)}</b></div>
         <div><span>${t('bKm')}</span><b>${fmtEn(pk.km)} ${t('km')}</b></div>
       </div>
-      <p style="font-size:.9rem"><b>${t('bWhere')}:</b> <a href="${bestPlat.url}" target="_blank" rel="noopener">${esc(L(bestPlat.name))}</a></p>
       <p style="font-size:.9rem"><b>${t('bWhy')}</b> ${esc(L(pk.why))}</p>
+      ${sel ? `<div class="opt-links">
+        <a href="${esc(firstUrl)}" target="_blank" rel="noopener">${esc(L(bestPlat.name))} ↗</a>
+        <a href="${esc(LINKS.haraj(sel))}" target="_blank" rel="noopener">${t('haraj')} ↗</a>
+        <a href="${esc(deepLink({ ...sel, years: [o.from, o.to].filter((v, i, a) => v && a.indexOf(v) === i) }))}" target="_blank" rel="noopener">${t('deepShort')} ↗</a>
+      </div>` : ''}
       <p class="muted" style="font-size:.78rem">${t('bNote')}</p>`;
     $('#best').classList.toggle('locked', !store.get('terms', null));
   }
@@ -462,7 +734,6 @@
   const scoreColor = (s) => (s >= 80 ? 'var(--ok)' : s >= 60 ? 'var(--mid)' : 'var(--bad)');
   function renderPlatforms() {
     $$('#platFilter .chip').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.f === platFilter)));
-    $$('#platFilter .chip').forEach((c) => { c.style.borderColor = c.dataset.f === platFilter ? 'var(--accent)' : ''; c.style.fontWeight = c.dataset.f === platFilter ? '700' : ''; });
     const list = D.platforms.map((p) => ({ p, s: trustScore(p) }))
       .filter(({ p }) => platFilter === 'all' || p.type === platFilter)
       .sort((a, b) => b.s - a.s);
@@ -502,8 +773,9 @@
     bar.style.width = pct + '%';
     bar.style.background = scoreColor(pct);
     const critical = !sellerState.has('nodeposit') || !sellerState.has('inspect');
-    $('#sellerVerdict').textContent = pct >= 80 && !critical ? t('vHigh') : pct >= 50 && sellerState.has('nodeposit') ? t('vMid') : t('vLow');
-    $('#sellerVerdict').style.color = scoreColor(pct >= 80 && !critical ? 90 : pct >= 50 && sellerState.has('nodeposit') ? 70 : 0);
+    const level = pct >= 80 && !critical ? 'high' : pct >= 50 && sellerState.has('nodeposit') ? 'mid' : 'low';
+    $('#sellerVerdict').textContent = t(level === 'high' ? 'vHigh' : level === 'mid' ? 'vMid' : 'vLow');
+    $('#sellerVerdict').style.color = scoreColor(level === 'high' ? 90 : level === 'mid' ? 70 : 0);
   }
   function renderOfficial() {
     $('#official').innerHTML = D.officialChecks.map((o) => `<a href="${o.url}" target="_blank" rel="noopener"><b>${esc(L(o.name))}</b><span>${esc(L(o.what))}</span></a>`).join('');
@@ -515,7 +787,7 @@
     if (!s) return;
     lastStats = s;
     $('#stVisits').textContent = fmt(s.visits);
-    $('#stRequests').textContent = fmt(s.requests);
+    $('#stSearches').textContent = fmt(s.searches || 0);
     $('#stRating').textContent = s.ratingCount ? `${fmt(s.ratingAvg)}★` : '–';
     $('#avgBig').textContent = s.ratingCount ? fmt(s.ratingAvg) : '–';
     $('#avgCount').textContent = s.ratingCount ? `${'★'.repeat(Math.round(s.ratingAvg))} · ${fmt(s.ratingCount)} ${t('ratings')}` : '';
@@ -533,26 +805,48 @@
   function toast(msg) {
     const el = $('#toast');
     el.textContent = msg; el.hidden = false;
-    clearTimeout(toast.t); toast.t = setTimeout(() => { el.hidden = true; }, 3200);
-  }
-  function setMode(m) {
-    mode = m;
-    $('#modeBudget').setAttribute('aria-pressed', String(m === 'budget'));
-    $('#modeSpecific').setAttribute('aria-pressed', String(m === 'specific'));
-    $('#specificFields').hidden = m !== 'specific';
-    renderGuide();
+    clearTimeout(toast.t); toast.t = setTimeout(() => { el.hidden = true; }, 3600);
   }
   function openModal(id) { const m = $('#' + id); m.hidden = false; const f = m.querySelector('input,button'); f && f.focus(); }
   function closeModal(id) { $('#' + id).hidden = true; }
 
   // ---------- events ----------
   $('#langSel').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'ar'; store.set('lang', lang); applyLang(); });
-  budgetEl.addEventListener('input', renderGuide);
-  $('#budgetChips').addEventListener('click', (e) => { const b = e.target.closest('[data-v]'); if (b) { budgetEl.value = b.dataset.v; renderGuide(); } });
-  $('#modeBudget').addEventListener('click', () => setMode('budget'));
-  $('#modeSpecific').addEventListener('click', () => setMode('specific'));
-  $$('[data-mode]').forEach((a) => a.addEventListener('click', () => setMode(a.dataset.mode)));
-  ['make', 'model'].forEach((id) => $('#' + id).addEventListener('input', renderGuide));
+  budgetEl.addEventListener('input', renderAll);
+  $('#budgetChips').addEventListener('click', (e) => { const b = e.target.closest('[data-v]'); if (b) { budgetEl.value = b.dataset.v; renderAll(); } });
+  $('#make').addEventListener('change', () => { fillModels(); activeYear = null; renderAll(); });
+  $('#bodyType').addEventListener('change', () => { fillModels(); renderAll(); });
+  ['model', 'yearFrom', 'yearTo', 'city'].forEach((id) => $('#' + id).addEventListener('change', renderAll));
+  $('#featureChips').addEventListener('click', (e) => {
+    const c = e.target.closest('[data-f]'); if (!c) return;
+    features.has(c.dataset.f) ? features.delete(c.dataset.f) : features.add(c.dataset.f);
+    c.setAttribute('aria-pressed', String(features.has(c.dataset.f)));
+    renderAll();
+  });
+  $('#yearChips').addEventListener('click', (e) => { const c = e.target.closest('[data-y]'); if (c) { activeYear = Number(c.dataset.y) || null; renderResults(); } });
+  $('#options').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-use]'); if (!b) return;
+    const [mk, md, from, to] = JSON.parse($('#options').dataset.list)[Number(b.dataset.use)];
+    $('#bodyType').value = 'any';
+    $('#make').value = mk; fillModels(); $('#model').value = md || '';
+    $('#yearFrom').value = from || ''; $('#yearTo').value = to || '';
+    activeYear = null; renderAll();
+    $('#resultPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  $('#searchForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    renderAll();
+    $('#results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    toast(t('searched'));
+    const s = selection();
+    const body = {
+      visitorId, lang, budget: s.budget, make: s.mk ? s.mk.slug : '', model: s.md ? s.md[0] : '',
+      yearFrom: s.years[0] || '', yearTo: s.years[s.years.length - 1] || '', city: s.city,
+      bodyType: $('#bodyType').value, features: [...features].join(','),
+    };
+    try { renderStats(await api('search', body)); }
+    catch { store.set('searches', store.get('searches', 0) + 1); if (!online) renderStats(localStats()); }
+  });
   $('#platFilter').addEventListener('click', (e) => { const c = e.target.closest('[data-f]'); if (c) { platFilter = c.dataset.f; renderPlatforms(); } });
   $('#sellerChecks').addEventListener('change', (e) => { const id = e.target.dataset.sid; if (!id) return; e.target.checked ? sellerState.add(id) : sellerState.delete(id); updateSeller(); });
 
@@ -563,13 +857,12 @@
   $('#termsCancel').addEventListener('click', () => closeModal('termsModal'));
   $('#termsCheck').addEventListener('change', (e) => { $('#termsAgree').disabled = !e.target.checked; });
   $('#termsAgree').addEventListener('click', async () => {
-    const rec = { at: new Date().toISOString(), version: D.termsVersion };
-    store.set('terms', rec);
+    store.set('terms', { at: new Date().toISOString(), version: D.termsVersion });
     closeModal('termsModal');
-    renderGuide();
+    renderAll();
     toast(t('revealed'));
     $('#best').scrollIntoView({ block: 'center' });
-    try { await api('terms', { visitorId, version: D.termsVersion, requestId: store.get('lastRequest', '') }); } catch { /* demo mode */ }
+    try { await api('terms', { visitorId, version: D.termsVersion }); } catch { /* demo mode */ }
   });
   $$('.modal').forEach((m) => m.addEventListener('click', (e) => { if (e.target === m) m.hidden = true; }));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') $$('.modal').forEach((m) => { m.hidden = true; }); });
@@ -584,41 +877,6 @@
     toast(t('rateThanks'));
   });
 
-  $('#reqForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const f = e.target.elements;
-    const msg = $('#formMsg');
-    const phone = f.phone.value.replace(/[^\d+]/g, '');
-    if (!f.name.value.trim() || phone.length < 9 || !f.consent.checked) {
-      msg.className = 'form-msg err'; msg.textContent = t('errFields'); msg.hidden = false; return;
-    }
-    const body = {
-      visitorId, mode, lang, name: f.name.value.trim(), phone, city: f.city.value,
-      budget: Number(budgetEl.value), make: mode === 'specific' ? f.make.value : '', model: mode === 'specific' ? f.model.value : '',
-      yearFrom: mode === 'specific' ? f.yearFrom.value : '', bodyType: f.bodyType.value, usage: f.usage.value,
-      contact: f.contact.value, femaleAdvisor: f.femaleAdvisor.checked, firstCar: f.firstCar.checked,
-      notes: f.notes.value.trim(), consent: true,
-    };
-    const btn = $('#submitBtn');
-    btn.disabled = true; btn.dataset.busy = '1'; btn.textContent = t('sending');
-    let text;
-    try {
-      const r = await api('requests', body);
-      store.set('lastRequest', r.id);
-      text = t('sentOk');
-      refreshStats();
-    } catch (err) {
-      if (err.status === 400) text = t('errFields');
-      else {
-        const list = store.get('requests', []); list.push({ ...body, at: new Date().toISOString() }); store.set('requests', list);
-        renderStats(localStats());
-        text = t('sentLocal');
-      }
-    }
-    btn.disabled = false; delete btn.dataset.busy; btn.textContent = t('submit');
-    msg.className = 'form-msg ok'; msg.textContent = text; msg.hidden = false;
-  });
-
   // Highlight the bottom-nav item for the section in view.
   const navLinks = $$('.bnav a');
   const io = 'IntersectionObserver' in window && new IntersectionObserver((entries) => {
@@ -628,27 +886,21 @@
       navLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
-  if (io) ['request', 'platforms', 'safety', 'rate'].forEach((id) => io.observe($('#' + id)));
-  if (io) io.observe($('.hero'));
+  if (io) { ['search', 'platforms', 'safety', 'rate'].forEach((id) => io.observe($('#' + id))); io.observe($('.hero')); }
 
   // ---------- boot ----------
-  async function refreshStats() {
-    try { renderStats(await api('stats')); } catch { renderStats(localStats()); }
-  }
   async function recordVisit() {
-    if (sessionStorageSafe('visited')) return refreshStats();
-    const params = new URLSearchParams(location.search);
-    const utm = ['utm_source', 'utm_medium', 'utm_campaign'].map((k) => params.get(k)).filter(Boolean).join('|');
+    let first = true;
+    try { if (sessionStorage.getItem('daleel:visited')) first = false; else sessionStorage.setItem('daleel:visited', '1'); } catch { /* ignore */ }
     try {
+      if (!first) return renderStats(await api('stats'));
+      const params = new URLSearchParams(location.search);
+      const utm = ['utm_source', 'utm_medium', 'utm_campaign'].map((k) => params.get(k)).filter(Boolean).join('|');
       renderStats(await api('visit', { visitorId, page: location.pathname, lang, referrer: document.referrer, utm, screen: `${screen.width}x${screen.height}` }));
     } catch {
-      store.set('visits', store.get('visits', 0) + 1);
+      if (first) store.set('visits', store.get('visits', 0) + 1);
       renderStats(localStats());
     }
-  }
-  function sessionStorageSafe(k) {
-    try { if (sessionStorage.getItem('daleel:' + k)) return true; sessionStorage.setItem('daleel:' + k, '1'); } catch { /* ignore */ }
-    return false;
   }
 
   applyLang();

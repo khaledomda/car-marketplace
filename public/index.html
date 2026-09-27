@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <!--APP-HEAD-START-->
 <meta name="theme-color" content="#0b7a5f">
-<meta name="description" content="دليل: خبير شراء سيارات مستعملة في السعودية. نبحث لك عن أفضل صفقة من منصات موثوقة، مجاناً خلال الفترة التجريبية.">
+<meta name="description" content="موقع أفضل المعروض للسيارات: محرك بحث يجمع لك أفضل عروض السيارات المستعملة في السعودية من حراج وسيارة والسوق المفتوح وغيرها بروابط مباشرة. مجاناً خلال الفترة التجريبية.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon.svg">
 <!--APP-HEAD-END-->
-<title>Daleel Cars</title>
+<title>أفضل المعروض للسيارات</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@500;600;700&display=swap">
@@ -27,12 +27,12 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Daleel">
-      <svg width="38" height="38" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0b7a5f"/><path d="M32 12l14 34-14-8-14 8z" fill="#fff"/><circle cx="32" cy="34" r="4" fill="#e3a33b"/></svg>
+    <a class="brand" href="#top">
+      <svg width="38" height="38" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0b7a5f"/><circle cx="29" cy="28" r="12" fill="none" stroke="#fff" stroke-width="5"/><path d="M38 37l10 10" stroke="#fff" stroke-width="6" stroke-linecap="round"/><circle cx="29" cy="28" r="4" fill="#e3a33b"/></svg>
       <span><b data-i="brand"></b><small data-i="tagline"></small></span>
     </a>
     <nav class="top-nav" aria-label="Sections">
-      <a href="#request" data-i="navRequest"></a>
+      <a href="#search" data-i="navSearch"></a>
       <a href="#platforms" data-i="navPlatforms"></a>
       <a href="#safety" data-i="navSafety"></a>
       <a href="#rate" data-i="navRate"></a>
@@ -54,19 +54,19 @@
         <h1 data-ih="heroTitle"></h1>
         <p class="lead" data-i="heroLead"></p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#request" data-mode="budget" data-i="ctaBudget"></a>
-          <a class="btn btn-ghost" href="#request" data-mode="specific" data-i="ctaSpecific"></a>
+          <a class="btn btn-primary" href="#search" data-i="ctaSearch"></a>
+          <a class="btn btn-ghost" href="#platforms" data-i="ctaPlatforms"></a>
         </div>
         <div class="stats" aria-live="polite">
           <div class="stat"><b id="stVisits" class="num">0</b><span data-i="statVisits"></span></div>
-          <div class="stat"><b id="stRequests" class="num">0</b><span data-i="statRequests"></span></div>
+          <div class="stat"><b id="stSearches" class="num">0</b><span data-i="statSearches"></span></div>
           <div class="stat"><b id="stRating" class="num">–</b><span data-i="statRating"></span></div>
         </div>
         <p class="demo-note" id="demoNote" hidden data-i="demoNote"></p>
       </div>
       <div class="plate-card">
         <div class="plate" aria-label="Budget plate">
-          <div class="cell"><span id="plateAr">٥٠٠٠</span><span id="plateEn">5000</span></div>
+          <div class="cell"><span id="plateAr">٣٠٠٠٠</span><span id="plateEn">30000</span></div>
           <div class="cell"><span>ر.س</span><span>SAR</span></div>
           <div class="ksa">KSA</div>
         </div>
@@ -80,72 +80,70 @@
     </div>
   </section>
 
-  <!-- REQUEST + GUIDANCE -->
-  <section class="block" id="request">
+  <!-- SEARCH -->
+  <section class="block" id="search">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow" data-i="reqEyebrow"></p>
-        <h2 data-i="reqTitle"></h2>
-        <p data-i="reqLead"></p>
+        <p class="eyebrow" data-i="searchEyebrow"></p>
+        <h2 data-i="searchTitle"></h2>
+        <p data-i="searchLead"></p>
       </div>
-      <div class="req-grid">
-        <div class="panel">
-          <div class="seg" role="group" aria-label="Request type">
-            <button type="button" id="modeBudget" aria-pressed="true" data-i="modeBudget"></button>
-            <button type="button" id="modeSpecific" aria-pressed="false" data-i="modeSpecific"></button>
+
+      <div class="search-grid">
+        <form class="panel search-form" id="searchForm" novalidate>
+          <div class="budget-box">
+            <div class="budget-top">
+              <label for="budget" class="lbl" data-i="budgetLabel"></label>
+              <output id="budgetOut" class="num" for="budget">30,000</output>
+            </div>
+            <input type="range" id="budget" name="budget" min="5000" max="300000" step="1000" value="30000">
+            <div class="chips" id="budgetChips"></div>
+            <p class="budget-note" data-i="budgetNote"></p>
           </div>
-          <form class="req" id="reqForm" novalidate>
-            <div class="budget-box">
-              <div class="budget-top">
-                <label for="budget" class="lbl" data-i="budgetLabel"></label>
-                <output id="budgetOut" class="num" for="budget">30,000</output>
-              </div>
-              <input type="range" id="budget" name="budget" min="5000" max="300000" step="1000" value="30000">
-              <div class="chips" id="budgetChips"></div>
-              <p class="budget-note" data-i="budgetNote"></p>
-            </div>
 
-            <div id="specificFields" hidden>
-              <div class="row2">
-                <div class="field"><label for="make" data-i="make"></label><input id="make" name="make" list="makes" autocomplete="off"></div>
-                <div class="field"><label for="model" data-i="model"></label><input id="model" name="model" autocomplete="off"></div>
-              </div>
-              <datalist id="makes"><option value="Toyota"><option value="Hyundai"><option value="Kia"><option value="Nissan"><option value="Lexus"><option value="Honda"><option value="Mazda"><option value="Chevrolet"><option value="GMC"><option value="Ford"><option value="Mitsubishi"><option value="MG"><option value="Changan"><option value="Geely"></datalist>
-              <div class="field" style="margin-top:12px"><label for="yearFrom" data-i="yearFrom"></label><input id="yearFrom" name="yearFrom" type="number" inputmode="numeric" min="1990" max="2026" placeholder="2015"></div>
-            </div>
+          <div class="row2">
+            <div class="field"><label for="make" data-i="make"></label><select id="make" name="make"></select></div>
+            <div class="field"><label for="model" data-i="model"></label><select id="model" name="model"></select></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="yearFrom" data-i="yearFrom"></label><select id="yearFrom" name="yearFrom"></select></div>
+            <div class="field"><label for="yearTo" data-i="yearTo"></label><select id="yearTo" name="yearTo"></select></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="city" data-i="city"></label><select id="city" name="city"></select></div>
+            <div class="field"><label for="bodyType" data-i="bodyType"></label><select id="bodyType" name="bodyType"></select></div>
+          </div>
+          <div class="field">
+            <span class="lbl" data-i="featuresLabel"></span>
+            <div class="chips" id="featureChips" role="group"></div>
+          </div>
+          <button class="btn btn-primary btn-big" type="submit" data-i="searchBtn"></button>
+        </form>
 
-            <div class="row2">
-              <div class="field"><label for="bodyType" data-i="bodyType"></label>
-                <select id="bodyType" name="bodyType"></select></div>
-              <div class="field"><label for="usage" data-i="usage"></label>
-                <select id="usage" name="usage"></select></div>
-            </div>
-            <div class="row2">
-              <div class="field"><label for="name" data-i="name"></label><input id="name" name="name" autocomplete="name" required></div>
-              <div class="field"><label for="phone" data-i="phone"></label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="05XXXXXXXX" required></div>
-            </div>
-            <div class="row2">
-              <div class="field"><label for="city" data-i="city"></label><select id="city" name="city"></select></div>
-              <div class="field"><label for="contact" data-i="contact"></label><select id="contact" name="contact"></select></div>
-            </div>
-            <label class="check"><input type="checkbox" id="femaleAdvisor" name="femaleAdvisor"><span data-i="femaleAdvisor"></span></label>
-            <label class="check"><input type="checkbox" id="firstCar" name="firstCar"><span data-i="firstCar"></span></label>
-            <div class="field"><label for="notes" data-i="notes"></label><textarea id="notes" name="notes" rows="3"></textarea></div>
-            <label class="check"><input type="checkbox" id="consent" name="consent" required><span data-i="consent"></span></label>
-            <button class="btn btn-primary" type="submit" id="submitBtn" data-i="submit"></button>
-            <div id="formMsg" class="form-msg" hidden></div>
-          </form>
-        </div>
+        <div class="results" id="results" aria-live="polite">
+          <div class="danger" role="alert">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v5M12 18v.5"/></svg>
+            <p data-i="liability"></p>
+          </div>
 
-        <div class="guide" aria-live="polite">
-          <div class="panel" style="display:grid;gap:12px">
-            <div style="display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap">
-              <h3 data-i="guideTitle"></h3>
+          <div class="panel" id="resultPanel">
+            <div class="res-head">
+              <h3 id="resTitle"></h3>
               <span class="tier-tag" id="tierTag"></span>
             </div>
-            <p class="muted" id="tierExpect"></p>
-            <ul class="model-list" id="modelList"></ul>
-            <div><p class="lbl" style="font-size:.8rem;font-weight:600;margin-bottom:6px" data-i="searchOn"></p><div class="where" id="whereList"></div></div>
+            <p class="muted res-sub" id="resSub"></p>
+            <div class="chips year-chips" id="yearChips"></div>
+            <div class="plat-links" id="platLinks"></div>
+            <a class="deep" id="deepLink" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+              <span><b data-i="deepTitle"></b><small id="deepSub"></small></span>
+            </a>
+          </div>
+
+          <div class="panel" id="optionsPanel">
+            <h3 data-i="optionsTitle"></h3>
+            <p class="muted res-sub" id="optionsSub"></p>
+            <div class="options" id="options"></div>
           </div>
 
           <div class="best locked" id="best">
@@ -215,8 +213,8 @@
           <div class="official" id="official"></div>
         </div>
       </div>
-      <div class="notice" role="note">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v5M12 18v.5"/></svg>
+      <div class="danger danger-lg" role="note">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v5M12 18v.5"/></svg>
         <div>
           <h3 data-i="respTitle"></h3>
           <p style="margin-top:6px" data-i="resp1"></p>
@@ -235,6 +233,7 @@
       </div>
       <div class="road">
         <div><span class="soon now" data-i="nowLbl"></span><h3 data-i="r1t"></h3><p data-i="r1d"></p></div>
+        <div><span class="soon" data-i="soonLbl"></span><h3 data-i="r5t"></h3><p data-i="r5d"></p></div>
         <div><span class="soon" data-i="soonLbl"></span><h3 data-i="r2t"></h3><p data-i="r2d"></p></div>
         <div><span class="soon" data-i="soonLbl"></span><h3 data-i="r3t"></h3><p data-i="r3d"></p></div>
         <div><span class="soon" data-i="soonLbl"></span><h3 data-i="r4t"></h3><p data-i="r4d"></p></div>
@@ -266,16 +265,17 @@
 
 <footer>
   <div class="wrap">
+    <p class="danger-text" data-i="footerLiability"></p>
     <p data-i="footer1"></p>
     <p><button type="button" id="openTerms" data-i="footerTerms"></button> · <button type="button" id="openPrivacy" data-i="footerPrivacy"></button></p>
-    <p>© 2026 Daleel</p>
+    <p>© 2026 <span data-i="brand"></span></p>
   </div>
 </footer>
 
 <nav class="bnav" aria-label="App">
   <div class="wrap">
     <a href="#top"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg><span data-i="navHome"></span></a>
-    <a href="#request"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 16l1.5-5A2 2 0 018.4 9.5h7.2a2 2 0 011.9 1.5L19 16M4 16h16v3H4zM7 19v2M17 19v2"/></svg><span data-i="navRequest"></span></a>
+    <a href="#search"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span data-i="navSearch"></span></a>
     <a href="#platforms"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg><span data-i="navPlatforms"></span></a>
     <a href="#safety"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M20 12v7a2 2 0 01-2 2H6a2 2 0 01-2-2V5a2 2 0 012-2h9"/></svg><span data-i="navSafety"></span></a>
     <a href="#rate"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg><span data-i="navRate"></span></a>
@@ -290,7 +290,7 @@
       <li data-i="t1"></li>
       <li data-i="t2"></li>
       <li data-i="t3"></li>
-      <li data-i="t4"></li>
+      <li class="danger-text" data-i="t4"></li>
       <li data-i="t5"></li>
     </ol>
     <label class="check"><input type="checkbox" id="termsCheck"><span data-i="termsCheck"></span></label>
