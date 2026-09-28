@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <!--APP-HEAD-START-->
 <meta name="theme-color" content="#0b7a5f">
-<meta name="description" content="موقع أفضل المعروض للسيارات: محرك بحث يجمع لك أفضل عروض السيارات المستعملة في السعودية من حراج وسيارة والسوق المفتوح وغيرها بروابط مباشرة. مجاناً خلال الفترة التجريبية.">
+<meta name="description" content="موقع أفضل المعروض للسيارات: محرك بحث يجمع لك أفضل عروض السيارات المستعملة من حراج وسيارة وسوم وغيرها بروابط مباشرة. نبدأ من المدينة المنورة. مجاناً خلال الفترة التجريبية.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon.svg">
@@ -19,24 +19,15 @@
 <body>
 
 <div class="trial" role="status">
-  <div class="wrap">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
-    <span data-i="trial"></span>
-  </div>
+  <div class="wrap"><span data-i="trial"></span></div>
 </div>
 
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top">
-      <svg width="38" height="38" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0b7a5f"/><circle cx="29" cy="28" r="12" fill="none" stroke="#fff" stroke-width="5"/><path d="M38 37l10 10" stroke="#fff" stroke-width="6" stroke-linecap="round"/><circle cx="29" cy="28" r="4" fill="#e3a33b"/></svg>
+      <svg width="36" height="36" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0b7a5f"/><circle cx="29" cy="28" r="12" fill="none" stroke="#fff" stroke-width="5"/><path d="M38 37l10 10" stroke="#fff" stroke-width="6" stroke-linecap="round"/><circle cx="29" cy="28" r="4" fill="#e3a33b"/></svg>
       <span><b data-i="brand"></b><small data-i="tagline"></small></span>
     </a>
-    <nav class="top-nav" aria-label="Sections">
-      <a href="#search" data-i="navSearch"></a>
-      <a href="#platforms" data-i="navPlatforms"></a>
-      <a href="#safety" data-i="navSafety"></a>
-      <a href="#rate" data-i="navRate"></a>
-    </nav>
     <select class="lang" id="langSel" aria-label="Language / اللغة / زبان">
       <option value="ar">العربية</option>
       <option value="en">English</option>
@@ -48,49 +39,20 @@
 <main id="top">
   <!-- HERO -->
   <section class="hero">
-    <div class="wrap">
-      <div>
-        <p class="eyebrow" data-i="heroEyebrow"></p>
-        <h1 data-ih="heroTitle"></h1>
-        <p class="lead" data-i="heroLead"></p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#search" data-i="ctaSearch"></a>
-          <a class="btn btn-ghost" href="#platforms" data-i="ctaPlatforms"></a>
-        </div>
-        <div class="stats" aria-live="polite">
-          <div class="stat"><b id="stVisits" class="num">0</b><span data-i="statVisits"></span></div>
-          <div class="stat"><b id="stSearches" class="num">0</b><span data-i="statSearches"></span></div>
-          <div class="stat"><b id="stRating" class="num">–</b><span data-i="statRating"></span></div>
-        </div>
-        <p class="demo-note" id="demoNote" hidden data-i="demoNote"></p>
-      </div>
-      <div class="plate-card">
-        <div class="plate" aria-label="Budget plate">
-          <div class="cell"><span id="plateAr">٣٠٠٠٠</span><span id="plateEn">30000</span></div>
-          <div class="cell"><span>ر.س</span><span>SAR</span></div>
-          <div class="ksa">KSA</div>
-        </div>
-        <p class="plate-caption" data-i="plateCaption"></p>
-        <ul class="hero-points">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg><span data-i="point1"></span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg><span data-i="point2"></span></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l5 5L20 7"/></svg><span data-i="point3"></span></li>
-        </ul>
-      </div>
+    <div class="wrap hero-inner">
+      <span class="city-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"/></svg><span data-i="cityBadge"></span></span>
+      <h1 data-ih="heroTitle"></h1>
+      <p class="lead" data-i="heroLead"></p>
+      <a class="btn btn-primary btn-big" href="#search" data-i="ctaSearch"></a>
     </div>
   </section>
 
   <!-- SEARCH -->
   <section class="block" id="search">
     <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow" data-i="searchEyebrow"></p>
-        <h2 data-i="searchTitle"></h2>
-        <p data-i="searchLead"></p>
-      </div>
-
       <div class="search-grid">
         <form class="panel search-form" id="searchForm" novalidate>
+          <h2 data-i="searchTitle"></h2>
           <div class="budget-box">
             <div class="budget-top">
               <label for="budget" class="lbl" data-i="budgetLabel"></label>
@@ -98,42 +60,45 @@
             </div>
             <input type="range" id="budget" name="budget" min="5000" max="300000" step="1000" value="30000">
             <div class="chips" id="budgetChips"></div>
-            <p class="budget-note" data-i="budgetNote"></p>
           </div>
-
           <div class="row2">
             <div class="field"><label for="make" data-i="make"></label><select id="make" name="make"></select></div>
             <div class="field"><label for="model" data-i="model"></label><select id="model" name="model"></select></div>
           </div>
-          <div class="row2">
-            <div class="field"><label for="yearFrom" data-i="yearFrom"></label><select id="yearFrom" name="yearFrom"></select></div>
-            <div class="field"><label for="yearTo" data-i="yearTo"></label><select id="yearTo" name="yearTo"></select></div>
-          </div>
-          <div class="row2">
-            <div class="field"><label for="city" data-i="city"></label><select id="city" name="city"></select></div>
-            <div class="field"><label for="bodyType" data-i="bodyType"></label><select id="bodyType" name="bodyType"></select></div>
-          </div>
-          <div class="field">
-            <span class="lbl" data-i="featuresLabel"></span>
-            <div class="chips" id="featureChips" role="group"></div>
-          </div>
+          <div class="field"><label for="city" data-i="city"></label><select id="city" name="city"></select></div>
+
+          <details class="more" id="moreOpts">
+            <summary data-i="moreOptions"></summary>
+            <div class="more-body">
+              <div class="row2">
+                <div class="field"><label for="yearFrom" data-i="yearFrom"></label><select id="yearFrom" name="yearFrom"></select></div>
+                <div class="field"><label for="yearTo" data-i="yearTo"></label><select id="yearTo" name="yearTo"></select></div>
+              </div>
+              <div class="field"><label for="bodyType" data-i="bodyType"></label><select id="bodyType" name="bodyType"></select></div>
+              <div class="field">
+                <span class="lbl" data-i="featuresLabel"></span>
+                <div class="chips" id="featureChips" role="group"></div>
+              </div>
+            </div>
+          </details>
           <button class="btn btn-primary btn-big" type="submit" data-i="searchBtn"></button>
         </form>
 
         <div class="results" id="results" aria-live="polite">
-          <div class="danger" role="alert">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v5M12 18v.5"/></svg>
-            <p data-i="liability"></p>
+          <p class="danger" role="alert" data-i="liability"></p>
+
+          <div class="panel" id="lowPanel" hidden>
+            <h3 data-i="lowTitle"></h3>
+            <p class="muted small" data-i="lowLead"></p>
+            <div class="low-list" id="lowList"></div>
           </div>
 
           <div class="panel" id="resultPanel">
-            <div class="res-head">
-              <h3 id="resTitle"></h3>
-              <span class="tier-tag" id="tierTag"></span>
-            </div>
-            <p class="muted res-sub" id="resSub"></p>
+            <h3 id="resTitle"></h3>
+            <p class="muted small" id="resSub"></p>
             <div class="chips year-chips" id="yearChips"></div>
             <div class="plat-links" id="platLinks"></div>
+            <p class="muted small" id="hiddenNote" hidden></p>
             <a class="deep" id="deepLink" target="_blank" rel="noopener">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
               <span><b data-i="deepTitle"></b><small id="deepSub"></small></span>
@@ -142,7 +107,7 @@
 
           <div class="panel" id="optionsPanel">
             <h3 data-i="optionsTitle"></h3>
-            <p class="muted res-sub" id="optionsSub"></p>
+            <p class="muted small" id="optionsSub"></p>
             <div class="options" id="options"></div>
           </div>
 
@@ -151,9 +116,9 @@
             <div class="best-body" id="bestBody"></div>
             <div class="lock">
               <div class="lock-inner">
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
                 <b data-i="bestLocked"></b>
-                <p class="muted" style="font-size:.85rem" data-i="bestLockedText"></p>
+                <p class="muted small" data-i="bestLockedText"></p>
                 <button class="btn btn-gold" type="button" id="revealBtn" data-i="revealBtn"></button>
               </div>
             </div>
@@ -165,100 +130,79 @@
 
   <!-- PLATFORMS -->
   <section class="block" id="platforms">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow" data-i="platEyebrow"></p>
-        <h2 data-i="platTitle"></h2>
-        <p data-i="platLead"></p>
-      </div>
-      <div class="plat-tools chips" id="platFilter">
-        <button class="chip" type="button" data-f="all" data-i="filterAll"></button>
-        <button class="chip" type="button" data-f="certified" data-i="filterCertified"></button>
-        <button class="chip" type="button" data-f="marketplace" data-i="filterMarket"></button>
-        <button class="chip" type="button" data-f="classifieds" data-i="filterClassified"></button>
-      </div>
-      <div class="plat-grid" id="platGrid"></div>
+    <div class="wrap narrow">
+      <h2 data-i="platTitle"></h2>
+      <p class="muted" data-i="platLead"></p>
+      <div class="plat-list" id="platGrid"></div>
       <p class="method" data-i="method"></p>
+    </div>
+  </section>
+
+  <!-- MADINAH -->
+  <section class="block" id="madinah">
+    <div class="wrap narrow">
+      <h2 data-i="madTitle"></h2>
+      <p class="muted" data-i="madLead"></p>
+      <div class="soon-list">
+        <div class="soon-item"><span class="dot"></span><div><h3 data-i="m1t"></h3><p data-i="m1d"></p></div></div>
+        <div class="soon-item"><span class="dot"></span><div><h3 data-i="m2t"></h3><p data-i="m2d"></p></div></div>
+        <div class="soon-item"><span class="dot"></span><div><h3 data-i="m3t"></h3><p data-i="m3d"></p></div></div>
+        <div class="soon-item"><span class="dot"></span><div><h3 data-i="m4t"></h3><p data-i="m4d"></p></div></div>
+      </div>
     </div>
   </section>
 
   <!-- SAFETY -->
   <section class="block" id="safety">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow" data-i="safeEyebrow"></p>
-        <h2 data-i="safeTitle"></h2>
-        <p data-i="safeLead"></p>
-      </div>
-      <div class="two">
-        <div class="panel">
-          <h3 data-i="sellerTitle"></h3>
-          <p class="muted" style="font-size:.88rem;margin-top:4px" data-i="sellerLead"></p>
-          <div class="seller-score"><span data-i="sellerScore"></span><b id="sellerPct" class="num">0%</b></div>
-          <div class="meter"><i id="sellerBar"></i></div>
-          <p id="sellerVerdict" style="font-size:.88rem;font-weight:600"></p>
-          <div class="checklist" id="sellerChecks"></div>
-        </div>
-        <div class="panel">
-          <h3 data-i="stepsTitle"></h3>
-          <ol class="steps" style="margin-top:12px">
-            <li><span data-i="s1"></span></li>
-            <li><span data-i="s2"></span></li>
-            <li><span data-i="s3"></span></li>
-            <li><span data-i="s4"></span></li>
-            <li><span data-i="s5"></span></li>
-            <li><span data-i="s6"></span></li>
-          </ol>
-          <p style="font-weight:600;margin-top:16px;font-size:.9rem" data-i="officialTitle"></p>
-          <div class="official" id="official"></div>
-        </div>
-      </div>
+    <div class="wrap narrow">
+      <h2 data-i="safeTitle"></h2>
       <div class="danger danger-lg" role="note">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 3l10 18H2L12 3z"/><path d="M12 10v5M12 18v.5"/></svg>
-        <div>
-          <h3 data-i="respTitle"></h3>
-          <p style="margin-top:6px" data-i="resp1"></p>
-          <p data-i="resp2"></p>
-        </div>
+        <p data-i="resp1"></p>
+        <p data-i="resp2"></p>
       </div>
+      <details class="fold">
+        <summary data-i="stepsTitle"></summary>
+        <ol class="steps">
+          <li><span data-i="s1"></span></li>
+          <li><span data-i="s2"></span></li>
+          <li><span data-i="s3"></span></li>
+          <li><span data-i="s4"></span></li>
+          <li><span data-i="s5"></span></li>
+          <li><span data-i="s6"></span></li>
+        </ol>
+        <div class="official" id="official"></div>
+      </details>
+      <details class="fold">
+        <summary data-i="sellerTitle"></summary>
+        <p class="muted small" data-i="sellerLead"></p>
+        <div class="seller-score"><span data-i="sellerScore"></span><b id="sellerPct" class="num">0%</b></div>
+        <div class="meter"><i id="sellerBar"></i></div>
+        <p id="sellerVerdict" class="small" style="font-weight:600"></p>
+        <div class="checklist" id="sellerChecks"></div>
+      </details>
     </div>
   </section>
 
-  <!-- ROADMAP -->
-  <section class="block" id="roadmap">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow" data-i="roadEyebrow"></p>
-        <h2 data-i="roadTitle"></h2>
-      </div>
-      <div class="road">
-        <div><span class="soon now" data-i="nowLbl"></span><h3 data-i="r1t"></h3><p data-i="r1d"></p></div>
-        <div><span class="soon" data-i="soonLbl"></span><h3 data-i="r5t"></h3><p data-i="r5d"></p></div>
-        <div><span class="soon" data-i="soonLbl"></span><h3 data-i="r2t"></h3><p data-i="r2d"></p></div>
-        <div><span class="soon" data-i="soonLbl"></span><h3 data-i="r3t"></h3><p data-i="r3d"></p></div>
-        <div><span class="soon" data-i="soonLbl"></span><h3 data-i="r4t"></h3><p data-i="r4d"></p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RATE -->
-  <section class="block" id="rate">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow" data-i="rateEyebrow"></p>
-        <h2 data-i="rateTitle"></h2>
-        <p data-i="rateLead"></p>
-      </div>
-      <div class="rate-grid">
-        <div class="panel" style="display:grid;gap:12px">
-          <div class="big-rating"><b id="avgBig" class="num">–</b><span class="muted" id="avgCount"></span></div>
+  <!-- YOUR PLATFORM -->
+  <section class="block" id="yours">
+    <div class="wrap narrow">
+      <h2 data-i="yoursTitle"></h2>
+      <p class="muted" data-i="yoursLead"></p>
+      <div class="panel yours">
+        <div class="field"><label for="sugText" data-i="sugLabel"></label><textarea id="sugText" rows="3"></textarea></div>
+        <div class="stars-row">
+          <span class="small" data-i="rateLabel"></span>
           <div class="stars" id="stars" role="radiogroup" aria-label="Rating"></div>
-          <div class="field"><label for="rName" data-i="rateName"></label><input id="rName" autocomplete="given-name"></div>
-          <div class="field"><label for="rComment" data-i="rateComment"></label><textarea id="rComment" rows="3"></textarea></div>
-          <button class="btn btn-primary" type="button" id="rateBtn" data-i="rateSubmit"></button>
         </div>
-        <div class="reviews" id="reviews"></div>
+        <button class="btn btn-primary" type="button" id="sendBtn" data-i="sendBtn"></button>
       </div>
+      <div class="stats" aria-live="polite">
+        <div class="stat"><b id="stVisits" class="num">0</b><span data-i="statVisits"></span></div>
+        <div class="stat"><b id="stSearches" class="num">0</b><span data-i="statSearches"></span></div>
+        <div class="stat"><b id="stRating" class="num">–</b><span data-i="statRating"></span></div>
+      </div>
+      <p class="demo-note" id="demoNote" hidden data-i="demoNote"></p>
+      <div class="reviews" id="reviews"></div>
     </div>
   </section>
 </main>
@@ -277,8 +221,8 @@
     <a href="#top"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg><span data-i="navHome"></span></a>
     <a href="#search"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span data-i="navSearch"></span></a>
     <a href="#platforms"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg><span data-i="navPlatforms"></span></a>
-    <a href="#safety"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8M20 12v7a2 2 0 01-2 2H6a2 2 0 01-2-2V5a2 2 0 012-2h9"/></svg><span data-i="navSafety"></span></a>
-    <a href="#rate"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg><span data-i="navRate"></span></a>
+    <a href="#madinah"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg><span data-i="navMadinah"></span></a>
+    <a href="#yours"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span data-i="navYours"></span></a>
   </div>
 </nav>
 

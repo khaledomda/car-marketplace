@@ -79,6 +79,29 @@ window.DALEEL_DATA = {
       },
     },
     {
+      id: 'soum',
+      name: { ar: 'سوم (Soum)', en: 'Soum', ur: 'سوم (Soum)' },
+      url: 'https://soum.sa/ar/%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA',
+      type: 'marketplace',
+      minBudget: 20000, // Soum's cars start from about 20,000 SAR
+      scores: { inspection: 70, warranty: 85, sellerCheck: 80, reviews: 70, transparency: 75, support: 85 },
+      pros: {
+        ar: ['إرجاع خلال ١٠ أيام', 'تقسيط بدون فوائد وتوصيل للبيت', 'أسعار تبدأ من حوالي ٢٠ ألف ريال'],
+        en: ['10-day return', 'Interest-free installments and home delivery', 'Prices start around 20,000 SAR'],
+        ur: ['10 دن میں واپسی', 'بغیر سود قسطیں اور گھر تک ڈیلیوری', 'قیمتیں تقریباً 20,000 ریال سے شروع'],
+      },
+      cons: {
+        ar: ['لا يوجد خيارات تحت ٢٠ ألف', 'مخزون أقل من حراج'],
+        en: ['Nothing under 20,000 SAR', 'Smaller stock than Haraj'],
+        ur: ['20,000 ریال سے کم کچھ نہیں', 'حراج سے کم گاڑیاں'],
+      },
+      signals: {
+        ar: 'منصة سعودية معروفة، والتقسيط مناسب لو معك دفعة أولى بسيطة',
+        en: 'Known Saudi platform; installments help if you only have a small down payment',
+        ur: 'معروف سعودی پلیٹ فارم؛ اگر آپ کے پاس تھوڑی ابتدائی رقم ہو تو قسطیں مددگار ہیں',
+      },
+    },
+    {
       id: 'motory',
       name: { ar: 'موتري (Motory)', en: 'Motory', ur: 'موٹری (Motory)' },
       url: 'https://ksa.motory.com/en/',
@@ -196,7 +219,7 @@ window.DALEEL_DATA = {
       min: 20000, max: 35000,
       label: { ar: 'فئة الموظف', en: 'Commuter class', ur: 'روزمرہ سفر کی کلاس' },
       models: ['Toyota Corolla 2016–2018', 'Hyundai Elantra 2017–2019', 'Kia Cerato 2018–2019', 'Toyota Yaris 2018–2020'],
-      where: ['syarah', 'carswitch', 'motory', 'haraj'],
+      where: ['syarah', 'carswitch', 'soum', 'haraj'],
       expect: {
         ar: 'عمر ٦–٩ سنوات، ممشى ١٢٠–٢٠٠ ألف كم. هنا تبدأ السيارات المفحوصة بالضمان.',
         en: '6–9 years old, 120–200k km. Inspected cars with warranty start here.',
@@ -212,7 +235,7 @@ window.DALEEL_DATA = {
       min: 35000, max: 60000,
       label: { ar: 'فئة العائلة', en: 'Family class', ur: 'فیملی کلاس' },
       models: ['Toyota Camry 2017–2019', 'Toyota Corolla 2020–2021', 'Hyundai Sonata 2018–2020', 'Kia K5 2021'],
-      where: ['syarah', 'carswitch', 'dealer-cpo', 'motory'],
+      where: ['syarah', 'carswitch', 'soum', 'dealer-cpo'],
       expect: { ar: 'عمر ٤–٧ سنوات، ممشى ٨٠–١٥٠ ألف كم.', en: '4–7 years old, 80–150k km.', ur: '4–7 سال پرانی، 80 ہزار–1.5 لاکھ کلومیٹر۔' },
       pick: { model: 'Toyota Camry 2018–2019 GL', km: 130000, price: [46000, 56000], open: 0.9, why: {
         ar: 'مساحة عائلية، صيانة معروفة، وتنباع بسرعة لو احتجت تبيعها.',
@@ -224,7 +247,7 @@ window.DALEEL_DATA = {
       min: 60000, max: 100000,
       label: { ar: 'فئة الـ SUV', en: 'SUV class', ur: 'SUV کلاس' },
       models: ['Toyota Camry 2021–2022', 'Hyundai Tucson 2021–2022', 'Toyota RAV4 2019–2020', 'Toyota Fortuner 2018–2019'],
-      where: ['dealer-cpo', 'syarah', 'carswitch', 'motory'],
+      where: ['dealer-cpo', 'syarah', 'carswitch', 'soum'],
       expect: {
         ar: 'عمر ٣–٦ سنوات، ممشى ٥٠–١٢٠ ألف كم. ابحث عن بقية ضمان الوكيل.',
         en: '3–6 years old, 50–120k km. Look for remaining dealer warranty.',
@@ -282,8 +305,8 @@ window.DALEEL_DATA = {
 
   // [value, ar, en, ur]
   cities: [
-    ['riyadh', 'الرياض', 'Riyadh', 'ریاض'], ['jeddah', 'جدة', 'Jeddah', 'جدہ'], ['dammam', 'الدمام', 'Dammam', 'دمام'],
-    ['khobar', 'الخبر', 'Khobar', 'الخبر'], ['makkah', 'مكة المكرمة', 'Makkah', 'مکہ مکرمہ'], ['madinah', 'المدينة المنورة', 'Madinah', 'مدینہ منورہ'],
+    ['madinah', 'المدينة المنورة', 'Madinah', 'مدینہ منورہ'], ['riyadh', 'الرياض', 'Riyadh', 'ریاض'], ['jeddah', 'جدة', 'Jeddah', 'جدہ'], ['dammam', 'الدمام', 'Dammam', 'دمام'],
+    ['khobar', 'الخبر', 'Khobar', 'الخبر'], ['makkah', 'مكة المكرمة', 'Makkah', 'مکہ مکرمہ'],
     ['qassim', 'القصيم', 'Qassim', 'قصیم'], ['abha', 'أبها', 'Abha', 'ابہا'], ['tabuk', 'تبوك', 'Tabuk', 'تبوک'],
     ['hail', 'حائل', 'Hail', 'حائل'], ['jazan', 'جازان', 'Jazan', 'جازان'], ['other', 'مدينة أخرى', 'Other city', 'دوسرا شہر'],
   ],

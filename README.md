@@ -13,13 +13,16 @@ and features, and get **direct links to live results** on each platform, ranked 
 
 | Feature | Notes |
 | --- | --- |
-| Direct links per platform | Haraj `/tags/<city>_<model year>/`, Syarah `/en/autos/<make>/<model>/<year>`, CarSwitch `/en/<city>/used-cars/<make>/<model>/<year>-price`, OpenSooq `/en/<city>/cars/cars-for-sale/<make>/<model>/<year>`, Motory `/en/cars-for-sale/<city>-haraj/<make>/<model>/`, YallaMotor `/used-cars/<make>/<model>/<year>` (URL formats checked Sept 2026; builders in `public/app.js` → `LINKS`) |
+| Direct links per platform | Haraj `/tags/<city>_<model year>/`, Soum `/ar/سيارات/<make>/<model>` (cars from ~20,000 SAR, hidden below that), Syarah `/en/autos/<make>/<model>/<year>`, CarSwitch `/en/<city>/used-cars/<make>/<model>/<year>-price`, OpenSooq `/en/<city>/cars/cars-for-sale/<make>/<model>/<year>`, Motory `/en/cars-for-sale/<city>-haraj/<make>/<model>/`, YallaMotor `/used-cars/<make>/<model>/<year>` (URL formats checked Sept 2026; builders in `public/app.js` → `LINKS`) |
 | Deep search | Google search limited to the six sites, with the model, years, city and chosen features (e.g. "فتحة سقف", "مالك واحد") so it matches words inside the ads |
 | Real options for your budget | Models that fit the amount, each with direct Haraj / OpenSooq / Syarah / deep-search links |
 | Best option, blurred until terms accepted | 500 SAR on completed purchase, buyer's own liability, no legal action, no money now |
 | Liability in red | "We guide you; you are responsible for inspection, verification and avoiding fraud" above results, in Safety, terms and footer |
 | No contact details collected | Name / phone / WhatsApp are off until official paperwork is complete (shown as "coming soon") |
 | Trust score per platform, seller trust checker, ratings, visit counter | as before |
+| Small budgets (under 20,000 SAR) | Panel with the fastest routes: ads at the exact price (Haraj + OpenSooq), cheapest reliable models, and using the money as a down payment for installments (Soum, Syarah) |
+| Al-Madinah launch | Default city is Al-Madinah; "coming soon" section: showroom agreements (real cars under our responsibility), spare-parts shops and workshops with trust and discounts, inspection/maintenance/delivery, advisor & WhatsApp after paperwork |
+| "This is your platform" | Private suggestions box (admin only) plus an optional star rating |
 | Languages | Arabic (default), English, Urdu |
 
 Why links and not copied listings: the platforms' ads are their content; copying (scraping) them breaks their

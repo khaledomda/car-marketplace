@@ -41,11 +41,14 @@
     <div class="row" style="margin-top:14px">
       <span class="muted">Export CSV:</span>
       <a class="btn btn-ghost" data-x="searches">Searches</a>
+      <a class="btn btn-ghost" data-x="suggestions">Suggestions</a>
       <a class="btn btn-ghost" data-x="requests">Requests</a>
       <a class="btn btn-ghost" data-x="visits">Visits</a>
       <a class="btn btn-ghost" data-x="ratings">Ratings</a>
       <a class="btn btn-ghost" data-x="termsAcceptances">Terms acceptances</a>
     </div>
+    <h2>Suggestions from users</h2>
+    <div class="tbl"><table id="sugT"></table></div>
     <h2>What people search for</h2>
     <p><b>Top models:</b> <span id="topModels"></span></p>
     <p><b>Top cities:</b> <span id="topCities"></span></p>
@@ -73,13 +76,15 @@
     $('#login').hidden = true; $('#dash').hidden = false;
     const s = d.stats;
     const top = (key) => { const c = {}; d.searches.forEach((x) => { const k = key(x); if (k) c[k] = (c[k] || 0) + 1; }); return Object.entries(c).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([k, n]) => `${k} (${n})`).join(' · ') || '–'; };
+    $('#sugT').innerHTML = '<tr><th>Date</th><th>Stars</th><th>Suggestion</th><th>Lang</th></tr>' +
+      (d.suggestions || []).slice().reverse().map((x) => `<tr><td>${esc(x.at.slice(0, 16).replace('T', ' '))}</td><td>${x.stars ? '★'.repeat(x.stars) : ''}</td><td class="wrap-cell">${esc(x.text)}</td><td>${esc(x.lang)}</td></tr>`).join('');
     $('#topModels').textContent = top((x) => [x.make, x.model].filter(Boolean).join(' '));
     $('#topCities').textContent = top((x) => x.city);
     $('#topFeatures').textContent = (() => { const c = {}; d.searches.forEach((x) => (x.features || '').split(',').filter(Boolean).forEach((f) => { c[f] = (c[f] || 0) + 1; })); return Object.entries(c).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k} (${n})`).join(' · ') || '–'; })();
     $('#searchT').innerHTML = '<tr><th>Date</th><th>Budget</th><th>Make</th><th>Model</th><th>Years</th><th>City</th><th>Body</th><th>Features</th><th>Lang</th><th>Country</th></tr>' +
       d.searches.slice().reverse().slice(0, 500).map((x) => `<tr><td>${esc(x.at.slice(0, 16).replace('T', ' '))}</td><td>${esc((x.budget || 0).toLocaleString('en-US'))}</td><td>${esc(x.make)}</td><td>${esc(x.model)}</td><td>${esc([x.yearFrom, x.yearTo].filter(Boolean).join('–'))}</td><td>${esc(x.city)}</td><td>${esc(x.bodyType)}</td><td class="wrap-cell">${esc(x.features)}</td><td>${esc(x.lang)}</td><td>${esc(x.country)}</td></tr>`).join('');
     $('#kpis').innerHTML = [
-      [s.visits, 'Visits'], [s.uniqueVisitors, 'Unique visitors'], [s.searches, 'Searches'],
+      [s.visits, 'Visits'], [s.uniqueVisitors, 'Unique visitors'], [s.searches, 'Searches'], [(d.suggestions || []).length, 'Suggestions'],
       [d.termsAcceptances.length, 'Accepted terms'],
       [s.ratingCount ? s.ratingAvg + ' ★' : '–', `Rating (${s.ratingCount})`],
     ].map(([v, l]) => `<div><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join('');

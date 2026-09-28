@@ -351,3 +351,57 @@ footer button { background: none; border: 0; color: var(--accent); cursor: point
 .danger-lg { margin-top: 16px; padding: 18px; }
 .danger-lg p + p { margin-top: 6px; }
 .danger-text { color: var(--danger) !important; font-weight: 700; }
+
+/* ---------- calmer layout (v3) ---------- */
+.trial .wrap { padding-block: 6px; font-size: 0.8rem; }
+.hero { padding-block: 40px 8px; }
+.hero .wrap.hero-inner { display: grid; grid-template-columns: 1fr; justify-items: start; gap: 14px; max-width: 760px; }
+.hero h1 { font-size: clamp(1.9rem, 6vw, 2.8rem); }
+.hero .lead { margin-top: 0; }
+.city-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--accent-soft); color: var(--accent); font-weight: 600; font-size: 0.85rem; padding: 5px 12px; border-radius: 999px; }
+section.block { padding-block: 28px; }
+.narrow { max-width: 760px; }
+.narrow > h2 + p { margin-top: 6px; }
+.narrow > h2 { margin-bottom: 4px; }
+.small { font-size: 0.86rem; }
+.search-form h2 { font-size: 1.25rem; }
+.budget-box { background: transparent; padding: 0; }
+.budget-top output { color: var(--accent); }
+.more { border-top: 1px solid var(--line); padding-top: 10px; }
+.more summary, .fold summary { cursor: pointer; font-weight: 600; color: var(--accent); list-style: none; display: flex; align-items: center; gap: 8px; }
+.more summary::-webkit-details-marker, .fold summary::-webkit-details-marker, .plat-row summary::-webkit-details-marker { display: none; }
+.more summary::before, .fold summary::before { content: '+'; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--accent-soft); font-weight: 700; }
+.more[open] summary::before, .fold[open] summary::before { content: '−'; }
+.more-body { display: grid; gap: 14px; margin-top: 14px; }
+.results .panel { border: 0; background: var(--surface); box-shadow: var(--shadow); }
+.results h3 { font-size: 1.05rem; }
+.danger { display: block; font-size: 0.9rem; padding: 12px 14px; border-width: 1.5px; }
+.danger-lg { margin-block: 14px; }
+.low-list { display: grid; gap: 10px; }
+.low-item { display: flex; gap: 12px; align-items: center; justify-content: space-between; padding-block: 10px; border-top: 1px solid var(--line); }
+.low-item:first-child { border-top: 0; }
+.low-item p { font-size: 0.84rem; color: var(--muted); }
+.low-links { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.btn-sm { padding: 7px 12px; font-size: 0.82rem; border-radius: 10px; white-space: nowrap; }
+@media (max-width: 480px) { .low-item { flex-direction: column; align-items: stretch; } .low-links { justify-content: flex-start; } }
+.plat-list { display: grid; gap: 8px; margin-top: 16px; }
+.plat-row { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+.plat-row summary { display: grid; grid-template-columns: 52px 1fr auto; gap: 12px; align-items: center; padding: 10px 12px; cursor: pointer; list-style: none; }
+.plat-row summary::after { content: '⌄'; color: var(--muted); font-size: 1.1rem; }
+.plat-row[open] summary::after { content: '⌃'; }
+.plat-more { padding: 0 12px 12px; display: grid; gap: 10px; font-size: 0.88rem; }
+.soon-list { display: grid; gap: 4px; margin-top: 16px; }
+.soon-item { display: grid; grid-template-columns: 14px 1fr; gap: 12px; padding-block: 12px; border-top: 1px solid var(--line); }
+.soon-item:first-child { border-top: 0; }
+.soon-item .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold); margin-top: 7px; }
+.soon-item p { color: var(--muted); font-size: 0.9rem; }
+.fold { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin-top: 10px; }
+.fold[open] { display: grid; gap: 10px; }
+.fold .steps { margin-top: 8px; }
+.yours { display: grid; gap: 14px; margin-top: 16px; }
+.stars-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.stars svg { width: 30px; height: 30px; }
+#yours .stats { margin-top: 18px; max-width: none; }
+#yours .reviews { margin-top: 12px; }
+.plat-link { padding: 8px 12px; }
+footer { padding-bottom: 12px; }

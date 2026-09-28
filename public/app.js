@@ -342,19 +342,56 @@
 
   // Search-engine text (overrides and additions), in ar / en / ur.
   Object.assign(T, {
+    trial: { ar: 'فترة تجريبية مجانية: لن نطلب منك أي مبلغ حالياً.', en: 'Free trial period: we will not ask you for any money for now.', ur: 'مفت آزمائشی مدت: فی الحال ہم آپ سے کوئی رقم نہیں مانگیں گے۔' },
+    cityBadge: { ar: 'نبدأ من المدينة المنورة', en: 'Starting in Al-Madinah', ur: 'ہم مدینہ منورہ سے شروع کر رہے ہیں' },
+    navMadinah: { ar: 'المدينة', en: 'Madinah', ur: 'مدینہ' },
+    navYours: { ar: 'اقتراحك', en: 'Suggest', ur: 'تجویز' },
+    moreOptions: { ar: 'خيارات أكثر: السنة، النوع، المواصفات', en: 'More options: year, type, features', ur: 'مزید آپشنز: سال، قسم، خصوصیات' },
+    lowTitle: { ar: 'ميزانيتك صغيرة؟ هذي أفضل طرقك', en: 'Small budget? Your best routes', ur: 'بجٹ کم ہے؟ یہ آپ کے بہترین راستے ہیں' },
+    lowLead: { ar: 'تحت ٢٠ ألف أغلب العروض عند الأفراد في حراج والسوق المفتوح. هذي أسرع طرق توصلك لأفضل صفقة:', en: 'Under 20,000 SAR most offers are from individuals on Haraj and OpenSooq. The fastest ways to the best deal:', ur: '20,000 ریال سے کم زیادہ تر پیشکشیں حراج اور اوپن سوق پر افراد کی ہوتی ہیں۔ بہترین سودے تک پہنچنے کے تیز ترین راستے:' },
+    low1t: { ar: 'إعلانات بسعرك بالضبط', en: 'Ads at your exact price', ur: 'آپ کی قیمت کے عین مطابق اشتہارات' },
+    low1d: { ar: 'بحث في حراج والسوق المفتوح عن سيارات معروضة بمبلغك تقريباً.', en: 'Searches Haraj and OpenSooq for cars listed at about your amount.', ur: 'حراج اور اوپن سوق پر تقریباً آپ کی رقم میں دستیاب گاڑیاں تلاش کرتا ہے۔' },
+    low2t: { ar: 'أرخص الموديلات الموثوقة', en: 'Cheapest reliable models', ur: 'سب سے سستے قابلِ اعتماد ماڈلز' },
+    low2d: { ar: 'موديلات قطعها رخيصة وتتحمل، مع روابطها تحت.', en: 'Models with cheap parts that last, with links below.', ur: 'سستے پرزوں والے پائیدار ماڈلز، نیچے لنکس کے ساتھ۔' },
+    low3t: { ar: 'خلّ مبلغك دفعة أولى', en: 'Use your money as a down payment', ur: 'اپنی رقم کو پہلی قسط بنائیں' },
+    low3d: { ar: 'سوم وسيارة فيها تقسيط، وسوم بدون فوائد (حسب موافقة جهة التمويل). سياراتهم تبدأ من حوالي ٢٠ ألف.', en: 'Soum and Syarah offer installments, Soum interest-free (subject to financing approval). Their cars start around 20,000 SAR.', ur: 'سوم اور سیارہ قسطیں دیتے ہیں، سوم بغیر سود (فنانسنگ کی منظوری سے مشروط)۔ ان کی گاڑیاں تقریباً 20,000 ریال سے شروع ہوتی ہیں۔' },
+    lowGo: { ar: 'افتح', en: 'Open', ur: 'کھولیں' },
+    lowSee: { ar: 'شوفها', en: 'See them', ur: 'دیکھیں' },
+    hiddenSoum: { ar: 'سوم غير ظاهر لأن سياراته تبدأ من حوالي ٢٠ ألف ريال. ارفع الميزانية أو جرّب التقسيط.', en: 'Soum is hidden because its cars start around 20,000 SAR. Raise the budget or try installments.', ur: 'سوم نظر نہیں آ رہا کیونکہ اس کی گاڑیاں تقریباً 20,000 ریال سے شروع ہوتی ہیں۔ بجٹ بڑھائیں یا قسطیں آزمائیں۔' },
+    madTitle: { ar: 'قريباً في المدينة المنورة', en: 'Coming soon to Al-Madinah', ur: 'جلد مدینہ منورہ میں' },
+    madLead: { ar: 'بدأنا من المدينة المنورة، وقريباً:', en: 'We are starting in Al-Madinah, and soon:', ur: 'ہم مدینہ منورہ سے شروع کر رہے ہیں، اور جلد:' },
+    m1t: { ar: 'عروض حقيقية من معارض السيارات', en: 'Real offers from car showrooms', ur: 'کار شورومز سے حقیقی پیشکشیں' },
+    m1d: { ar: 'اتفاقيات مع معارض في المدينة لعرض سيارات حقيقية على المنصة تحت مسؤوليتنا.', en: 'Agreements with Madinah showrooms to list real cars on the platform under our responsibility.', ur: 'مدینہ کے شورومز سے معاہدے تاکہ حقیقی گاڑیاں ہماری ذمہ داری پر پلیٹ فارم پر دکھائی جائیں۔' },
+    m2t: { ar: 'قطع الغيار والخدمات بخصومات', en: 'Spare parts and services with discounts', ur: 'اسپیئر پارٹس اور سروسز رعایت کے ساتھ' },
+    m2d: { ar: 'اتفاقيات مع محلات قطع الغيار والورش في المدينة، نوجّهك لهم بثقة وخصم.', en: 'Agreements with spare-parts shops and workshops in Madinah; we send you to them with trust and a discount.', ur: 'مدینہ میں پارٹس کی دکانوں اور ورکشاپس سے معاہدے؛ ہم آپ کو اعتماد اور رعایت کے ساتھ ان تک پہنچائیں گے۔' },
+    m3t: { ar: 'الفحص والصيانة والتوصيل', en: 'Inspection, maintenance and delivery', ur: 'معائنہ، مرمت اور ڈیلیوری' },
+    m3d: { ar: 'نفحص السيارة بأنفسنا، وممكن نضيف الصيانة والتوصيل.', en: 'We inspect the car ourselves, and may add maintenance and delivery.', ur: 'ہم خود گاڑی کا معائنہ کریں گے، اور ممکن ہے مرمت اور ڈیلیوری بھی شامل کریں۔' },
+    m4t: { ar: 'مستشار شخصي وواتساب', en: 'Personal advisor & WhatsApp', ur: 'ذاتی مشیر اور واٹس ایپ' },
+    m4d: { ar: 'بعد استكمال الأوراق الرسمية.', en: 'After our official paperwork is complete.', ur: 'سرکاری کاغذات مکمل ہونے کے بعد۔' },
+    yoursTitle: { ar: 'هذي منصتك', en: 'This is your platform', ur: 'یہ آپ کا پلیٹ فارم ہے' },
+    yoursLead: { ar: 'أي اقتراح أو ملاحظة تسعدنا وتفرق معنا. قيّمنا واكتب رأيك.', en: 'Every suggestion or comment is appreciated and makes a difference. Rate us and tell us what you think.', ur: 'ہر تجویز یا رائے کی قدر کی جاتی ہے اور فرق ڈالتی ہے۔ ہمیں ریٹ کریں اور اپنی رائے بتائیں۔' },
+    sugLabel: { ar: 'اقتراحك أو ملاحظتك', en: 'Your suggestion or comment', ur: 'آپ کی تجویز یا رائے' },
+    rateLabel: { ar: 'تقييمك (اختياري)', en: 'Your rating (optional)', ur: 'آپ کی ریٹنگ (اختیاری)' },
+    sendBtn: { ar: 'أرسل', en: 'Send', ur: 'بھیجیں' },
+    sentThanks: { ar: 'شكراً! وصلنا اقتراحك.', en: 'Thank you! We received your suggestion.', ur: 'شکریہ! آپ کی تجویز موصول ہو گئی۔' },
+    needSomething: { ar: 'اكتب اقتراحك أو اختر تقييم.', en: 'Write a suggestion or pick a rating.', ur: 'تجویز لکھیں یا ریٹنگ منتخب کریں۔' },
+    searchTitle: { ar: 'وش تدور عليه؟', en: 'What are you looking for?', ur: 'آپ کیا تلاش کر رہے ہیں؟' },
+    platTitle: { ar: 'المواقع مرتبة حسب الثقة', en: 'Sites ranked by trust', ur: 'اعتماد کے لحاظ سے سائٹس' },
+    platLead: { ar: 'اضغط على أي موقع لتشوف المميزات والملاحظات.', en: 'Tap any site to see its pros and cautions.', ur: 'خوبیاں اور احتیاطیں دیکھنے کے لیے کسی بھی سائٹ پر ٹیپ کریں۔' },
+    safeTitle: { ar: 'اشترِ بأمان', en: 'Buy safely', ur: 'محفوظ خریداری' },
     brand: { ar: 'أفضل المعروض للسيارات', en: 'Best Car Offers', ur: 'بہترین پیشکش کاریں' },
-    tagline: { ar: 'محرك بحث السيارات المستعملة في السعودية', en: 'Used-car search engine for Saudi Arabia', ur: 'سعودی عرب میں استعمال شدہ گاڑیوں کا سرچ انجن' },
+    tagline: { ar: 'محرك بحث السيارات المستعملة', en: 'Used-car search engine', ur: 'استعمال شدہ گاڑیوں کا سرچ انجن' },
     navSearch: { ar: 'ابحث', en: 'Search', ur: 'تلاش' },
     heroEyebrow: { ar: 'محرك بحث السيارات المستعملة · السعودية', en: 'Used-car search engine · Saudi Arabia', ur: 'استعمال شدہ گاڑیوں کا سرچ انجن · سعودی عرب' },
     heroTitle: {
-      ar: 'كل عروض السيارات <em>في بحث واحد</em>، بروابط مباشرة لأفضل المعروض',
-      en: 'Every used-car offer <em>in one search</em>, with direct links to the best ones',
-      ur: 'تمام گاڑیوں کی پیشکشیں <em>ایک ہی تلاش میں</em>، بہترین پیشکشوں کے براہِ راست لنکس کے ساتھ',
+      ar: 'كل عروض السيارات <em>في بحث واحد</em>',
+      en: 'Every used-car offer <em>in one search</em>',
+      ur: 'تمام گاڑیوں کی پیشکشیں <em>ایک ہی تلاش میں</em>',
     },
     heroLead: {
-      ar: 'اختر الموديل والمواصفات أو اكتب كم معك، ولو ٥٠٠٠ ريال، ونفتح لك نتائج حراج وسيارة والسوق المفتوح وموتري ويلا موتور وكار سويتش مباشرة، مرتبة حسب الثقة. وفّر وقت البحث.',
-      en: 'Pick the model and features, or just enter how much you have, even 5,000 SAR, and we open the matching results on Haraj, Syarah, OpenSooq, Motory, YallaMotor and CarSwitch directly, ranked by trust. Save hours of searching.',
-      ur: 'ماڈل اور خصوصیات منتخب کریں یا صرف بتائیں آپ کے پاس کتنی رقم ہے، چاہے 5,000 ریال، اور ہم حراج، سیارہ، اوپن سوق، موٹری، یلا موٹر اور کار سوئچ کے متعلقہ نتائج براہِ راست کھول دیں گے، اعتماد کے لحاظ سے ترتیب دے کر۔ تلاش کا وقت بچائیں۔',
+      ar: 'قل لنا كم معك، ولو ٥٠٠٠ ريال، أو اختر الموديل. نفتح لك أفضل العروض في حراج وسيارة وسوم وغيرها مباشرة.',
+      en: 'Tell us how much you have, even 5,000 SAR, or pick a model. We open the best offers on Haraj, Syarah, Soum and more, directly.',
+      ur: 'بتائیں آپ کے پاس کتنی رقم ہے، چاہے 5,000 ریال، یا ماڈل منتخب کریں۔ ہم حراج، سیارہ، سوم اور دیگر پر بہترین پیشکشیں براہِ راست کھول دیں گے۔',
     },
     ctaSearch: { ar: 'ابحث الآن', en: 'Search now', ur: 'ابھی تلاش کریں' },
     ctaPlatforms: { ar: 'المواقع الموثوقة', en: 'Trusted sites', ur: 'قابلِ اعتماد سائٹس' },
@@ -362,6 +399,7 @@
     plateCaption: { ar: 'حتى لو معك ٥٠٠٠ ريال، نوريك أفضل المعروض.', en: 'Even with 5,000 SAR, we show you the best offers.', ur: 'چاہے 5,000 ریال ہوں، ہم آپ کو بہترین پیشکشیں دکھائیں گے۔' },
     point1: { ar: 'روابط مباشرة لنتائج كل موقع حسب الموديل والسنة والمدينة', en: 'Direct links to each site\'s results by model, year and city', ur: 'ماڈل، سال اور شہر کے مطابق ہر سائٹ کے نتائج کے براہِ راست لنکس' },
     point2: { ar: 'بحث عميق داخل نص كل إعلان عن المواصفات اللي تبيها', en: 'Deep search inside every ad\'s text for the features you want', ur: 'ہر اشتہار کے متن میں آپ کی مطلوبہ خصوصیات کی گہری تلاش' },
+    from: { ar: 'من', en: 'from', ur: 'سے' },
     point3: { ar: 'نسبة ثقة لكل موقع وفاحص ثقة للبائع', en: 'A trust score for every site and a seller trust checker', ur: 'ہر سائٹ کا اعتماد اسکور اور بیچنے والے کا اعتماد چیکر' },
     searchEyebrow: { ar: 'محرك البحث', en: 'Search engine', ur: 'سرچ انجن' },
     searchTitle: { ar: 'وش تدور عليه؟', en: 'What are you looking for?', ur: 'آپ کیا تلاش کر رہے ہیں؟' },
@@ -460,8 +498,8 @@
   let lang = LANGS.includes(store.get('lang', 'ar')) ? store.get('lang', 'ar') : 'ar';
   let online = true;
   let starPick = 0;
-  let platFilter = 'all';
   let activeYear = null; // null = all years
+  let cityInit = false;
   const features = new Set();
   const visitorId = store.get('vid', null) || (() => { const id = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)); store.set('vid', id); return id; })();
   const t = (k) => (T[k] ? T[k][lang] ?? T[k].en : k);
@@ -535,11 +573,17 @@
       const c = cityUrl('motory', city);
       return 'https://ksa.motory.com/en/cars-for-sale/' + (c ? c + '/' : '') + (mk ? mk.slug + '/' : '') + (mk && md ? md[0] + '/' : '') + (md && year && !c ? year + '/' : '');
     },
+    soum({ mk, md }) {
+      // Soum uses Arabic names in its URLs: /ar/سيارات/تويوتا/كامري
+      const arabicModel = md && /^[\u0600-\u06FF ]+$/.test(md[2]) ? md[2] : '';
+      const path = ['سيارات', mk ? mk.ar : '', mk && arabicModel ? arabicModel : ''].filter(Boolean).map(encodeURIComponent).join('/');
+      return `https://soum.sa/ar/${path}`;
+    },
     yallamotor({ mk, md, year }) {
       return 'https://ksa.yallamotor.com/used-cars' + (mk ? `/${mk.slug}` : '') + (mk && md ? `/${md[0]}` : '') + (md && year ? `/${year}` : '');
     },
   };
-  const SITES = ['haraj.com.sa', 'syarah.com', 'sa.opensooq.com', 'ksa.motory.com', 'ksa.yallamotor.com', 'ksa.carswitch.com'];
+  const SITES = ['haraj.com.sa', 'syarah.com', 'soum.sa', 'sa.opensooq.com', 'ksa.motory.com', 'ksa.yallamotor.com', 'ksa.carswitch.com'];
   // Google search restricted to the six platforms: finds ads whose text mentions the chosen features.
   function deepLink({ mk, md, years, city }) {
     const parts = ['(' + SITES.map((s) => 'site:' + s).join(' OR ') + ')'];
@@ -572,6 +616,7 @@
     $('#langSel').value = lang;
     fillSelect($('#bodyType'), OPTS.bodyType);
     fillSelect($('#city'), [['', 'كل المدن', 'All cities', 'تمام شہر'], ...D.cities]);
+    if (!cityInit) { $('#city').value = 'madinah'; cityInit = true; }
     fillMakes(); fillModels(); fillYears();
     renderChips(); renderFeatures(); renderAll(); renderPlatforms(); renderSeller(); renderOfficial(); renderStars(); renderStats(lastStats);
   }
@@ -635,18 +680,37 @@
   function renderAll() {
     const b = Number(budgetEl.value);
     $('#budgetOut').textContent = `${fmt(b)} ${t('sar')}`;
-    $('#plateAr').textContent = toArDigits(b);
-    $('#plateEn').textContent = String(b);
     const tier = tierFor(b);
-    $('#tierTag').textContent = L(tier.label);
+    renderLow(b);
     renderResults(tier);
     renderOptions(tier);
     renderBest(tier);
   }
 
+  // Small budgets: point to where cheap cars actually are, and to installments.
+  const LOW_LIMIT = 20000;
+  function renderLow(b) {
+    $('#lowPanel').hidden = b >= LOW_LIMIT;
+    if (b >= LOW_LIMIT) return;
+    const city = $('#city').value;
+    const c = cityUrl('haraj', city);
+    const prices = [];
+    for (let p = Math.max(3000, b - 2000); p <= b + 1000; p += 1000) prices.push(p);
+    const q = `(site:haraj.com.sa OR site:sa.opensooq.com) سيارة للبيع (${prices.join(' OR ')})${c ? ` "${c}"` : ''}`;
+    const soum = platById('soum');
+    $('#lowList').innerHTML = `
+      <div class="low-item"><div><b>${t('low1t')}</b><p>${t('low1d')}</p></div>
+        <a class="btn btn-ghost btn-sm" href="https://www.google.com/search?q=${encodeURIComponent(q)}" target="_blank" rel="noopener">${t('lowGo')} ↗</a></div>
+      <div class="low-item"><div><b>${t('low2t')}</b><p>${t('low2d')}</p></div>
+        <a class="btn btn-ghost btn-sm" href="#optionsPanel">${t('lowSee')} ↓</a></div>
+      <div class="low-item"><div><b>${t('low3t')}</b><p>${t('low3d')}</p></div>
+        <span class="low-links"><a class="btn btn-ghost btn-sm" href="${soum.url}" target="_blank" rel="noopener">${esc(L(soum.name))} ↗</a>
+        <a class="btn btn-ghost btn-sm" href="https://syarah.com/en/autos" target="_blank" rel="noopener">Syarah ↗</a></span></div>`;
+  }
+
   function platformRows(sel) {
     return D.platforms
-      .filter((p) => LINKS[p.id])
+      .filter((p) => LINKS[p.id] && !(p.minBudget && sel.budget < p.minBudget))
       .map((p) => ({ p, s: trustScore(p), url: LINKS[p.id](sel) }))
       .sort((a, b) => b.s - a.s);
   }
@@ -669,6 +733,9 @@
         <span class="pl-name"><b>${esc(L(p.name))}</b><small>${t(typeKey[p.type])} · ${t('trust')} ${s}%</small></span>
         <span class="pl-go">${t('openResults')} ↗</span>
       </a>`).join('');
+    const hidden = D.platforms.filter((p) => LINKS[p.id] && p.minBudget && sel.budget < p.minBudget);
+    $('#hiddenNote').hidden = !hidden.length;
+    $('#hiddenNote').textContent = hidden.length ? t('hiddenSoum') : '';
     const deepSel = { ...sel, years: activeYear ? [activeYear] : years };
     $('#deepLink').href = deepLink(deepSel);
     $('#deepSub').textContent = t('deepSub') + deepWords(deepSel);
@@ -733,30 +800,23 @@
   }
   const scoreColor = (s) => (s >= 80 ? 'var(--ok)' : s >= 60 ? 'var(--mid)' : 'var(--bad)');
   function renderPlatforms() {
-    $$('#platFilter .chip').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.f === platFilter)));
-    const list = D.platforms.map((p) => ({ p, s: trustScore(p) }))
-      .filter(({ p }) => platFilter === 'all' || p.type === platFilter)
-      .sort((a, b) => b.s - a.s);
+    const list = D.platforms.map((p) => ({ p, s: trustScore(p) })).sort((a, b) => b.s - a.s);
     const typeKey = { certified: 'typeCertified', marketplace: 'typeMarketplace', classifieds: 'typeClassifieds' };
     $('#platGrid').innerHTML = list.map(({ p, s }) => `
-      <article class="plat">
-        <div class="plat-top">
-          <div style="display:grid;gap:4px">
-            <span class="badge ${p.type}">${t(typeKey[p.type])}</span>
-            <h3><a href="${p.url}" target="_blank" rel="noopener">${esc(L(p.name))}</a></h3>
-            ${p.example ? `<span class="sub">${esc(L(p.example))}</span>` : ''}
+      <details class="plat-row">
+        <summary>
+          <span class="pl-score num" style="--c:${scoreColor(s)}">${s}%</span>
+          <span class="pl-name"><b>${esc(L(p.name))}</b><small>${t(typeKey[p.type])}${p.minBudget ? ` · ${t('from')} ${fmt(p.minBudget)} ${t('sar')}` : ''}</small></span>
+        </summary>
+        <div class="plat-more">
+          <div class="pc">
+            <div><b style="color:var(--ok)">${t('pros')}</b><ul>${L(p.pros).map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
+            <div><b style="color:var(--bad)">${t('cons')}</b><ul>${L(p.cons).map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
           </div>
-          <div class="gauge" style="--v:${s};--c:${scoreColor(s)}" aria-label="${s}%"><span>${s}%</span></div>
+          <p class="signal">${esc(L(p.signals))}</p>
+          <a href="${p.url}" target="_blank" rel="noopener">${t('visit')} ↗</a>
         </div>
-        <div class="pc">
-          <div><b style="color:var(--ok)">${t('pros')}</b><ul>${L(p.pros).map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
-          <div><b style="color:var(--bad)">${t('cons')}</b><ul>${L(p.cons).map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
-        </div>
-        <p class="signal">${esc(L(p.signals))}</p>
-        <details class="breakdown"><summary>${t('breakdown')}</summary>
-          <div class="bars">${Object.keys(D.trustWeights).map((k) => `<div class="bar"><span>${t('c_' + k)}</span><i style="--v:${p.scores[k]}"></i><span class="num">${p.scores[k]}</span></div>`).join('')}</div>
-        </details>
-      </article>`).join('');
+      </details>`).join('');
   }
 
   // ---------- seller checker ----------
@@ -789,12 +849,9 @@
     $('#stVisits').textContent = fmt(s.visits);
     $('#stSearches').textContent = fmt(s.searches || 0);
     $('#stRating').textContent = s.ratingCount ? `${fmt(s.ratingAvg)}★` : '–';
-    $('#avgBig').textContent = s.ratingCount ? fmt(s.ratingAvg) : '–';
-    $('#avgCount').textContent = s.ratingCount ? `${'★'.repeat(Math.round(s.ratingAvg))} · ${fmt(s.ratingCount)} ${t('ratings')}` : '';
     $('#demoNote').hidden = online;
-    $('#reviews').innerHTML = s.recentReviews.length
-      ? s.recentReviews.map((r) => `<div class="review"><div class="who"><span>${esc(r.name || t('guest'))}</span><span class="s">${'★'.repeat(r.stars)}</span></div>${esc(r.comment)}</div>`).join('')
-      : `<div class="review muted">${t('noReviews')}</div>`;
+    $('#reviews').innerHTML = s.recentReviews.slice(0, 3)
+      .map((r) => `<div class="review"><div class="who"><span>${esc(r.name || t('guest'))}</span><span class="s">${'★'.repeat(r.stars)}</span></div>${esc(r.comment)}</div>`).join('');
   }
   function renderStars() {
     const star = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.8l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.6l-5.8 3 1.1-6.4-4.7-4.6 6.5-.9z"/></svg>';
@@ -847,7 +904,6 @@
     try { renderStats(await api('search', body)); }
     catch { store.set('searches', store.get('searches', 0) + 1); if (!online) renderStats(localStats()); }
   });
-  $('#platFilter').addEventListener('click', (e) => { const c = e.target.closest('[data-f]'); if (c) { platFilter = c.dataset.f; renderPlatforms(); } });
   $('#sellerChecks').addEventListener('change', (e) => { const id = e.target.dataset.sid; if (!id) return; e.target.checked ? sellerState.add(id) : sellerState.delete(id); updateSeller(); });
 
   $('#revealBtn').addEventListener('click', () => openModal('termsModal'));
@@ -868,13 +924,20 @@
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') $$('.modal').forEach((m) => { m.hidden = true; }); });
 
   $('#stars').addEventListener('click', (e) => { const b = e.target.closest('[data-n]'); if (b) { starPick = Number(b.dataset.n); renderStars(); } });
-  $('#rateBtn').addEventListener('click', async () => {
-    if (!starPick) return toast(t('rateNeedStars'));
-    const body = { visitorId, stars: starPick, name: $('#rName').value.trim().slice(0, 40), comment: $('#rComment').value.trim().slice(0, 500) };
-    try { renderStats(await api('ratings', body)); }
-    catch { const r = store.get('ratings', []); r.push({ ...body, at: new Date().toISOString() }); store.set('ratings', r); renderStats(localStats()); }
-    starPick = 0; renderStars(); $('#rComment').value = '';
-    toast(t('rateThanks'));
+  // Suggestions are private (admin only); a star rating with a comment also shows as a public review.
+  $('#sendBtn').addEventListener('click', async () => {
+    const text = $('#sugText').value.trim().slice(0, 1000);
+    if (!text && !starPick) return toast(t('needSomething'));
+    try {
+      if (text) await api('suggestions', { visitorId, lang, text, stars: starPick || null });
+      if (starPick) renderStats(await api('ratings', { visitorId, stars: starPick, comment: text.slice(0, 500) }));
+    } catch {
+      if (text) { const l = store.get('suggestions', []); l.push({ text, at: new Date().toISOString() }); store.set('suggestions', l); }
+      if (starPick) { const r = store.get('ratings', []); r.push({ stars: starPick, comment: text.slice(0, 500), at: new Date().toISOString() }); store.set('ratings', r); }
+      renderStats(localStats());
+    }
+    starPick = 0; renderStars(); $('#sugText').value = '';
+    toast(t('sentThanks'));
   });
 
   // Highlight the bottom-nav item for the section in view.
@@ -886,7 +949,7 @@
       navLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
-  if (io) { ['search', 'platforms', 'safety', 'rate'].forEach((id) => io.observe($('#' + id))); io.observe($('.hero')); }
+  if (io) { ['search', 'platforms', 'madinah', 'yours'].forEach((id) => io.observe($('#' + id))); io.observe($('.hero')); }
 
   // ---------- boot ----------
   async function recordVisit() {
