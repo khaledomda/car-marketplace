@@ -36,6 +36,10 @@
   </div>
 </header>
 
+<button type="button" class="ws-bar" id="wsOpen">
+  <span class="wrap"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg><b data-i="wsBar"></b><span class="ws-go" data-i="wsBarGo"></span></span>
+</button>
+
 <main id="top">
   <!-- HERO -->
   <section class="hero">
@@ -90,6 +94,7 @@
           <div class="panel" id="lowPanel" hidden>
             <h3 data-i="lowTitle"></h3>
             <p class="muted small" data-i="lowLead"></p>
+            <p class="danger small" data-i="lowWarn"></p>
             <div class="low-list" id="lowList"></div>
           </div>
 
@@ -98,11 +103,13 @@
             <p class="muted small" id="resSub"></p>
             <div class="chips year-chips" id="yearChips"></div>
             <div class="plat-links" id="platLinks"></div>
+            <p class="muted small" id="checkNote" hidden></p>
             <p class="muted small" id="hiddenNote" hidden></p>
             <a class="deep" id="deepLink" target="_blank" rel="noopener">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
               <span><b data-i="deepTitle"></b><small id="deepSub"></small></span>
             </a>
+            <p class="method" data-i="method"></p>
           </div>
 
           <div class="panel" id="optionsPanel">
@@ -125,16 +132,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- PLATFORMS -->
-  <section class="block" id="platforms">
-    <div class="wrap narrow">
-      <h2 data-i="platTitle"></h2>
-      <p class="muted" data-i="platLead"></p>
-      <div class="plat-list" id="platGrid"></div>
-      <p class="method" data-i="method"></p>
     </div>
   </section>
 
@@ -220,7 +217,7 @@
   <div class="wrap">
     <a href="#top"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg><span data-i="navHome"></span></a>
     <a href="#search"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span data-i="navSearch"></span></a>
-    <a href="#platforms"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg><span data-i="navPlatforms"></span></a>
+    <a href="#workshops" id="wsNav"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg><span data-i="navWorkshops"></span></a>
     <a href="#madinah"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg><span data-i="navMadinah"></span></a>
     <a href="#yours"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span data-i="navYours"></span></a>
   </div>
@@ -242,6 +239,16 @@
       <button class="btn btn-ghost" type="button" id="termsCancel" data-i="termsCancel"></button>
       <button class="btn btn-primary" type="button" id="termsAgree" data-i="termsAgree" disabled></button>
     </div>
+  </div>
+</div>
+
+<div class="modal" id="wsModal" hidden role="dialog" aria-modal="true" aria-labelledby="wsTitle">
+  <div class="sheet">
+    <h2 id="wsTitle" data-i="wsTitle"></h2>
+    <p class="muted small" data-i="wsLead"></p>
+    <div class="ws-list" id="wsList"></div>
+    <p class="danger small" data-i="wsWarn"></p>
+    <div class="sheet-actions"><button class="btn btn-primary" type="button" id="wsClose" data-i="close"></button></div>
   </div>
 </div>
 

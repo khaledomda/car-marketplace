@@ -405,3 +405,26 @@ section.block { padding-block: 28px; }
 #yours .reviews { margin-top: 12px; }
 .plat-link { padding: 8px 12px; }
 footer { padding-bottom: 12px; }
+
+/* ---------- v4: workshops bar, availability, low-price finder ---------- */
+.ws-bar { display: block; width: 100%; border: 0; cursor: pointer; background: var(--gold-soft); color: var(--ink); font: inherit; text-align: start; border-bottom: 1px solid var(--line); }
+.ws-bar .wrap { display: flex; align-items: center; gap: 10px; padding-block: 10px; }
+.ws-bar svg { color: var(--gold); flex: none; }
+.ws-bar b { font-size: 0.92rem; }
+.ws-bar .ws-go { margin-inline-start: auto; color: var(--accent); font-weight: 600; font-size: 0.85rem; white-space: nowrap; }
+.ws-bar:hover { filter: brightness(0.98); }
+.ws-list { display: grid; gap: 8px; }
+.ws-item, .low-row { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; text-decoration: none; color: var(--ink); background: var(--bg); }
+.low-row { grid-template-columns: 52px 1fr auto; }
+.ws-item:hover, .low-row:hover { border-color: var(--accent); }
+.low-list { gap: 8px; }
+.avail { font-weight: 600; }
+.avail:empty { display: none; }
+.avail-ok { color: var(--ok) !important; }
+.avail-over { color: var(--mid) !important; }
+.avail-unknown { color: var(--muted) !important; font-weight: 400; }
+#checkNote { font-style: italic; }
+.options { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+button.opt { font: inherit; color: var(--ink); cursor: pointer; text-align: start; display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; align-items: center; width: 100%; }
+button.opt .pl-go { grid-column: 1 / -1; }
+button.opt:hover { border-color: var(--accent); }

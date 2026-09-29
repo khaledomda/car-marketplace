@@ -377,3 +377,51 @@ window.DALEEL_DATA.cityUrls = {
   opensooq: { riyadh: 'riyadh', jeddah: 'jeddah', dammam: 'dammam' },
   motory: { riyadh: 'riyadh-haraj', jeddah: 'jeddah-haraj', dammam: 'dammam-haraj' },
 };
+
+// ---------- low-price finder ----------
+// Extra sources for cheap cars. trust = our estimate (%). Low-trust sources get a red warning.
+window.DALEEL_DATA.lowSources = [
+  { id: 'infath', trust: 70, kind: 'official',
+    name: { ar: 'مزادات إنفاذ الحكومية', en: 'Infath government auctions', ur: 'انفاذ سرکاری نیلامیاں' },
+    note: { ar: 'جهة حكومية رسمية. السيارة تُباع بحالتها، وادفع فقط عبر المنصة الرسمية.', en: 'Official government body. Cars are sold as-is; pay only through the official platform.', ur: 'سرکاری ادارہ۔ گاڑیاں جیسی ہیں ویسی فروخت ہوتی ہیں؛ ادائیگی صرف سرکاری پلیٹ فارم سے کریں۔' } },
+  { id: 'recent', trust: 32, kind: 'classifieds',
+    name: { ar: 'حراج والسوق المفتوح: آخر ٧ أيام', en: 'Haraj & OpenSooq: last 7 days', ur: 'حراج اور اوپن سوق: پچھلے 7 دن' },
+    note: { ar: 'إعلانات حديثة بسعرك تقريباً.', en: 'Recent ads at about your price.', ur: 'آپ کی قیمت کے قریب حالیہ اشتہارات۔' } },
+  { id: 'mstaml', trust: 33, kind: 'classifieds',
+    name: { ar: 'مستعمل (Mstaml)', en: 'Mstaml', ur: 'مستعمل (Mstaml)' },
+    note: { ar: 'موقع إعلانات سعودي، فيه قسم لأرخص السيارات في المدينة.', en: 'Saudi classifieds with a cheapest-cars section for Madinah.', ur: 'سعودی اشتہارات کی سائٹ، مدینہ کی سب سے سستی گاڑیوں کا سیکشن۔' } },
+  { id: 'expatriates', trust: 28, kind: 'classifieds',
+    name: { ar: 'إكسباتريتس (Expatriates.com)', en: 'Expatriates.com', ur: 'ایکسپیٹریٹس (Expatriates.com)' },
+    note: { ar: 'إعلانات مقيمين، غالباً بأسعار منخفضة وأحدث الإعلانات أولاً.', en: 'Ads by residents, often low prices, newest first.', ur: 'مقیم افراد کے اشتہارات، اکثر کم قیمت، تازہ ترین پہلے۔' } },
+  { id: 'web', trust: 20, kind: 'web',
+    name: { ar: 'كل الإنترنت: آخر ٧ أيام', en: 'The whole internet: last 7 days', ur: 'پورا انٹرنیٹ: پچھلے 7 دن' },
+    note: { ar: 'بحث في كل المواقع عن سيارات بسعرك في مدينتك.', en: 'Searches every website for cars at your price in your city.', ur: 'آپ کے شہر میں آپ کی قیمت پر گاڑیوں کی تمام سائٹس پر تلاش۔' } },
+  { id: 'x', trust: 15, kind: 'social',
+    name: { ar: 'منصة X: الأحدث', en: 'X (Twitter): latest', ur: 'X (ٹوئٹر): تازہ ترین' },
+    note: { ar: 'تغريدات بيع سيارات مرتبة من الأحدث.', en: 'Car-for-sale posts, newest first.', ur: 'گاڑی فروخت کی پوسٹس، تازہ ترین پہلے۔' } },
+  { id: 'facebook', trust: 15, kind: 'social',
+    name: { ar: 'سوق فيسبوك (Marketplace)', en: 'Facebook Marketplace', ur: 'فیس بک مارکیٹ پلیس' },
+    note: { ar: 'يحتاج تسجيل دخول لفيسبوك.', en: 'Needs a Facebook login.', ur: 'فیس بک لاگ اِن درکار ہے۔' } },
+];
+window.DALEEL_DATA.cityUrls.expatriates = { madinah: 'madinah', riyadh: 'riyadh', jeddah: 'jeddah', dammam: 'eastern-province', khobar: 'eastern-province', tabuk: 'tabuk-region' };
+window.DALEEL_DATA.mstamlCheapMadinah = 'https://www.mstaml.com/en/sa/tag/saudi-arabia/medina-region/al-madinah-al-munawwarah/%D8%A7%D8%B1%D8%AE%D8%B5-%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D9%85%D8%B3%D8%AA%D8%B9%D9%85%D9%84%D8%A9?id=18846&location=33';
+
+// ---------- trusted workshops in Al-Madinah ----------
+// Official and well-known sources only; no partnership is claimed until agreements are signed.
+window.DALEEL_DATA.workshops = [
+  { url: 'https://mcc.vsafety.sa/', badge: { ar: 'رسمي', en: 'Official', ur: 'سرکاری' },
+    name: { ar: 'منصة تصنيف مراكز الصيانة (مركز سلامة المركبات)', en: 'Maintenance Centers Rating (Vehicle Safety Center)', ur: 'مینٹیننس سینٹرز ریٹنگ (وہیکل سیفٹی سینٹر)' },
+    desc: { ar: 'ورش مصنّفة رسمياً بالنجوم. اختر ورشة مصنّفة في المدينة المنورة.', en: 'Workshops officially rated with stars. Pick a rated workshop in Al-Madinah.', ur: 'سرکاری طور پر ستاروں سے درجہ بند ورکشاپس۔ مدینہ میں درجہ بند ورکشاپ منتخب کریں۔' } },
+  { url: 'https://www.toyota.com.sa/en/find-a-center', badge: { ar: 'وكيل', en: 'Dealer', ur: 'ڈیلر' },
+    name: { ar: 'مراكز صيانة تويوتا المعتمدة (عبداللطيف جميل)', en: 'Toyota authorized service (Abdul Latif Jameel)', ur: 'ٹویوٹا مجاز سروس (عبداللطیف جمیل)' },
+    desc: { ar: 'ابحث عن أقرب مركز في المدينة واحجز موعد.', en: 'Find the nearest centre in Madinah and book.', ur: 'مدینہ میں قریب ترین مرکز تلاش کریں اور بکنگ کریں۔' } },
+  { url: 'https://petrominauto.care/petromin-autocare-locations/', badge: { ar: 'معتمد', en: 'Authorized', ur: 'مجاز' },
+    name: { ar: 'بترومين أوتوكير', en: 'Petromin AutoCare', ur: 'پیٹرومن آٹو کیئر' },
+    desc: { ar: 'مراكز إصلاح معتمدة لكل الماركات.', en: 'Authorized multi-brand repair centres.', ur: 'تمام برانڈز کے مجاز مرمتی مراکز۔' } },
+  { url: 'https://petromin.express/petromin-express-locations/', badge: { ar: 'خدمة سريعة', en: 'Quick service', ur: 'فوری سروس' },
+    name: { ar: 'بترومين إكسبريس', en: 'Petromin Express', ur: 'پیٹرومن ایکسپریس' },
+    desc: { ar: 'تغيير زيت وخدمات سريعة.', en: 'Oil change and quick services.', ur: 'تیل کی تبدیلی اور فوری سروسز۔' } },
+  { url: 'https://www.google.com/maps/search/%D9%88%D8%B1%D8%B4%D8%A9+%D8%B5%D9%8A%D8%A7%D9%86%D8%A9+%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA+%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D8%A9+%D8%A7%D9%84%D9%85%D9%86%D9%88%D8%B1%D8%A9', badge: { ar: 'خرائط', en: 'Maps', ur: 'نقشہ' },
+    name: { ar: 'ورش المدينة على خرائط Google', en: 'Madinah workshops on Google Maps', ur: 'گوگل میپس پر مدینہ کی ورکشاپس' },
+    desc: { ar: 'اختر ورشة تقييمها ٤٫٥ أو أعلى وعليها أكثر من ١٠٠ تقييم.', en: 'Choose one rated 4.5 or higher with 100+ reviews.', ur: '4.5 یا زیادہ ریٹنگ اور 100 سے زیادہ ریویوز والی منتخب کریں۔' } },
+];

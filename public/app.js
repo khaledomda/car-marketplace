@@ -342,13 +342,54 @@
 
   // Search-engine text (overrides and additions), in ar / en / ur.
   Object.assign(T, {
+    wsBar: { ar: 'ورش موثوقة في المدينة المنورة', en: 'Trusted workshops in Al-Madinah', ur: 'مدینہ منورہ میں قابلِ اعتماد ورکشاپس' },
+    wsBarGo: { ar: 'اعرض ←', en: 'View →', ur: 'دیکھیں ←' },
+    navWorkshops: { ar: 'الورش', en: 'Workshops', ur: 'ورکشاپس' },
+    wsTitle: { ar: 'ورش موثوقة في المدينة المنورة', en: 'Trusted workshops in Al-Madinah', ur: 'مدینہ منورہ میں قابلِ اعتماد ورکشاپس' },
+    wsLead: {
+      ar: 'قريباً: ورش شريكة في المدينة تقدم عناية إضافية لعملاء أفضل المعروض. حالياً هذي مصادر رسمية وموثوقة تختار منها ورشتك:',
+      en: 'Coming soon: partner workshops in Madinah giving extra care to our customers. For now, official and trusted sources to choose your workshop:',
+      ur: 'جلد: مدینہ میں شراکت دار ورکشاپس جو ہمارے صارفین کو اضافی توجہ دیں گی۔ فی الحال، ورکشاپ منتخب کرنے کے لیے سرکاری اور قابلِ اعتماد ذرائع:',
+    },
+    wsWarn: {
+      ar: 'اطلب تقرير فحص مكتوب وسعر واضح قبل أي إصلاح. أنت المسؤول عن اختيار الورشة.',
+      en: 'Ask for a written inspection report and a clear price before any repair. Choosing the workshop is your responsibility.',
+      ur: 'کسی بھی مرمت سے پہلے تحریری معائنہ رپورٹ اور واضح قیمت مانگیں۔ ورکشاپ کا انتخاب آپ کی ذمہ داری ہے۔',
+    },
+    lowTitle: { ar: 'أرخص العروض الحقيقية الآن', en: 'The cheapest real offers right now', ur: 'ابھی کی سب سے سستی حقیقی پیشکشیں' },
+    lowLead: {
+      ar: 'السيارات الاقتصادية هي تخصصنا. جمعنا لك كل مكان فيه سيارات بسعرك، مرتبة حسب الثقة، مع الأحدث أولاً.',
+      en: 'Budget cars are our focus. Every place with cars at your price, ranked by trust, newest first.',
+      ur: 'کم قیمت گاڑیاں ہماری خصوصیت ہیں۔ ہر وہ جگہ جہاں آپ کی قیمت پر گاڑیاں ہیں، اعتماد کے لحاظ سے، تازہ ترین پہلے۔',
+    },
+    lowWarn: {
+      ar: 'تحذير: أغلب هذي المصادر إعلانات أفراد بدون تحقق. قابل البائع في مكان عام، افحص السيارة، ولا تحوّل أي مبلغ قبل نقل الملكية عبر أبشر.',
+      en: 'Warning: most of these are unverified private ads. Meet the seller in a public place, inspect the car, and never send money before the Absher transfer.',
+      ur: 'انتباہ: ان میں سے زیادہ تر غیر تصدیق شدہ نجی اشتہارات ہیں۔ بیچنے والے سے عوامی جگہ ملیں، گاڑی کا معائنہ کریں، اور ابشر منتقلی سے پہلے کبھی رقم نہ بھیجیں۔',
+    },
+    lowTrustWarn: { ar: 'ثقة منخفضة', en: 'Low trust', ur: 'کم اعتماد' },
+    newest: { ar: 'الأحدث', en: 'Newest', ur: 'تازہ ترین' },
+    checking: { ar: 'نتحقق الآن من توفر السيارة في كل موقع…', en: 'Checking which sites have this car right now…', ur: 'ابھی چیک کر رہے ہیں کہ کن سائٹس پر یہ گاڑی ہے…' },
+    checkedAt: { ar: 'تم التحقق من التوفر الآن', en: 'Availability checked just now', ur: 'دستیابی ابھی چیک کی گئی' },
+    avail: { ar: 'متوفر', en: 'Available', ur: 'دستیاب' },
+    ads: { ar: 'إعلان', en: 'ads', ur: 'اشتہارات' },
+    fromPrice: { ar: 'من', en: 'from', ur: 'سے' },
+    notChecked: { ar: 'لم نتحقق', en: 'Not verified', ur: 'تصدیق نہیں ہوئی' },
+    aboveBudget: { ar: 'أغلى من ميزانيتك', en: 'Above your budget', ur: 'آپ کے بجٹ سے زیادہ' },
+    hiddenNone: { ar: 'أخفينا مواقع ما فيها هذي السيارة حالياً: ', en: 'Hidden because they have no such car right now: ', ur: 'پوشیدہ کیونکہ ابھی ان پر یہ گاڑی نہیں: ' },
+    m2t: { ar: 'ورش وقطع غيار موثوقة', en: 'Trusted workshops and spare parts', ur: 'قابلِ اعتماد ورکشاپس اور اسپیئر پارٹس' },
+    m2d: { ar: 'اتفاقيات مع ورش ومحلات قطع غيار في المدينة تقدم عناية إضافية لعملائنا.', en: 'Agreements with workshops and spare-parts shops in Madinah that give our customers extra care.', ur: 'مدینہ کی ورکشاپس اور پارٹس کی دکانوں سے معاہدے جو ہمارے صارفین کو اضافی توجہ دیں گی۔' },
+    optionsSub: { ar: 'موديلات تناسب مبلغك. اضغط على أي موديل لعرض إعلاناته.', en: 'Models that fit your money. Tap one to see its ads.', ur: 'آپ کی رقم کے مطابق ماڈلز۔ اشتہارات دیکھنے کے لیے کسی پر ٹیپ کریں۔' },
+    method: {
+      ar: 'نسبة الثقة تقديرية من فريقنا حسب الفحص والضمان وتقييمات العملاء (سبتمبر ٢٠٢٦).',
+      en: 'Trust scores are our team\'s estimate from inspection, warranty and customer reviews (September 2026).',
+      ur: 'اعتماد اسکور ہماری ٹیم کا اندازہ ہے، معائنہ، وارنٹی اور صارفین کے ریویوز کی بنیاد پر (ستمبر 2026)۔',
+    },
     trial: { ar: 'فترة تجريبية مجانية: لن نطلب منك أي مبلغ حالياً.', en: 'Free trial period: we will not ask you for any money for now.', ur: 'مفت آزمائشی مدت: فی الحال ہم آپ سے کوئی رقم نہیں مانگیں گے۔' },
     cityBadge: { ar: 'نبدأ من المدينة المنورة', en: 'Starting in Al-Madinah', ur: 'ہم مدینہ منورہ سے شروع کر رہے ہیں' },
     navMadinah: { ar: 'المدينة', en: 'Madinah', ur: 'مدینہ' },
     navYours: { ar: 'اقتراحك', en: 'Suggest', ur: 'تجویز' },
     moreOptions: { ar: 'خيارات أكثر: السنة، النوع، المواصفات', en: 'More options: year, type, features', ur: 'مزید آپشنز: سال، قسم، خصوصیات' },
-    lowTitle: { ar: 'ميزانيتك صغيرة؟ هذي أفضل طرقك', en: 'Small budget? Your best routes', ur: 'بجٹ کم ہے؟ یہ آپ کے بہترین راستے ہیں' },
-    lowLead: { ar: 'تحت ٢٠ ألف أغلب العروض عند الأفراد في حراج والسوق المفتوح. هذي أسرع طرق توصلك لأفضل صفقة:', en: 'Under 20,000 SAR most offers are from individuals on Haraj and OpenSooq. The fastest ways to the best deal:', ur: '20,000 ریال سے کم زیادہ تر پیشکشیں حراج اور اوپن سوق پر افراد کی ہوتی ہیں۔ بہترین سودے تک پہنچنے کے تیز ترین راستے:' },
     low1t: { ar: 'إعلانات بسعرك بالضبط', en: 'Ads at your exact price', ur: 'آپ کی قیمت کے عین مطابق اشتہارات' },
     low1d: { ar: 'بحث في حراج والسوق المفتوح عن سيارات معروضة بمبلغك تقريباً.', en: 'Searches Haraj and OpenSooq for cars listed at about your amount.', ur: 'حراج اور اوپن سوق پر تقریباً آپ کی رقم میں دستیاب گاڑیاں تلاش کرتا ہے۔' },
     low2t: { ar: 'أرخص الموديلات الموثوقة', en: 'Cheapest reliable models', ur: 'سب سے سستے قابلِ اعتماد ماڈلز' },
@@ -362,8 +403,6 @@
     madLead: { ar: 'بدأنا من المدينة المنورة، وقريباً:', en: 'We are starting in Al-Madinah, and soon:', ur: 'ہم مدینہ منورہ سے شروع کر رہے ہیں، اور جلد:' },
     m1t: { ar: 'عروض حقيقية من معارض السيارات', en: 'Real offers from car showrooms', ur: 'کار شورومز سے حقیقی پیشکشیں' },
     m1d: { ar: 'اتفاقيات مع معارض في المدينة لعرض سيارات حقيقية على المنصة تحت مسؤوليتنا.', en: 'Agreements with Madinah showrooms to list real cars on the platform under our responsibility.', ur: 'مدینہ کے شورومز سے معاہدے تاکہ حقیقی گاڑیاں ہماری ذمہ داری پر پلیٹ فارم پر دکھائی جائیں۔' },
-    m2t: { ar: 'قطع الغيار والخدمات بخصومات', en: 'Spare parts and services with discounts', ur: 'اسپیئر پارٹس اور سروسز رعایت کے ساتھ' },
-    m2d: { ar: 'اتفاقيات مع محلات قطع الغيار والورش في المدينة، نوجّهك لهم بثقة وخصم.', en: 'Agreements with spare-parts shops and workshops in Madinah; we send you to them with trust and a discount.', ur: 'مدینہ میں پارٹس کی دکانوں اور ورکشاپس سے معاہدے؛ ہم آپ کو اعتماد اور رعایت کے ساتھ ان تک پہنچائیں گے۔' },
     m3t: { ar: 'الفحص والصيانة والتوصيل', en: 'Inspection, maintenance and delivery', ur: 'معائنہ، مرمت اور ڈیلیوری' },
     m3d: { ar: 'نفحص السيارة بأنفسنا، وممكن نضيف الصيانة والتوصيل.', en: 'We inspect the car ourselves, and may add maintenance and delivery.', ur: 'ہم خود گاڑی کا معائنہ کریں گے، اور ممکن ہے مرمت اور ڈیلیوری بھی شامل کریں۔' },
     m4t: { ar: 'مستشار شخصي وواتساب', en: 'Personal advisor & WhatsApp', ur: 'ذاتی مشیر اور واٹس ایپ' },
@@ -402,7 +441,6 @@
     from: { ar: 'من', en: 'from', ur: 'سے' },
     point3: { ar: 'نسبة ثقة لكل موقع وفاحص ثقة للبائع', en: 'A trust score for every site and a seller trust checker', ur: 'ہر سائٹ کا اعتماد اسکور اور بیچنے والے کا اعتماد چیکر' },
     searchEyebrow: { ar: 'محرك البحث', en: 'Search engine', ur: 'سرچ انجن' },
-    searchTitle: { ar: 'وش تدور عليه؟', en: 'What are you looking for?', ur: 'آپ کیا تلاش کر رہے ہیں؟' },
     searchLead: {
       ar: 'حدد ميزانيتك، وإذا تبي اختر الشركة والموديل والسنة والمواصفات. النتائج تتحدث مباشرة.',
       en: 'Set your budget, and if you like pick the make, model, year and features. Results update instantly.',
@@ -448,7 +486,6 @@
       ur: 'تمام سائٹس کے اشتہارات کے متن میں تلاش: ',
     },
     optionsTitle: { ar: 'خيارات حقيقية لميزانيتك', en: 'Real options for your budget', ur: 'آپ کے بجٹ کے لیے حقیقی آپشنز' },
-    optionsSub: { ar: 'موديلات تناسب مبلغك، مع روابط مباشرة لإعلاناتها الآن.', en: 'Models that fit your money, with direct links to their listings right now.', ur: 'آپ کی رقم کے مطابق ماڈلز، ان کے موجودہ اشتہارات کے براہِ راست لنکس کے ساتھ۔' },
     useThis: { ar: 'اعرض كل النتائج', en: 'Show all results', ur: 'تمام نتائج دکھائیں' },
     haraj: { ar: 'حراج', en: 'Haraj', ur: 'حراج' },
     deepShort: { ar: 'بحث عميق', en: 'Deep search', ur: 'گہری تلاش' },
@@ -594,7 +631,7 @@
     const c = cityUrl('haraj', city);
     if (c) parts.push(`"${c}"`);
     D.features.filter((f) => features.has(f.id)).forEach((f) => parts.push(`"${f.q}"`));
-    return 'https://www.google.com/search?q=' + encodeURIComponent(parts.join(' '));
+    return 'https://www.google.com/search?tbs=qdr:m&q=' + encodeURIComponent(parts.join(' ')); // past month only
   }
   function deepWords({ mk, md, years, city }) {
     const w = [];
@@ -618,7 +655,7 @@
     fillSelect($('#city'), [['', 'كل المدن', 'All cities', 'تمام شہر'], ...D.cities]);
     if (!cityInit) { $('#city').value = 'madinah'; cityInit = true; }
     fillMakes(); fillModels(); fillYears();
-    renderChips(); renderFeatures(); renderAll(); renderPlatforms(); renderSeller(); renderOfficial(); renderStars(); renderStats(lastStats);
+    renderChips(); renderFeatures(); renderAll(); renderSeller(); renderOfficial(); renderStars(); renderStats(lastStats);
   }
   function fillSelect(sel, list) {
     const cur = sel.value;
@@ -687,32 +724,53 @@
     renderBest(tier);
   }
 
-  // Small budgets: point to where cheap cars actually are, and to installments.
-  const LOW_LIMIT = 20000;
-  function renderLow(b) {
-    $('#lowPanel').hidden = b >= LOW_LIMIT;
-    if (b >= LOW_LIMIT) return;
-    const city = $('#city').value;
-    const c = cityUrl('haraj', city);
+  // Low-price finder: our main sector. Every place with cars at this price, by trust, newest first.
+  const LOW_FOCUS = 30000;
+  const recentGoogle = (q, period = 'w') => `https://www.google.com/search?tbs=qdr:${period}&q=${encodeURIComponent(q)}`;
+  function lowSourceUrl(id, { b, city, mk, md }) {
+    const cityAr = (D.cities.find((c) => c[0] === city) || [])[1] || '';
+    const carWord = md ? md[2] : mk ? mk.ar : 'سيارة';
     const prices = [];
-    for (let p = Math.max(3000, b - 2000); p <= b + 1000; p += 1000) prices.push(p);
-    const q = `(site:haraj.com.sa OR site:sa.opensooq.com) سيارة للبيع (${prices.join(' OR ')})${c ? ` "${c}"` : ''}`;
+    for (let p = Math.max(3000, Math.round((b * 0.7) / 1000) * 1000); p <= b; p += 1000) prices.push(p);
+    const priceQ = '(' + prices.slice(-6).join(' OR ') + ')';
+    const place = cityAr ? ` "${cityAr}"` : '';
+    switch (id) {
+      case 'infath': return 'https://auctions.infath.gov.sa/';
+      case 'recent': return recentGoogle(`(site:haraj.com.sa OR site:sa.opensooq.com) ${carWord} للبيع ${priceQ}${place}`);
+      case 'mstaml': return city === 'madinah' && !mk ? D.mstamlCheapMadinah : recentGoogle(`site:mstaml.com ${carWord} للبيع ${priceQ}${place}`, 'm');
+      case 'expatriates': return `https://www.expatriates.com/classifieds/${D.cityUrls.expatriates[city] || 'saudi-arabia'}/vehicles-cars-trucks/`;
+      case 'web': return recentGoogle(`${carWord} للبيع ${priceQ} ريال${place} -site:haraj.com.sa -site:sa.opensooq.com`);
+      case 'x': return `https://x.com/search?f=live&q=${encodeURIComponent(`${carWord} للبيع${cityAr ? ' ' + cityAr : ''}`)}`;
+      case 'facebook': return `https://www.facebook.com/marketplace/search/?query=${encodeURIComponent(`${carWord} ${cityAr}`.trim())}`;
+    }
+    return '#';
+  }
+  function renderLow(b) {
+    $('#lowPanel').hidden = b >= LOW_FOCUS;
+    if (b >= LOW_FOCUS) return;
+    const sel = { b, city: $('#city').value, mk: makeBySlug($('#make').value), md: null };
+    sel.md = modelOf(sel.mk, $('#model').value) || null;
     const soum = platById('soum');
-    $('#lowList').innerHTML = `
-      <div class="low-item"><div><b>${t('low1t')}</b><p>${t('low1d')}</p></div>
-        <a class="btn btn-ghost btn-sm" href="https://www.google.com/search?q=${encodeURIComponent(q)}" target="_blank" rel="noopener">${t('lowGo')} ↗</a></div>
-      <div class="low-item"><div><b>${t('low2t')}</b><p>${t('low2d')}</p></div>
-        <a class="btn btn-ghost btn-sm" href="#optionsPanel">${t('lowSee')} ↓</a></div>
+    const rows = D.lowSources.slice().sort((x, y) => y.trust - x.trust).map((src) => `
+      <a class="low-row" href="${esc(lowSourceUrl(src.id, sel))}" target="_blank" rel="noopener">
+        <span class="pl-score num" style="--c:${scoreColor(src.trust)}">${src.trust}%</span>
+        <span class="pl-name"><b>${esc(L(src.name))}</b><small>${esc(L(src.note))}</small>
+          ${src.trust < 40 ? `<small class="danger-text">⚠ ${t('lowTrustWarn')}</small>` : ''}</span>
+        <span class="pl-go">${t('lowGo')} ↗</span>
+      </a>`).join('');
+    const installments = b < 20000 ? `
       <div class="low-item"><div><b>${t('low3t')}</b><p>${t('low3d')}</p></div>
         <span class="low-links"><a class="btn btn-ghost btn-sm" href="${soum.url}" target="_blank" rel="noopener">${esc(L(soum.name))} ↗</a>
-        <a class="btn btn-ghost btn-sm" href="https://syarah.com/en/autos" target="_blank" rel="noopener">Syarah ↗</a></span></div>`;
+        <a class="btn btn-ghost btn-sm" href="https://syarah.com/en/autos" target="_blank" rel="noopener">Syarah ↗</a></span></div>` : '';
+    $('#lowList').innerHTML = rows + installments;
   }
 
   function platformRows(sel) {
     return D.platforms
       .filter((p) => LINKS[p.id] && !(p.minBudget && sel.budget < p.minBudget))
       .map((p) => ({ p, s: trustScore(p), url: LINKS[p.id](sel) }))
-      .sort((a, b) => b.s - a.s);
+      // Under 20,000 SAR the cheap cars are on classifieds, so those come first.
+      .sort((a, b) => (sel.budget < 20000 ? (b.p.type === 'classifieds') - (a.p.type === 'classifieds') : 0) || b.s - a.s);
   }
 
   function renderResults() {
@@ -727,12 +785,14 @@
       : '';
     const linkSel = { ...sel, year: md ? activeYear : null };
     const typeKey = { certified: 'typeCertified', marketplace: 'typeMarketplace', classifieds: 'typeClassifieds' };
-    $('#platLinks').innerHTML = platformRows(linkSel).map(({ p, s, url }) => `
-      <a class="plat-link" href="${esc(url)}" target="_blank" rel="noopener">
+    const rows = platformRows(linkSel);
+    $('#platLinks').innerHTML = rows.map(({ p, s, url }) => `
+      <a class="plat-link" data-site="${p.id}" href="${esc(url)}" target="_blank" rel="noopener">
         <span class="pl-score num" style="--c:${scoreColor(s)}">${s}%</span>
-        <span class="pl-name"><b>${esc(L(p.name))}</b><small>${t(typeKey[p.type])} · ${t('trust')} ${s}%</small></span>
+        <span class="pl-name"><b>${esc(L(p.name))}</b><small>${t(typeKey[p.type])} · ${t('trust')} ${s}%</small><small class="avail" data-avail></small></span>
         <span class="pl-go">${t('openResults')} ↗</span>
       </a>`).join('');
+    scheduleCheck(mk ? Object.fromEntries(rows.map((r) => [r.p.id, r.url])) : null, sel.budget);
     const hidden = D.platforms.filter((p) => LINKS[p.id] && p.minBudget && sel.budget < p.minBudget);
     $('#hiddenNote').hidden = !hidden.length;
     $('#hiddenNote').textContent = hidden.length ? t('hiddenSoum') : '';
@@ -741,26 +801,53 @@
     $('#deepSub').textContent = t('deepSub') + deepWords(deepSel);
   }
 
+  // ---------- live availability check ----------
+  // Asks our server which sites really have this car; hides the ones that clearly have none.
+  let checkTimer = null;
+  let checkSeq = 0;
+  function scheduleCheck(urls, budget) {
+    clearTimeout(checkTimer);
+    $('#checkNote').hidden = true;
+    if (!urls || !online) return;
+    const seq = ++checkSeq;
+    checkTimer = setTimeout(async () => {
+      $('#checkNote').hidden = false;
+      $('#checkNote').textContent = t('checking');
+      let results;
+      try { results = (await api('check', { urls })).results; } catch { $('#checkNote').hidden = true; return; }
+      if (seq !== checkSeq) return; // a newer search replaced this one
+      const hiddenNames = [];
+      for (const [id, r] of Object.entries(results)) {
+        const row = $(`#platLinks [data-site="${id}"]`);
+        if (!row) continue;
+        const tag = row.querySelector('[data-avail]');
+        if (r.state === 'none') { row.remove(); hiddenNames.push(L(platById(id).name)); continue; }
+        if (r.state === 'available') {
+          const over = r.lowPrice && r.lowPrice > budget * 1.1;
+          tag.className = 'avail ' + (over ? 'avail-over' : 'avail-ok');
+          tag.textContent = `✓ ${t('avail')}${r.count ? ` · ${fmt(r.count)} ${t('ads')}` : ''}${r.lowPrice ? ` · ${t('fromPrice')} ${fmt(r.lowPrice)} ${t('sar')}` : ''}${over ? ` · ${t('aboveBudget')}` : ''}`;
+          if (over) $('#platLinks').appendChild(row); else $('#platLinks').prepend(row);
+        } else {
+          tag.className = 'avail avail-unknown';
+          tag.textContent = t('notChecked');
+        }
+      }
+      $('#checkNote').textContent = t('checkedAt');
+      const note = $('#hiddenNote');
+      if (hiddenNames.length) { note.hidden = false; note.textContent = t('hiddenNone') + hiddenNames.join('، '); }
+    }, 600);
+  }
+
   function renderOptions(tier) {
     const mkSel = makeBySlug($('#make').value);
     let list = tier.models.map(parseModel).filter(Boolean);
     if (mkSel && list.some((o) => o.mk === mkSel)) list = list.filter((o) => o.mk === mkSel);
     $('#optionsSub').textContent = `${L(tier.label)} · ${L(tier.expect)} ${t('optionsSub')}`;
-    $('#options').innerHTML = list.map((o, i) => {
-      const mid = o.from && o.to ? Math.round((o.from + o.to) / 2) : o.from;
-      const sel = { mk: o.mk, md: o.md, year: mid, city: $('#city').value };
-      const yrs = []; for (let y = o.from; y && y <= o.to; y++) yrs.push(y);
-      return `<div class="opt">
-        <div class="opt-head"><b>${esc(modelName(o.mk, o.md))}</b><span class="num muted">${o.from}${o.to !== o.from ? '–' + o.to : ''}</span></div>
-        <div class="opt-links">
-          <a href="${esc(LINKS.haraj(sel))}" target="_blank" rel="noopener">${t('haraj')} ${mid} ↗</a>
-          <a href="${esc(LINKS.opensooq(sel))}" target="_blank" rel="noopener">OpenSooq ${mid} ↗</a>
-          <a href="${esc(LINKS.syarah(sel))}" target="_blank" rel="noopener">Syarah ${mid} ↗</a>
-          <a href="${esc(deepLink({ ...sel, years: yrs }))}" target="_blank" rel="noopener">${t('deepShort')} ↗</a>
-        </div>
-        <button type="button" class="linkish" data-use="${i}">${t('useThis')}</button>
-      </div>`;
-    }).join('');
+    $('#options').innerHTML = list.map((o, i) => `
+      <button type="button" class="opt" data-use="${i}">
+        <b>${esc(modelName(o.mk, o.md))}</b><span class="num muted">${o.from}${o.to !== o.from ? '–' + o.to : ''}</span>
+        <span class="pl-go">${t('useThis')} ←</span>
+      </button>`).join('');
     $('#options').dataset.list = JSON.stringify(list.map((o) => [o.mk.slug, o.md && o.md[0], o.from, o.to]));
   }
 
@@ -799,26 +886,6 @@
     return Math.round(s);
   }
   const scoreColor = (s) => (s >= 80 ? 'var(--ok)' : s >= 60 ? 'var(--mid)' : 'var(--bad)');
-  function renderPlatforms() {
-    const list = D.platforms.map((p) => ({ p, s: trustScore(p) })).sort((a, b) => b.s - a.s);
-    const typeKey = { certified: 'typeCertified', marketplace: 'typeMarketplace', classifieds: 'typeClassifieds' };
-    $('#platGrid').innerHTML = list.map(({ p, s }) => `
-      <details class="plat-row">
-        <summary>
-          <span class="pl-score num" style="--c:${scoreColor(s)}">${s}%</span>
-          <span class="pl-name"><b>${esc(L(p.name))}</b><small>${t(typeKey[p.type])}${p.minBudget ? ` · ${t('from')} ${fmt(p.minBudget)} ${t('sar')}` : ''}</small></span>
-        </summary>
-        <div class="plat-more">
-          <div class="pc">
-            <div><b style="color:var(--ok)">${t('pros')}</b><ul>${L(p.pros).map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
-            <div><b style="color:var(--bad)">${t('cons')}</b><ul>${L(p.cons).map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
-          </div>
-          <p class="signal">${esc(L(p.signals))}</p>
-          <a href="${p.url}" target="_blank" rel="noopener">${t('visit')} ↗</a>
-        </div>
-      </details>`).join('');
-  }
-
   // ---------- seller checker ----------
   const sellerState = new Set();
   function renderSeller() {
@@ -906,6 +973,18 @@
   });
   $('#sellerChecks').addEventListener('change', (e) => { const id = e.target.dataset.sid; if (!id) return; e.target.checked ? sellerState.add(id) : sellerState.delete(id); updateSeller(); });
 
+  function renderWorkshops() {
+    $('#wsList').innerHTML = D.workshops.map((w) => `
+      <a class="ws-item" href="${esc(w.url)}" target="_blank" rel="noopener">
+        <span class="badge certified">${esc(L(w.badge))}</span>
+        <span class="pl-name"><b>${esc(L(w.name))}</b><small>${esc(L(w.desc))}</small></span>
+        <span class="pl-go">↗</span>
+      </a>`).join('');
+  }
+  const openWorkshops = (e) => { if (e) e.preventDefault(); renderWorkshops(); openModal('wsModal'); };
+  $('#wsOpen').addEventListener('click', openWorkshops);
+  $('#wsNav').addEventListener('click', openWorkshops);
+  $('#wsClose').addEventListener('click', () => closeModal('wsModal'));
   $('#revealBtn').addEventListener('click', () => openModal('termsModal'));
   $('#openTerms').addEventListener('click', () => openModal('termsModal'));
   $('#openPrivacy').addEventListener('click', () => openModal('privacyModal'));
@@ -949,7 +1028,7 @@
       navLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
-  if (io) { ['search', 'platforms', 'madinah', 'yours'].forEach((id) => io.observe($('#' + id))); io.observe($('.hero')); }
+  if (io) { ['search', 'madinah', 'yours'].forEach((id) => io.observe($('#' + id))); io.observe($('.hero')); }
 
   // ---------- boot ----------
   async function recordVisit() {

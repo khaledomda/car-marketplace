@@ -23,6 +23,9 @@ and features, and get **direct links to live results** on each platform, ranked 
 | Small budgets (under 20,000 SAR) | Panel with the fastest routes: ads at the exact price (Haraj + OpenSooq), cheapest reliable models, and using the money as a down payment for installments (Soum, Syarah) |
 | Al-Madinah launch | Default city is Al-Madinah; "coming soon" section: showroom agreements (real cars under our responsibility), spare-parts shops and workshops with trust and discounts, inspection/maintenance/delivery, advisor & WhatsApp after paperwork |
 | "This is your platform" | Private suggestions box (admin only) plus an optional star rating |
+| Live availability check | `POST /api/check` (lib/availability.js): the server opens each site's results page for the chosen car and reads only the published count / lowest price (title, schema.org data, or a "no results" message). Sites with clearly zero results are hidden; unclear pages stay, marked "not verified". Allow-listed hosts only, 5 s timeout, 6 h cache |
+| Low-price finder (budgets under 30,000 SAR) | Infath government auctions, Haraj & OpenSooq last 7 days, Mstaml, Expatriates.com, whole-web last 7 days, X (latest), Facebook Marketplace, each with a trust % and a red low-trust warning |
+| Trusted workshops in Al-Madinah | Bar under the header opens a window: official Vehicle Safety Center rating platform, Toyota authorized service, Petromin AutoCare / Express, Google Maps (4.5+ with 100+ reviews). No partnership claimed until agreements are signed |
 | Languages | Arabic (default), English, Urdu |
 
 Why links and not copied listings: the platforms' ads are their content; copying (scraping) them breaks their
@@ -38,16 +41,20 @@ in line with the Saudi Personal Data Protection Law (PDPL).
 
 ## Deploy to Vercel
 
-1. Upload this folder to Vercel (drag the unzipped folder into **vercel.com/new**, or push it to GitHub and import
-   the repo). Framework preset: **Other**. No build command is needed; `vercel.json` sets everything.
-2. The site works straight away in **demo mode** (each visitor's data stays on their own device).
-3. To save requests, visits and ratings for real: in the Vercel project open **Storage → Marketplace →
-   Upstash for Redis** (free plan), create a database and connect it to the project. It adds
-   `KV_REST_API_URL` and `KV_REST_API_TOKEN` (or `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN`).
-4. In **Settings → Environment Variables** add `ADMIN_TOKEN` with a long secret, then **Redeploy**.
-5. Open `https://<your-site>.vercel.app/admin` and enter the token.
+### Automatic (recommended): every GitHub push deploys itself
+1. Vercel dashboard → your project → **Settings → Git** → **Connect Git Repository** → pick
+   `khaledomda/car-marketplace`.
+2. **Settings → Environments → Production → Branch Tracking**: set the branch to
+   `claude/charming-tesla-14zhha` (the repo's default branch; it holds all the work).
+3. Save. From now on every push to that branch deploys to production automatically; no zip uploads.
 
-On Vercel the visits log also records the visitor's country, region and city from Vercel's geo headers.
+### Manual (zip upload)
+Drag the unzipped folder into **vercel.com/new** (framework preset **Other**, no build command).
+
+### Database (to collect searches, visits, ratings and suggestions)
+Project → **Storage** → **Upstash for Redis** (free) → connect; add env var `ADMIN_TOKEN`; redeploy.
+Admin page: `/admin`. Without the database the site still works in demo mode, and the live
+availability check still works.
 
 ## Run on your own server
 
