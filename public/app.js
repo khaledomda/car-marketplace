@@ -346,6 +346,9 @@
     wsBarGo: { ar: 'اعرض ←', en: 'View →', ur: 'دیکھیں ←' },
     navWorkshops: { ar: 'الورش', en: 'Workshops', ur: 'ورکشاپس' },
     wsTitle: { ar: 'ورش موثوقة في المدينة المنورة', en: 'Trusted workshops in Al-Madinah', ur: 'مدینہ منورہ میں قابلِ اعتماد ورکشاپس' },
+    liveLbl: { ar: 'أرقام حقيقية مباشرة', en: 'Real, live numbers', ur: 'حقیقی، براہِ راست اعداد' },
+    statToday: { ar: 'زيارة اليوم', en: 'visits today', ur: 'آج کے وزٹس' },
+    statVisits: { ar: 'إجمالي الزيارات', en: 'total visits', ur: 'کل وزٹس' },
     wsPerk1: { ar: 'معاملة خاصة لعملاء أفضل المعروض', en: 'Special treatment for Best Car Offers customers', ur: 'بہترین پیشکش کاریں کے صارفین کے لیے خصوصی سلوک' },
     wsPerk2: { ar: 'أولوية في المواعيد والخدمة', en: 'Priority in appointments and service', ur: 'اپائنٹمنٹ اور سروس میں ترجیح' },
     wsPerk3: { ar: 'ظهور ورشتك لعملائنا في المدينة المنورة', en: 'Your workshop shown to our customers in Al-Madinah', ur: 'مدینہ منورہ میں ہمارے صارفین کو آپ کی ورکشاپ کی نمائش' },
@@ -917,8 +920,10 @@
     $('#stVisits').textContent = fmt(s.visits);
     $('#stSearches').textContent = fmt(s.searches || 0);
     $('#stRating').textContent = s.ratingCount ? `${fmt(s.ratingAvg)}★` : '–';
-    // Only shared server numbers are shown; nothing counted on this device alone.
-    $('#statsRow').hidden = !online;
+    // Only numbers from the shared server are shown (never counts from this device alone).
+    // The last server numbers are remembered so the row stays filled if the server is briefly unreachable.
+    store.set('lastStats', { ...s, recentReviews: [] });
+    $('#stToday').textContent = fmt(s.visitsToday || 0);
     $('#reviews').innerHTML = s.recentReviews.slice(0, 3)
       .map((r) => `<div class="review"><div class="who"><span>${esc(r.name || t('guest'))}</span><span class="s">${'★'.repeat(r.stars)}</span></div>${esc(r.comment)}</div>`).join('');
   }
@@ -1033,8 +1038,9 @@
       const utm = ['utm_source', 'utm_medium', 'utm_campaign'].map((k) => params.get(k)).filter(Boolean).join('|');
       renderStats(await api('visit', { visitorId, page: location.pathname, lang, referrer: document.referrer, utm, screen: `${screen.width}x${screen.height}` }));
     } catch {
-      // No database yet: the counters stay hidden rather than showing this device's numbers.
-      $('#statsRow').hidden = true;
+      // Server unreachable: show the last real numbers it gave us, if any.
+      const last = store.get('lastStats', null);
+      if (last) renderStats({ ...last, recentReviews: [] });
     }
   }
 

@@ -27,7 +27,7 @@ and features, and get **direct links to live results** on each platform, ranked 
 | Low-price finder (budgets under 30,000 SAR) | Infath government auctions, Haraj & OpenSooq last 7 days, Mstaml, Expatriates.com, whole-web last 7 days, X (latest), Facebook Marketplace, each with a trust % and a red low-trust warning |
 | Trusted workshops in Al-Madinah | Bar under the header opens a window inviting trusted workshops to partner (special treatment and priority for our customers) with the support email and phone |
 | Customer support | dromda@hotmail.com · 00966 555801087 (support section and footer) |
-| Real counters | Visits, searches and ratings come only from the shared database; without it they are hidden (never per-device numbers) |
+| Real counters | "Real, live numbers" row under the hero: visits today (Saudi time), total visits, searches, rating. Only shared database numbers; if the server is briefly unreachable, the last real numbers are shown (never per-device counts) |
 | Languages | Arabic (default), English, Urdu |
 
 Why links and not copied listings: the platforms' ads are their content; copying (scraping) them breaks their
