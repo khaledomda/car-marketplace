@@ -428,3 +428,17 @@ footer { padding-bottom: 12px; }
 button.opt { font: inherit; color: var(--ink); cursor: pointer; text-align: start; display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; align-items: center; width: 100%; }
 button.opt .pl-go { grid-column: 1 / -1; }
 button.opt:hover { border-color: var(--accent); }
+
+/* ---------- v5: contact + workshop invitation ---------- */
+.contact { display: grid; gap: 8px; }
+.contact a { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); color: var(--ink); text-decoration: none; }
+.contact a:hover { border-color: var(--accent); }
+.contact svg { color: var(--accent); flex: none; }
+.contact span { display: grid; line-height: 1.3; }
+.contact small { color: var(--muted); font-size: 0.75rem; }
+.contact b { font-variant-numeric: tabular-nums; unicode-bidi: isolate; }
+[dir='rtl'] .contact b { text-align: right; }
+.ws-perks { margin: 0; padding-inline-start: 20px; display: grid; gap: 6px; font-weight: 600; }
+.ws-perks li::marker { color: var(--gold); }
+.support { display: grid; gap: 10px; margin-top: 14px; }
+footer a { color: var(--accent); }

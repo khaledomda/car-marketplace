@@ -25,7 +25,9 @@ and features, and get **direct links to live results** on each platform, ranked 
 | "This is your platform" | Private suggestions box (admin only) plus an optional star rating |
 | Live availability check | `POST /api/check` (lib/availability.js): the server opens each site's results page for the chosen car and reads only the published count / lowest price (title, schema.org data, or a "no results" message). Sites with clearly zero results are hidden; unclear pages stay, marked "not verified". Allow-listed hosts only, 5 s timeout, 6 h cache |
 | Low-price finder (budgets under 30,000 SAR) | Infath government auctions, Haraj & OpenSooq last 7 days, Mstaml, Expatriates.com, whole-web last 7 days, X (latest), Facebook Marketplace, each with a trust % and a red low-trust warning |
-| Trusted workshops in Al-Madinah | Bar under the header opens a window: official Vehicle Safety Center rating platform, Toyota authorized service, Petromin AutoCare / Express, Google Maps (4.5+ with 100+ reviews). No partnership claimed until agreements are signed |
+| Trusted workshops in Al-Madinah | Bar under the header opens a window inviting trusted workshops to partner (special treatment and priority for our customers) with the support email and phone |
+| Customer support | dromda@hotmail.com · 00966 555801087 (support section and footer) |
+| Real counters | Visits, searches and ratings come only from the shared database; without it they are hidden (never per-device numbers) |
 | Languages | Arabic (default), English, Urdu |
 
 Why links and not copied listings: the platforms' ads are their content; copying (scraping) them breaks their

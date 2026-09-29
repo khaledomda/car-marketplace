@@ -346,10 +346,19 @@
     wsBarGo: { ar: 'اعرض ←', en: 'View →', ur: 'دیکھیں ←' },
     navWorkshops: { ar: 'الورش', en: 'Workshops', ur: 'ورکشاپس' },
     wsTitle: { ar: 'ورش موثوقة في المدينة المنورة', en: 'Trusted workshops in Al-Madinah', ur: 'مدینہ منورہ میں قابلِ اعتماد ورکشاپس' },
+    wsPerk1: { ar: 'معاملة خاصة لعملاء أفضل المعروض', en: 'Special treatment for Best Car Offers customers', ur: 'بہترین پیشکش کاریں کے صارفین کے لیے خصوصی سلوک' },
+    wsPerk2: { ar: 'أولوية في المواعيد والخدمة', en: 'Priority in appointments and service', ur: 'اپائنٹمنٹ اور سروس میں ترجیح' },
+    wsPerk3: { ar: 'ظهور ورشتك لعملائنا في المدينة المنورة', en: 'Your workshop shown to our customers in Al-Madinah', ur: 'مدینہ منورہ میں ہمارے صارفین کو آپ کی ورکشاپ کی نمائش' },
+    wsContact: { ar: 'تواصل معنا:', en: 'Contact us:', ur: 'ہم سے رابطہ کریں:' },
+    emailLbl: { ar: 'البريد الإلكتروني', en: 'Email', ur: 'ای میل' },
+    phoneLbl: { ar: 'الجوال', en: 'Phone', ur: 'فون' },
+    supportTitle: { ar: 'خدمة العملاء', en: 'Customer support', ur: 'کسٹمر سپورٹ' },
+    supportLead: { ar: 'لأي سؤال أو مشكلة أو اقتراح، تواصل معنا مباشرة.', en: 'For any question, problem or suggestion, contact us directly.', ur: 'کسی بھی سوال، مسئلے یا تجویز کے لیے ہم سے براہِ راست رابطہ کریں۔' },
+    sendFailed: { ar: 'تعذّر الإرسال الآن. راسلنا على dromda@hotmail.com', en: 'Could not send right now. Email us at dromda@hotmail.com', ur: 'ابھی بھیجا نہیں جا سکا۔ ہمیں dromda@hotmail.com پر ای میل کریں' },
     wsLead: {
-      ar: 'قريباً: ورش شريكة في المدينة تقدم عناية إضافية لعملاء أفضل المعروض. حالياً هذي مصادر رسمية وموثوقة تختار منها ورشتك:',
-      en: 'Coming soon: partner workshops in Madinah giving extra care to our customers. For now, official and trusted sources to choose your workshop:',
-      ur: 'جلد: مدینہ میں شراکت دار ورکشاپس جو ہمارے صارفین کو اضافی توجہ دیں گی۔ فی الحال، ورکشاپ منتخب کرنے کے لیے سرکاری اور قابلِ اعتماد ذرائع:',
+      ar: 'عندك ورشة موثوقة في المدينة المنورة؟ انضم لشركائنا وقدّم لعملائنا:',
+      en: 'Do you run a trusted workshop in Al-Madinah? Join our partners and give our customers:',
+      ur: 'کیا آپ مدینہ منورہ میں قابلِ اعتماد ورکشاپ چلاتے ہیں؟ ہمارے شراکت داروں میں شامل ہوں اور ہمارے صارفین کو دیں:',
     },
     wsWarn: {
       ar: 'اطلب تقرير فحص مكتوب وسعر واضح قبل أي إصلاح. أنت المسؤول عن اختيار الورشة.',
@@ -560,15 +569,7 @@
     if (!res.ok) { if (res.status === 503) online = false; throw Object.assign(new Error(data.error || 'error'), { status: res.status }); }
     return data;
   }
-  function localStats() {
-    const ratings = store.get('ratings', []);
-    const avg = ratings.length ? ratings.reduce((a, r) => a + r.stars, 0) / ratings.length : 0;
-    return {
-      visits: store.get('visits', 0), searches: store.get('searches', 0),
-      ratingAvg: Math.round(avg * 10) / 10, ratingCount: ratings.length,
-      recentReviews: ratings.filter((r) => r.comment).slice(-6).reverse(),
-    };
-  }
+
 
   // ---------- catalog helpers ----------
   const makeBySlug = (s) => D.catalog.find((m) => m.slug === s);
@@ -916,7 +917,8 @@
     $('#stVisits').textContent = fmt(s.visits);
     $('#stSearches').textContent = fmt(s.searches || 0);
     $('#stRating').textContent = s.ratingCount ? `${fmt(s.ratingAvg)}★` : '–';
-    $('#demoNote').hidden = online;
+    // Only shared server numbers are shown; nothing counted on this device alone.
+    $('#statsRow').hidden = !online;
     $('#reviews').innerHTML = s.recentReviews.slice(0, 3)
       .map((r) => `<div class="review"><div class="who"><span>${esc(r.name || t('guest'))}</span><span class="s">${'★'.repeat(r.stars)}</span></div>${esc(r.comment)}</div>`).join('');
   }
@@ -969,19 +971,11 @@
       bodyType: $('#bodyType').value, features: [...features].join(','),
     };
     try { renderStats(await api('search', body)); }
-    catch { store.set('searches', store.get('searches', 0) + 1); if (!online) renderStats(localStats()); }
+    catch { /* not counted without the database */ }
   });
   $('#sellerChecks').addEventListener('change', (e) => { const id = e.target.dataset.sid; if (!id) return; e.target.checked ? sellerState.add(id) : sellerState.delete(id); updateSeller(); });
 
-  function renderWorkshops() {
-    $('#wsList').innerHTML = D.workshops.map((w) => `
-      <a class="ws-item" href="${esc(w.url)}" target="_blank" rel="noopener">
-        <span class="badge certified">${esc(L(w.badge))}</span>
-        <span class="pl-name"><b>${esc(L(w.name))}</b><small>${esc(L(w.desc))}</small></span>
-        <span class="pl-go">↗</span>
-      </a>`).join('');
-  }
-  const openWorkshops = (e) => { if (e) e.preventDefault(); renderWorkshops(); openModal('wsModal'); };
+  const openWorkshops = (e) => { if (e) e.preventDefault(); openModal('wsModal'); };
   $('#wsOpen').addEventListener('click', openWorkshops);
   $('#wsNav').addEventListener('click', openWorkshops);
   $('#wsClose').addEventListener('click', () => closeModal('wsModal'));
@@ -1011,9 +1005,8 @@
       if (text) await api('suggestions', { visitorId, lang, text, stars: starPick || null });
       if (starPick) renderStats(await api('ratings', { visitorId, stars: starPick, comment: text.slice(0, 500) }));
     } catch {
-      if (text) { const l = store.get('suggestions', []); l.push({ text, at: new Date().toISOString() }); store.set('suggestions', l); }
-      if (starPick) { const r = store.get('ratings', []); r.push({ stars: starPick, comment: text.slice(0, 500), at: new Date().toISOString() }); store.set('ratings', r); }
-      renderStats(localStats());
+      // Not saved on the server: keep what they wrote and point them to email instead.
+      return toast(t('sendFailed'));
     }
     starPick = 0; renderStars(); $('#sugText').value = '';
     toast(t('sentThanks'));
@@ -1040,8 +1033,8 @@
       const utm = ['utm_source', 'utm_medium', 'utm_campaign'].map((k) => params.get(k)).filter(Boolean).join('|');
       renderStats(await api('visit', { visitorId, page: location.pathname, lang, referrer: document.referrer, utm, screen: `${screen.width}x${screen.height}` }));
     } catch {
-      if (first) store.set('visits', store.get('visits', 0) + 1);
-      renderStats(localStats());
+      // No database yet: the counters stay hidden rather than showing this device's numbers.
+      $('#statsRow').hidden = true;
     }
   }
 
