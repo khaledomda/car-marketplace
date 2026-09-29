@@ -521,9 +521,9 @@
       ur: 'بہترین پیشکش کاریں ایک تلاش اور رہنمائی کی سروس ہے اور کسی فروخت میں فریق نہیں۔ آزمائشی مدت میں ہم آپ سے کوئی رقم نہیں مانگیں گے۔',
     },
     privacyText: {
-      ar: 'لا نطلب اسمك أو رقم جوالك حالياً. نجمع فقط بيانات استخدام مجهولة: عمليات البحث (الميزانية، الموديل، المدينة، المواصفات)، التقييمات، وبيانات الزيارة (الصفحة، اللغة، مصدر الزيارة، نوع الجهاز، الدولة والمدينة التقريبية). نستخدمها لتحسين النتائج، وفق نظام حماية البيانات الشخصية في المملكة، ولا نبيعها.',
-      en: 'We do not ask for your name or phone number for now. We only collect anonymous usage data: searches (budget, model, city, features), ratings, and visit data (page, language, referrer, device type, approximate country and city). We use it to improve results, in line with the Saudi Personal Data Protection Law, and never sell it.',
-      ur: 'فی الحال ہم آپ کا نام یا فون نمبر نہیں مانگتے۔ ہم صرف گمنام استعمال کا ڈیٹا جمع کرتے ہیں: تلاشیں (بجٹ، ماڈل، شہر، خصوصیات)، ریٹنگز، اور وزٹ ڈیٹا (صفحہ، زبان، ریفرر، ڈیوائس کی قسم، اندازاً ملک اور شہر)۔ ہم اسے نتائج بہتر بنانے کے لیے، سعودی ذاتی ڈیٹا تحفظ قانون کے مطابق استعمال کرتے ہیں اور کبھی فروخت نہیں کرتے۔',
+      ar: 'لا نطلب اسمك أو رقم جوالك حالياً. نجمع فقط بيانات استخدام مجهولة: عمليات البحث (الميزانية، الموديل، المدينة، المواصفات)، التقييمات، وبيانات الزيارة (الصفحة، اللغة، مصدر الزيارة، نوع الجهاز، الدولة والمدينة التقريبية). نستخدمها لتحسين النتائج، وفق نظام حماية البيانات الشخصية في المملكة، ولا نبيعها. نستخدم خدمة عدّ عامة (Abacus) لإظهار إجمالي الزيارات وعمليات البحث والتقييمات بدون أي بيانات شخصية.',
+      en: 'We do not ask for your name or phone number for now. We only collect anonymous usage data: searches (budget, model, city, features), ratings, and visit data (page, language, referrer, device type, approximate country and city). We use it to improve results, in line with the Saudi Personal Data Protection Law, and never sell it. We use a public counting service (Abacus) to show total visits, searches and ratings, with no personal data.',
+      ur: 'فی الحال ہم آپ کا نام یا فون نمبر نہیں مانگتے۔ ہم صرف گمنام استعمال کا ڈیٹا جمع کرتے ہیں: تلاشیں (بجٹ، ماڈل، شہر، خصوصیات)، ریٹنگز، اور وزٹ ڈیٹا (صفحہ، زبان، ریفرر، ڈیوائس کی قسم، اندازاً ملک اور شہر)۔ ہم اسے نتائج بہتر بنانے کے لیے، سعودی ذاتی ڈیٹا تحفظ قانون کے مطابق استعمال کرتے ہیں اور کبھی فروخت نہیں کرتے۔ ہم کل وزٹس، تلاشوں اور ریٹنگز دکھانے کے لیے ایک عوامی گنتی سروس (Abacus) استعمال کرتے ہیں، بغیر کسی ذاتی ڈیٹا کے۔',
     },
     t5: {
       ar: 'نستخدم بيانات الاستخدام المجهولة لتحسين الخدمة فقط، ولا نبيعها لأي طرف.',
@@ -956,20 +956,48 @@
     $('#official').innerHTML = D.officialChecks.map((o) => `<a href="${o.url}" target="_blank" rel="noopener"><b>${esc(L(o.name))}</b><span>${esc(L(o.what))}</span></a>`).join('');
   }
 
+  // ---------- public counters ----------
+  // The visible totals use Abacus (abacus.jasoncameron.dev), a free open-source counting service, so they
+  // work for everyone without any setup. Every visitor adds to the same shared totals; nothing is counted
+  // per device. Our own database (when connected) still keeps the detailed records and reviews.
+  const COUNTER_API = 'https://abacus.jasoncameron.dev';
+  const COUNTER_NS = 'medinacars-afdal-almaaroud';
+  const saudiDay = () => new Date(Date.now() + 3 * 3600e3).toISOString().slice(0, 10);
+  async function counter(op, key) {
+    const res = await fetch(`${COUNTER_API}/${op}/${COUNTER_NS}/${key}`, { cache: 'no-store' });
+    if (res.status === 404) return 0; // counter not created yet
+    if (!res.ok) throw new Error('counter_' + res.status);
+    return Number((await res.json()).value) || 0;
+  }
+  const counterHit = (key) => counter('hit', key);
+  async function publicCounts(countVisit) {
+    const day = 'visits-' + saudiDay();
+    const [visits, today] = await Promise.all(countVisit ? [counterHit('visits'), counterHit(day)] : [counter('get', 'visits'), counter('get', day)]);
+    const [searches, ...stars] = await Promise.all(['searches', 'rating-1', 'rating-2', 'rating-3', 'rating-4', 'rating-5'].map((k) => counter('get', k).catch(() => 0)));
+    const ratingCount = stars.reduce((a, n) => a + n, 0);
+    const ratingAvg = ratingCount ? Math.round((stars.reduce((a, n, i) => a + n * (i + 1), 0) / ratingCount) * 10) / 10 : 0;
+    return { visits, visitsToday: today, searches, ratingCount, ratingAvg };
+  }
+
   // ---------- stats + reviews ----------
   let lastStats = null;
   function renderStats(s) {
     if (!s) return;
     lastStats = s;
     $('#stVisits').textContent = fmt(s.visits);
+    $('#stToday').textContent = fmt(s.visitsToday || 0);
     $('#stSearches').textContent = fmt(s.searches || 0);
     $('#stRating').textContent = s.ratingCount ? `${fmt(s.ratingAvg)}★` : '–';
-    // Only numbers from the shared server are shown (never counts from this device alone).
-    // The last server numbers are remembered so the row stays filled if the server is briefly unreachable.
-    store.set('lastStats', { ...s, recentReviews: [] });
-    $('#stToday').textContent = fmt(s.visitsToday || 0);
-    $('#reviews').innerHTML = s.recentReviews.slice(0, 3)
+    // Remember the last real totals so the row stays filled if the counter service is briefly unreachable.
+    store.set('lastStats', s);
+  }
+  function renderReviews(list) {
+    $('#reviews').innerHTML = (list || []).slice(0, 3)
       .map((r) => `<div class="review"><div class="who"><span>${esc(r.name || t('guest'))}</span><span class="s">${'★'.repeat(r.stars)}</span></div>${esc(r.comment)}</div>`).join('');
+  }
+  async function refreshCounts(countVisit = false) {
+    try { renderStats(await publicCounts(countVisit)); }
+    catch { renderStats(store.get('lastStats', null)); }
   }
   function renderStars() {
     const star = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.8l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4L12 17.6l-5.8 3 1.1-6.4-4.7-4.6 6.5-.9z"/></svg>';
@@ -1022,8 +1050,8 @@
       yearFrom: s.years[0] || '', yearTo: s.years[s.years.length - 1] || '', city: s.city,
       bodyType: $('#bodyType').value, features: [...features].join(','),
     };
-    try { renderStats(await api('search', body)); }
-    catch { /* not counted without the database */ }
+    counterHit('searches').then((n) => { if (lastStats) renderStats({ ...lastStats, searches: n }); }).catch(() => {});
+    api('search', body).catch(() => { /* details are only kept when the database is connected */ });
   });
   $('#sellerChecks').addEventListener('change', (e) => { const id = e.target.dataset.sid; if (!id) return; e.target.checked ? sellerState.add(id) : sellerState.delete(id); updateSeller(); });
 
@@ -1053,13 +1081,14 @@
   $('#sendBtn').addEventListener('click', async () => {
     const text = $('#sugText').value.trim().slice(0, 1000);
     if (!text && !starPick) return toast(t('needSomething'));
+    // The star counts toward the public rating; the text needs our database.
+    if (starPick) { await counterHit('rating-' + starPick).catch(() => {}); refreshCounts(false); }
+    let saved = true;
     try {
       if (text) await api('suggestions', { visitorId, lang, text, stars: starPick || null });
-      if (starPick) renderStats(await api('ratings', { visitorId, stars: starPick, comment: text.slice(0, 500) }));
-    } catch {
-      // Not saved on the server: keep what they wrote and point them to email instead.
-      return toast(t('sendFailed'));
-    }
+      if (starPick) { const st = await api('ratings', { visitorId, stars: starPick, comment: text.slice(0, 500) }); renderReviews(st.recentReviews); }
+    } catch { saved = !text; }
+    if (!saved) return toast(t('sendFailed')); // keep what they wrote and point them to email
     starPick = 0; renderStars(); $('#sugText').value = '';
     toast(t('sentThanks'));
   });
@@ -1079,16 +1108,16 @@
   async function recordVisit() {
     let first = true;
     try { if (sessionStorage.getItem('daleel:visited')) first = false; else sessionStorage.setItem('daleel:visited', '1'); } catch { /* ignore */ }
+    refreshCounts(first); // one visit per browser session
+    // Detailed record for the admin page (only when the database is connected).
+    const params = new URLSearchParams(location.search);
+    const utm = ['utm_source', 'utm_medium', 'utm_campaign'].map((k) => params.get(k)).filter(Boolean).join('|');
     try {
-      if (!first) return renderStats(await api('stats'));
-      const params = new URLSearchParams(location.search);
-      const utm = ['utm_source', 'utm_medium', 'utm_campaign'].map((k) => params.get(k)).filter(Boolean).join('|');
-      renderStats(await api('visit', { visitorId, page: location.pathname, lang, referrer: document.referrer, utm, screen: `${screen.width}x${screen.height}` }));
-    } catch {
-      // Server unreachable: show the last real numbers it gave us, if any.
-      const last = store.get('lastStats', null);
-      if (last) renderStats({ ...last, recentReviews: [] });
-    }
+      const st = first
+        ? await api('visit', { visitorId, page: location.pathname, lang, referrer: document.referrer, utm, screen: `${screen.width}x${screen.height}` })
+        : await api('stats');
+      renderReviews(st.recentReviews);
+    } catch { /* no database yet */ }
   }
 
   applyLang();
