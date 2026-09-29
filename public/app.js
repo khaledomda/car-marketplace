@@ -346,6 +346,16 @@
     wsBarGo: { ar: 'اعرض ←', en: 'View →', ur: 'دیکھیں ←' },
     navWorkshops: { ar: 'الورش', en: 'Workshops', ur: 'ورکشاپس' },
     wsTitle: { ar: 'ورش موثوقة في المدينة المنورة', en: 'Trusted workshops in Al-Madinah', ur: 'مدینہ منورہ میں قابلِ اعتماد ورکشاپس' },
+    fitYes: {
+      ar: 'بميزانية {b} ر.س، السنوات المناسبة لهذا الموديل: {y}. نفتح لك أحدث سنة تناسبك (تقدير سعرها ~{p} ر.س).',
+      en: 'With {b} SAR, the model years that fit are {y}. We open the newest one you can afford (estimated ~{p} SAR).',
+      ur: '{b} ریال میں اس ماڈل کے مناسب سال: {y}۔ ہم وہ تازہ ترین سال کھولتے ہیں جو آپ کے بجٹ میں ہے (اندازاً ~{p} ریال)۔',
+    },
+    fitNo: {
+      ar: 'هذا الموديل غالباً أغلى من ميزانيتك حتى في السنوات القديمة. شوف الموديلات المقترحة تحت.',
+      en: 'This model is usually above your budget, even older years. See the suggested models below.',
+      ur: 'یہ ماڈل عموماً آپ کے بجٹ سے زیادہ ہے، پرانے سال بھی۔ نیچے تجویز کردہ ماڈلز دیکھیں۔',
+    },
     liveLbl: { ar: 'أرقام حقيقية مباشرة', en: 'Real, live numbers', ur: 'حقیقی، براہِ راست اعداد' },
     statToday: { ar: 'زيارة اليوم', en: 'visits today', ur: 'آج کے وزٹس' },
     statVisits: { ar: 'إجمالي الزيارات', en: 'total visits', ur: 'کل وزٹس' },
@@ -407,10 +417,9 @@
     low2t: { ar: 'أرخص الموديلات الموثوقة', en: 'Cheapest reliable models', ur: 'سب سے سستے قابلِ اعتماد ماڈلز' },
     low2d: { ar: 'موديلات قطعها رخيصة وتتحمل، مع روابطها تحت.', en: 'Models with cheap parts that last, with links below.', ur: 'سستے پرزوں والے پائیدار ماڈلز، نیچے لنکس کے ساتھ۔' },
     low3t: { ar: 'خلّ مبلغك دفعة أولى', en: 'Use your money as a down payment', ur: 'اپنی رقم کو پہلی قسط بنائیں' },
-    low3d: { ar: 'سوم وسيارة فيها تقسيط، وسوم بدون فوائد (حسب موافقة جهة التمويل). سياراتهم تبدأ من حوالي ٢٠ ألف.', en: 'Soum and Syarah offer installments, Soum interest-free (subject to financing approval). Their cars start around 20,000 SAR.', ur: 'سوم اور سیارہ قسطیں دیتے ہیں، سوم بغیر سود (فنانسنگ کی منظوری سے مشروط)۔ ان کی گاڑیاں تقریباً 20,000 ریال سے شروع ہوتی ہیں۔' },
+    low3d: { ar: 'سيارة (Syarah) فيها تقسيط لسيارات مفحوصة، حسب موافقة جهة التمويل.', en: 'Syarah offers installments on inspected cars, subject to financing approval.', ur: 'سیارہ (Syarah) معائنہ شدہ گاڑیوں پر قسطیں دیتا ہے، فنانسنگ کی منظوری سے مشروط۔' },
     lowGo: { ar: 'افتح', en: 'Open', ur: 'کھولیں' },
     lowSee: { ar: 'شوفها', en: 'See them', ur: 'دیکھیں' },
-    hiddenSoum: { ar: 'سوم غير ظاهر لأن سياراته تبدأ من حوالي ٢٠ ألف ريال. ارفع الميزانية أو جرّب التقسيط.', en: 'Soum is hidden because its cars start around 20,000 SAR. Raise the budget or try installments.', ur: 'سوم نظر نہیں آ رہا کیونکہ اس کی گاڑیاں تقریباً 20,000 ریال سے شروع ہوتی ہیں۔ بجٹ بڑھائیں یا قسطیں آزمائیں۔' },
     madTitle: { ar: 'قريباً في المدينة المنورة', en: 'Coming soon to Al-Madinah', ur: 'جلد مدینہ منورہ میں' },
     madLead: { ar: 'بدأنا من المدينة المنورة، وقريباً:', en: 'We are starting in Al-Madinah, and soon:', ur: 'ہم مدینہ منورہ سے شروع کر رہے ہیں، اور جلد:' },
     m1t: { ar: 'عروض حقيقية من معارض السيارات', en: 'Real offers from car showrooms', ur: 'کار شورومز سے حقیقی پیشکشیں' },
@@ -440,9 +449,9 @@
       ur: 'تمام گاڑیوں کی پیشکشیں <em>ایک ہی تلاش میں</em>',
     },
     heroLead: {
-      ar: 'قل لنا كم معك، ولو ٥٠٠٠ ريال، أو اختر الموديل. نفتح لك أفضل العروض في حراج وسيارة وسوم وغيرها مباشرة.',
-      en: 'Tell us how much you have, even 5,000 SAR, or pick a model. We open the best offers on Haraj, Syarah, Soum and more, directly.',
-      ur: 'بتائیں آپ کے پاس کتنی رقم ہے، چاہے 5,000 ریال، یا ماڈل منتخب کریں۔ ہم حراج، سیارہ، سوم اور دیگر پر بہترین پیشکشیں براہِ راست کھول دیں گے۔',
+      ar: 'قل لنا كم معك، ولو ٥٠٠٠ ريال، أو اختر الموديل. نفتح لك أفضل العروض في حراج وسيارة والسوق المفتوح وغيرها مباشرة.',
+      en: 'Tell us how much you have, even 5,000 SAR, or pick a model. We open the best offers on Haraj, Syarah, OpenSooq and more, directly.',
+      ur: 'بتائیں آپ کے پاس کتنی رقم ہے، چاہے 5,000 ریال، یا ماڈل منتخب کریں۔ ہم حراج، سیارہ، اوپن سوق اور دیگر پر بہترین پیشکشیں براہِ راست کھول دیں گے۔',
     },
     ctaSearch: { ar: 'ابحث الآن', en: 'Search now', ur: 'ابھی تلاش کریں' },
     ctaPlatforms: { ar: 'المواقع الموثوقة', en: 'Trusted sites', ur: 'قابلِ اعتماد سائٹس' },
@@ -548,6 +557,7 @@
   let online = true;
   let starPick = 0;
   let activeYear = null; // null = all years
+  let yearMode = 'auto'; // 'auto' = years that fit the budget; 'user' = chosen by the buyer
   let cityInit = false;
   const features = new Set();
   const visitorId = store.get('vid', null) || (() => { const id = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2)); store.set('vid', id); return id; })();
@@ -593,38 +603,41 @@
   // ---------- direct links ----------
   // Each builder returns a URL for the platform's live search results.
   const cityUrl = (p, c) => (D.cityUrls[p] || {})[c] || '';
+  // Budget-only searches use each site's own price-filtered page (formats checked Sept 2026).
+  const ceil5k = (b) => Math.max(10000, Math.ceil(b / 5000) * 5000);
   const LINKS = {
-    haraj({ mk, md, year, city }) {
-      const kw = md ? `${md[2]}${year ? ' ' + year : ''}` : mk ? mk.ar : 'حراج السيارات';
-      const c = cityUrl('haraj', city);
-      return `https://haraj.com.sa/tags/${encodeURIComponent(c && (md || mk) ? `${c}_${kw}` : kw)}/`;
+    haraj({ mk, md, year, city, budget }) {
+      if (!mk) return `https://haraj.com.sa/search/${encodeURIComponent('سياره ب' + Math.round(budget / 1000) * 1000)}/`;
+      const kw = md ? `${md[2]}${year ? ' ' + year : ''}` : mk.ar;
+      // City tag pages are confirmed for Riyadh, Jeddah and the Eastern Province; elsewhere use Haraj's search.
+      const c = ['riyadh', 'jeddah', 'dammam', 'khobar'].includes(city) ? cityUrl('haraj', city) : '';
+      return c ? `https://haraj.com.sa/tags/${encodeURIComponent(`${c}_${kw}`)}/` : `https://haraj.com.sa/search/${encodeURIComponent(kw)}/`;
     },
-    syarah({ mk, md, year }) {
-      return 'https://syarah.com/en/autos' + (mk ? `/${mk.slug}` : '') + (mk && md ? `/${md[0]}` : '') + (md && year ? `/${year}` : '');
+    syarah({ mk, md, year, budget }) {
+      if (!mk) return budget <= 40000 ? 'https://syarah.com/en/trend/cheap-cars-for-sale-saudi-arabic' : 'https://syarah.com/en/autos/used-cars';
+      return 'https://syarah.com/en/autos' + `/${mk.slug}` + (md ? `/${md[0]}` : '') + (md && year ? `/${year}` : '');
     },
-    carswitch({ mk, md, year, city }) {
+    carswitch({ mk, md, year, city, budget }) {
+      if (!mk) return `https://ksa.carswitch.com/en/saudi/used-cars/under-${ceil5k(budget)}-for-sale-in-saudi`;
       const c = cityUrl('carswitch', city) || 'saudi';
-      return `https://ksa.carswitch.com/en/${c}/used-cars` + (mk ? `/${mk.slug}` : '/search') + (mk && md ? `/${md[0]}` : '') + (md && year ? `/${year}-price` : '');
+      return `https://ksa.carswitch.com/en/${c}/used-cars/${mk.slug}` + (md ? `/${md[0]}` : '') + (md && year ? `/${year}-price` : '');
     },
     opensooq({ mk, md, year, city }) {
       const c = cityUrl('opensooq', city);
       return `https://sa.opensooq.com/en/${c ? c + '/' : ''}cars/cars-for-sale` + (mk ? `/${mk.slug}` : '') + (mk && md ? `/${md[0]}` : '') + (md && year ? `/${year}` : '');
     },
     motory({ mk, md, year, city }) {
-      const c = cityUrl('motory', city);
-      return 'https://ksa.motory.com/en/cars-for-sale/' + (c ? c + '/' : '') + (mk ? mk.slug + '/' : '') + (mk && md ? md[0] + '/' : '') + (md && year && !c ? year + '/' : '');
+      // Year matters more than city for price, so a year page is used without the city.
+      const c = md && year ? '' : cityUrl('motory', city);
+      return 'https://ksa.motory.com/en/cars-for-sale/' + (c ? c + '/' : '') + (mk ? mk.slug + '/' : '') + (mk && md ? md[0] + '/' : '') + (md && year ? year + '/' : '');
     },
-    soum({ mk, md }) {
-      // Soum uses Arabic names in its URLs: /ar/سيارات/تويوتا/كامري
-      const arabicModel = md && /^[\u0600-\u06FF ]+$/.test(md[2]) ? md[2] : '';
-      const path = ['سيارات', mk ? mk.ar : '', mk && arabicModel ? arabicModel : ''].filter(Boolean).map(encodeURIComponent).join('/');
-      return `https://soum.sa/ar/${path}`;
-    },
-    yallamotor({ mk, md, year }) {
-      return 'https://ksa.yallamotor.com/used-cars' + (mk ? `/${mk.slug}` : '') + (mk && md ? `/${md[0]}` : '') + (md && year ? `/${year}` : '');
+    yallamotor({ mk, md, year, budget }) {
+      if (!mk) return `https://ksa.yallamotor.com/used-cars/pr_less_${ceil5k(budget)}`;
+      return 'https://ksa.yallamotor.com/used-cars' + `/${mk.slug}` + (md ? `/${md[0]}` : '') + (md && year ? `/${year}` : '');
     },
   };
-  const SITES = ['haraj.com.sa', 'syarah.com', 'soum.sa', 'sa.opensooq.com', 'ksa.motory.com', 'ksa.yallamotor.com', 'ksa.carswitch.com'];
+
+  const SITES = ['haraj.com.sa', 'syarah.com', 'sa.opensooq.com', 'ksa.motory.com', 'ksa.yallamotor.com', 'ksa.carswitch.com'];
   // Google search restricted to the six platforms: finds ads whose text mentions the chosen features.
   function deepLink({ mk, md, years, city }) {
     const parts = ['(' + SITES.map((s) => 'site:' + s).join(' OR ') + ')'];
@@ -705,6 +718,26 @@
   const platById = (id) => D.platforms.find((p) => p.id === id);
 
   // ---------- current selection ----------
+  // ---------- price fit ----------
+  // Rough market value of a model year, from its new price and the brand's yearly value retention.
+  function estPrice(mk, md, year) {
+    const base = (D.newPrices[mk.slug] || {})[md[0]];
+    const [early, late] = D.retention[mk.slug] || [0.88, 0.86];
+    if (!base) return null;
+    const age = Math.max(0, THIS_YEAR - year);
+    return Math.round((base * early ** Math.min(age, 5) * late ** Math.max(0, age - 5)) / 500) * 500;
+  }
+  // The newest years whose estimated price fits the budget (up to 4 years, newest first).
+  function fitYears(mk, md, budget) {
+    const fit = [];
+    for (let y = THIS_YEAR; y >= 2000 && fit.length < 4; y--) {
+      const p = estPrice(mk, md, y);
+      if (p == null) return null;
+      if (p <= budget * 1.1) fit.push(y);
+    }
+    return { years: fit, best: fit[0] || null, price: fit[0] ? estPrice(mk, md, fit[0]) : null };
+  }
+
   function selection() {
     const mk = makeBySlug($('#make').value) || null;
     const md = modelOf(mk, $('#model').value) || null;
@@ -715,7 +748,13 @@
     if (to && !from) from = Math.max(2000, to - 5);
     const years = [];
     if (from && to) for (let y = to; y >= from && years.length < 10; y--) years.push(y);
-    return { mk, md, years: years.reverse(), city: $('#city').value, budget: Number(budgetEl.value) };
+    const budget = Number(budgetEl.value);
+    let fit = null;
+    if (md && !years.length) {
+      fit = fitYears(mk, md, budget);
+      if (fit && fit.years.length) years.push(...fit.years);
+    }
+    return { mk, md, years: years.sort((a, b) => a - b), fit, city: $('#city').value, budget };
   }
 
   function renderAll() {
@@ -754,7 +793,6 @@
     if (b >= LOW_FOCUS) return;
     const sel = { b, city: $('#city').value, mk: makeBySlug($('#make').value), md: null };
     sel.md = modelOf(sel.mk, $('#model').value) || null;
-    const soum = platById('soum');
     const rows = D.lowSources.slice().sort((x, y) => y.trust - x.trust).map((src) => `
       <a class="low-row" href="${esc(lowSourceUrl(src.id, sel))}" target="_blank" rel="noopener">
         <span class="pl-score num" style="--c:${scoreColor(src.trust)}">${src.trust}%</span>
@@ -764,8 +802,7 @@
       </a>`).join('');
     const installments = b < 20000 ? `
       <div class="low-item"><div><b>${t('low3t')}</b><p>${t('low3d')}</p></div>
-        <span class="low-links"><a class="btn btn-ghost btn-sm" href="${soum.url}" target="_blank" rel="noopener">${esc(L(soum.name))} ↗</a>
-        <a class="btn btn-ghost btn-sm" href="https://syarah.com/en/autos" target="_blank" rel="noopener">Syarah ↗</a></span></div>` : '';
+        <span class="low-links"><a class="btn btn-ghost btn-sm" href="https://syarah.com/en/autos" target="_blank" rel="noopener">Syarah ↗</a></span></div>` : '';
     $('#lowList').innerHTML = rows + installments;
   }
 
@@ -780,7 +817,16 @@
   function renderResults() {
     const sel = selection();
     const { mk, md, years } = sel;
+    if (yearMode === 'auto') activeYear = sel.fit && sel.fit.best ? sel.fit.best : null;
     if (activeYear && !years.includes(activeYear)) activeYear = null;
+    const fitNote = $('#fitNote');
+    if (sel.fit) {
+      fitNote.hidden = false;
+      fitNote.className = 'fit-note' + (sel.fit.best ? '' : ' fit-bad');
+      fitNote.textContent = sel.fit.best
+        ? t('fitYes').replace('{b}', fmt(sel.budget)).replace('{y}', `${Math.min(...years)}–${Math.max(...years)}`).replace('{p}', fmt(sel.fit.price))
+        : t('fitNo');
+    } else fitNote.hidden = true;
     $('#resTitle').textContent = mk ? `${t('resultsFor')}: ${modelName(mk, md)}${activeYear ? ' ' + activeYear : ''}` : t('resultsAll');
     $('#resSub').textContent = md ? t('resSubModel') : t('resSubPick');
     $('#yearChips').innerHTML = md && years.length
@@ -797,9 +843,7 @@
         <span class="pl-go">${t('openResults')} ↗</span>
       </a>`).join('');
     scheduleCheck(mk ? Object.fromEntries(rows.map((r) => [r.p.id, r.url])) : null, sel.budget);
-    const hidden = D.platforms.filter((p) => LINKS[p.id] && p.minBudget && sel.budget < p.minBudget);
-    $('#hiddenNote').hidden = !hidden.length;
-    $('#hiddenNote').textContent = hidden.length ? t('hiddenSoum') : '';
+    $('#hiddenNote').hidden = true;
     const deepSel = { ...sel, years: activeYear ? [activeYear] : years };
     $('#deepLink').href = deepLink(deepSel);
     $('#deepSub').textContent = t('deepSub') + deepWords(deepSel);
@@ -943,25 +987,28 @@
 
   // ---------- events ----------
   $('#langSel').addEventListener('change', (e) => { lang = LANGS.includes(e.target.value) ? e.target.value : 'ar'; store.set('lang', lang); applyLang(); });
-  budgetEl.addEventListener('input', renderAll);
-  $('#budgetChips').addEventListener('click', (e) => { const b = e.target.closest('[data-v]'); if (b) { budgetEl.value = b.dataset.v; renderAll(); } });
-  $('#make').addEventListener('change', () => { fillModels(); activeYear = null; renderAll(); });
+  budgetEl.addEventListener('input', () => { yearMode = 'auto'; renderAll(); });
+  $('#budgetChips').addEventListener('click', (e) => { const b = e.target.closest('[data-v]'); if (b) { budgetEl.value = b.dataset.v; yearMode = 'auto'; renderAll(); } });
+  $('#make').addEventListener('change', () => { fillModels(); yearMode = 'auto'; renderAll(); });
+
   $('#bodyType').addEventListener('change', () => { fillModels(); renderAll(); });
-  ['model', 'yearFrom', 'yearTo', 'city'].forEach((id) => $('#' + id).addEventListener('change', renderAll));
+  $('#model').addEventListener('change', () => { yearMode = 'auto'; renderAll(); });
+  ['yearFrom', 'yearTo'].forEach((id) => $('#' + id).addEventListener('change', () => { yearMode = 'user'; activeYear = null; renderAll(); }));
+  $('#city').addEventListener('change', renderAll);
   $('#featureChips').addEventListener('click', (e) => {
     const c = e.target.closest('[data-f]'); if (!c) return;
     features.has(c.dataset.f) ? features.delete(c.dataset.f) : features.add(c.dataset.f);
     c.setAttribute('aria-pressed', String(features.has(c.dataset.f)));
     renderAll();
   });
-  $('#yearChips').addEventListener('click', (e) => { const c = e.target.closest('[data-y]'); if (c) { activeYear = Number(c.dataset.y) || null; renderResults(); } });
+  $('#yearChips').addEventListener('click', (e) => { const c = e.target.closest('[data-y]'); if (c) { yearMode = 'user'; activeYear = Number(c.dataset.y) || null; renderResults(); } });
   $('#options').addEventListener('click', (e) => {
     const b = e.target.closest('[data-use]'); if (!b) return;
     const [mk, md, from, to] = JSON.parse($('#options').dataset.list)[Number(b.dataset.use)];
     $('#bodyType').value = 'any';
     $('#make').value = mk; fillModels(); $('#model').value = md || '';
-    $('#yearFrom').value = from || ''; $('#yearTo').value = to || '';
-    activeYear = null; renderAll();
+    $('#yearFrom').value = ''; $('#yearTo').value = ''; // years come from the budget
+    yearMode = 'auto'; renderAll();
     $('#resultPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
   $('#searchForm').addEventListener('submit', async (e) => {

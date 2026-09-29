@@ -79,29 +79,6 @@ window.DALEEL_DATA = {
       },
     },
     {
-      id: 'soum',
-      name: { ar: 'سوم (Soum)', en: 'Soum', ur: 'سوم (Soum)' },
-      url: 'https://soum.sa/ar/%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA',
-      type: 'marketplace',
-      minBudget: 20000, // Soum's cars start from about 20,000 SAR
-      scores: { inspection: 70, warranty: 85, sellerCheck: 80, reviews: 70, transparency: 75, support: 85 },
-      pros: {
-        ar: ['إرجاع خلال ١٠ أيام', 'تقسيط بدون فوائد وتوصيل للبيت', 'أسعار تبدأ من حوالي ٢٠ ألف ريال'],
-        en: ['10-day return', 'Interest-free installments and home delivery', 'Prices start around 20,000 SAR'],
-        ur: ['10 دن میں واپسی', 'بغیر سود قسطیں اور گھر تک ڈیلیوری', 'قیمتیں تقریباً 20,000 ریال سے شروع'],
-      },
-      cons: {
-        ar: ['لا يوجد خيارات تحت ٢٠ ألف', 'مخزون أقل من حراج'],
-        en: ['Nothing under 20,000 SAR', 'Smaller stock than Haraj'],
-        ur: ['20,000 ریال سے کم کچھ نہیں', 'حراج سے کم گاڑیاں'],
-      },
-      signals: {
-        ar: 'منصة سعودية معروفة، والتقسيط مناسب لو معك دفعة أولى بسيطة',
-        en: 'Known Saudi platform; installments help if you only have a small down payment',
-        ur: 'معروف سعودی پلیٹ فارم؛ اگر آپ کے پاس تھوڑی ابتدائی رقم ہو تو قسطیں مددگار ہیں',
-      },
-    },
-    {
       id: 'motory',
       name: { ar: 'موتري (Motory)', en: 'Motory', ur: 'موٹری (Motory)' },
       url: 'https://ksa.motory.com/en/',
@@ -219,7 +196,7 @@ window.DALEEL_DATA = {
       min: 20000, max: 35000,
       label: { ar: 'فئة الموظف', en: 'Commuter class', ur: 'روزمرہ سفر کی کلاس' },
       models: ['Toyota Corolla 2016–2018', 'Hyundai Elantra 2017–2019', 'Kia Cerato 2018–2019', 'Toyota Yaris 2018–2020'],
-      where: ['syarah', 'carswitch', 'soum', 'haraj'],
+      where: ['syarah', 'carswitch', 'motory', 'haraj'],
       expect: {
         ar: 'عمر ٦–٩ سنوات، ممشى ١٢٠–٢٠٠ ألف كم. هنا تبدأ السيارات المفحوصة بالضمان.',
         en: '6–9 years old, 120–200k km. Inspected cars with warranty start here.',
@@ -235,7 +212,7 @@ window.DALEEL_DATA = {
       min: 35000, max: 60000,
       label: { ar: 'فئة العائلة', en: 'Family class', ur: 'فیملی کلاس' },
       models: ['Toyota Camry 2017–2019', 'Toyota Corolla 2020–2021', 'Hyundai Sonata 2018–2020', 'Kia K5 2021'],
-      where: ['syarah', 'carswitch', 'soum', 'dealer-cpo'],
+      where: ['syarah', 'carswitch', 'dealer-cpo', 'motory'],
       expect: { ar: 'عمر ٤–٧ سنوات، ممشى ٨٠–١٥٠ ألف كم.', en: '4–7 years old, 80–150k km.', ur: '4–7 سال پرانی، 80 ہزار–1.5 لاکھ کلومیٹر۔' },
       pick: { model: 'Toyota Camry 2018–2019 GL', km: 130000, price: [46000, 56000], open: 0.9, why: {
         ar: 'مساحة عائلية، صيانة معروفة، وتنباع بسرعة لو احتجت تبيعها.',
@@ -247,7 +224,7 @@ window.DALEEL_DATA = {
       min: 60000, max: 100000,
       label: { ar: 'فئة الـ SUV', en: 'SUV class', ur: 'SUV کلاس' },
       models: ['Toyota Camry 2021–2022', 'Hyundai Tucson 2021–2022', 'Toyota RAV4 2019–2020', 'Toyota Fortuner 2018–2019'],
-      where: ['dealer-cpo', 'syarah', 'carswitch', 'soum'],
+      where: ['dealer-cpo', 'syarah', 'carswitch', 'motory'],
       expect: {
         ar: 'عمر ٣–٦ سنوات، ممشى ٥٠–١٢٠ ألف كم. ابحث عن بقية ضمان الوكيل.',
         en: '3–6 years old, 50–120k km. Look for remaining dealer warranty.',
@@ -425,3 +402,25 @@ window.DALEEL_DATA.workshops = [
     name: { ar: 'ورش المدينة على خرائط Google', en: 'Madinah workshops on Google Maps', ur: 'گوگل میپس پر مدینہ کی ورکشاپس' },
     desc: { ar: 'اختر ورشة تقييمها ٤٫٥ أو أعلى وعليها أكثر من ١٠٠ تقييم.', en: 'Choose one rated 4.5 or higher with 100+ reviews.', ur: '4.5 یا زیادہ ریٹنگ اور 100 سے زیادہ ریویوز والی منتخب کریں۔' } },
 ];
+
+// ---------- price estimates (for matching years to the budget) ----------
+// Approximate new price in Saudi Arabia (SAR) per model, and yearly value kept by brand:
+// [first 5 years, after that]. Used only to pick which model years fit the budget.
+window.DALEEL_DATA.newPrices = {
+  toyota: { camry: 110000, corolla: 85000, yaris: 65000, avalon: 140000, 'land-cruiser': 330000, prado: 220000, rav4: 125000, fortuner: 150000, hilux: 110000, innova: 110000 },
+  hyundai: { accent: 65000, elantra: 85000, sonata: 105000, azera: 130000, tucson: 110000, 'santa-fe': 140000, creta: 80000 },
+  kia: { rio: 60000, pegas: 50000, cerato: 80000, k5: 100000, sportage: 105000, sorento: 140000, carnival: 150000 },
+  nissan: { sunny: 60000, sentra: 80000, altima: 105000, patrol: 280000, 'x-trail': 115000, pathfinder: 180000, navara: 100000 },
+  honda: { civic: 100000, accord: 130000, 'cr-v': 130000 },
+  lexus: { es: 220000, ls: 450000, rx: 280000, gx: 330000, lx: 520000 },
+  chevrolet: { malibu: 100000, captiva: 85000, tahoe: 300000, silverado: 200000 },
+  gmc: { yukon: 320000, sierra: 210000 },
+  ford: { taurus: 150000, explorer: 190000, expedition: 280000, 'f-150': 200000 },
+  mazda: { 'cx-5': 110000, 'cx-9': 170000 },
+  mitsubishi: { attrage: 50000, lancer: 65000, pajero: 140000 },
+};
+window.DALEEL_DATA.retention = {
+  toyota: [0.94, 0.88], lexus: [0.92, 0.88], honda: [0.9, 0.88],
+  hyundai: [0.88, 0.86], kia: [0.88, 0.86], nissan: [0.88, 0.86], mazda: [0.88, 0.86], mitsubishi: [0.86, 0.86],
+  chevrolet: [0.85, 0.86], gmc: [0.87, 0.87], ford: [0.85, 0.86],
+};

@@ -6,9 +6,16 @@ const cfg = redisConfig();
 // Without a database, storage calls answer 503 (the app falls back to demo mode)
 // but the availability check still works.
 const noStore = new Proxy({}, {
-  get: (_, key) => (key === 'cache' ? null : () => Promise.reject(new Error('storage_not_configured'))),
+  get: (_, key) => {
+    if (key === 'cache') return null;
+    if (key === 'kind') return 'none';
+    if (key === 'envNames') return [];
+    if (key === 'ping') return async () => false;
+    return () => Promise.reject(new Error('storage_not_configured'));
+  },
 });
-const handle = createApi(cfg ? createRedisStore(cfg) : noStore, { adminToken: process.env.ADMIN_TOKEN || '' });
+const store = cfg ? Object.assign(createRedisStore(cfg), { kind: cfg.kind, envNames: cfg.keys }) : noStore;
+const handle = createApi(store, { adminToken: process.env.ADMIN_TOKEN || '' });
 
 module.exports = async (req, res) => {
   const url = new URL(req.url, `https://${req.headers.host || 'localhost'}`);

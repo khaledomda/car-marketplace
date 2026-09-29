@@ -452,3 +452,7 @@ footer a { color: var(--accent); }
 .live-stats .stat b { font-size: 1.25rem; }
 .live-stats .stat span { font-size: 0.72rem; }
 @media (max-width: 420px) { .live-stats { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---------- v7: budget fit note ---------- */
+.fit-note { font-size: 0.88rem; font-weight: 600; background: var(--accent-soft); color: var(--ink); border-radius: 10px; padding: 10px 12px; }
+.fit-note.fit-bad { background: var(--gold-soft); }
