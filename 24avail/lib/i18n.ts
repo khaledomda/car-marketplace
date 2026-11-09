@@ -1,0 +1,96 @@
+export type Locale = "ar" | "en";
+export const LOCALE_COOKIE = "a24l";
+
+const dict = {
+  brand_tag: { ar: "دواؤك، متاح في أقرب صيدلية", en: "Your medicine, available nearby" },
+  trial: {
+    ar: "مرحلة تجريبية — الخدمة مجانية بالكامل للمرضى والصيدليات. لا نأخذ أي مبلغ ولا نطلب أي رسوم.",
+    en: "Trial phase — completely free for patients and pharmacies. We take no money and ask for no fees.",
+  },
+  hero_kicker: { ar: "المدينة المنورة", en: "Al-Madinah Al-Munawwarah" },
+  hero_title: { ar: "ابحث عن دوائك،\nونحن نسأل الصيدليات عنك.", en: "Search your medicine.\nWe ask the pharmacies for you." },
+  hero_sub: {
+    ar: "اكتب الاسم التجاري أو العلمي، أو صوّر الوصفة أو علبة الدواء — ثم اسأل أقرب الصيدليات عبر واتساب بضغطة.",
+    en: "Type a brand or scientific name, or snap your prescription or the medicine box — then ask the nearest pharmacies on WhatsApp in one tap.",
+  },
+  search_ph: { ar: "مثال: بنادول، باراسيتامول، Augmentin…", en: "e.g. Panadol, paracetamol, أوجمنتين…" },
+  upload_rx: { ar: "رفع وصفة طبية", en: "Upload prescription" },
+  upload_drug: { ar: "صورة علبة الدواء", en: "Photo of medicine" },
+  reading: { ar: "نقرأ الصورة…", en: "Reading your photo…" },
+  rx_found: { ar: "وجدنا في الصورة:", en: "We found in your photo:" },
+  rx_none: { ar: "لم نتمكن من قراءة أدوية واضحة. جرّب صورة أوضح أو اكتب الاسم.", en: "We couldn't read clear medicine names. Try a sharper photo or type the name." },
+  rx_off: { ar: "قراءة الصور ستتوفر قريباً. اكتب اسم الدواء حالياً.", en: "Photo reading is coming soon. Please type the name for now." },
+  rx_privacy: { ar: "لا نحتفظ بصورة الوصفة — نستخرج أسماء الأدوية فقط.", en: "We don't keep your prescription photo — only the medicine names." },
+  add: { ar: "أضف", en: "Add" },
+  added: { ar: "مضاف", en: "Added" },
+  rx_badge: { ar: "بوصفة", en: "Rx" },
+  otc_badge: { ar: "بدون وصفة", en: "OTC" },
+  herbal: { ar: "عشبي", en: "Herbal" },
+  sar: { ar: "ر.س", en: "SAR" },
+  no_results: { ar: "لا نتائج مطابقة. جرّب الاسم العلمي أو تهجئة أخرى.", en: "No matches. Try the scientific name or another spelling." },
+  my_list: { ar: "قائمتي", en: "My list" },
+  list_empty: { ar: "أضف دواءً واحداً أو أكثر لتسأل الصيدليات عنه.", en: "Add one or more medicines to ask pharmacies about them." },
+  qty: { ar: "الكمية", en: "Qty" },
+  how_get: { ar: "كيف تريد استلامه؟", en: "How do you want it?" },
+  pickup: { ar: "أستلمه بنفسي", en: "I'll pick it up" },
+  pharmacy_delivery: { ar: "توصيل من الصيدلية", en: "Pharmacy delivers" },
+  platform_delivery: { ar: "توصيل 24avail", en: "24avail delivery" },
+  soon: { ar: "قريباً", en: "Soon" },
+  find_ph: { ar: "اعرض الصيدليات", en: "Show pharmacies" },
+  use_loc: { ar: "استخدم موقعي لأقرب صيدلية", en: "Use my location for the nearest" },
+  loc_on: { ar: "تم تحديد موقعك", en: "Location on" },
+  loc_denied: { ar: "لم يُسمح بالموقع — نعرض الصيدليات بدون ترتيب المسافة.", en: "Location not allowed — showing pharmacies without distance." },
+  km: { ar: "كم", en: "km" },
+  ask_wa: { ar: "اسأل عبر واتساب", en: "Ask on WhatsApp" },
+  call: { ar: "اتصال", en: "Call" },
+  sent: { ar: "تم الإرسال", en: "Sent" },
+  completed_n: { ar: "خدمة مكتملة", en: "completed" },
+  open24: { ar: "٢٤ ساعة", en: "24h" },
+  delivers: { ar: "توصيل", en: "Delivers" },
+  likely: { ar: "أكّدت توفره مؤخراً", en: "Recently confirmed in stock" },
+  verified: { ar: "موثّقة", en: "Verified" },
+  demo: { ar: "تجريبي", en: "Demo" },
+  offers_title: { ar: "عروض الصيدليات", en: "Pharmacy offers" },
+  drop_offer_title: { ar: "ضع عرضك هنا", en: "Drop your offer here" },
+  drop_offer_sub: { ar: "مساحة إعلانية للصيدليات والشركات — تواصل معنا لحجزها.", en: "Advertising space for pharmacies & brands — contact us to book it." },
+  drop_offer_cta: { ar: "احجز المساحة", en: "Book this space" },
+  how_title: { ar: "كيف يعمل؟", en: "How it works" },
+  how1_t: { ar: "ابحث أو صوّر", en: "Search or snap" },
+  how1_d: { ar: "بالاسم التجاري أو العلمي، أو صورة الوصفة/العلبة.", en: "By brand or scientific name, or a photo of the prescription/box." },
+  how2_t: { ar: "اسأل الأقرب", en: "Ask the nearest" },
+  how2_d: { ar: "رسالة واتساب جاهزة تصل لعدة صيدليات بالقرب منك.", en: "A ready WhatsApp message to several pharmacies near you." },
+  how3_t: { ar: "استلم أو اطلب التوصيل", en: "Pick up or get it delivered" },
+  how3_d: { ar: "الصيدلي يؤكد التوفر، وأنت تختار الاستلام أو التوصيل.", en: "The pharmacist confirms; you pick up or choose delivery." },
+  stats_ph: { ar: "صيدلية", en: "pharmacies" },
+  stats_drugs: { ar: "دواء ومستحضر عشبي", en: "medicines & herbals" },
+  stats_searches: { ar: "عملية بحث", en: "searches" },
+  stats_done: { ar: "خدمة مكتملة", en: "completed services" },
+  liability_title: { ar: "إخلاء مسؤولية", en: "Disclaimer" },
+  liability: {
+    ar: "24avail منصة وسيطة لمساعدتك في معرفة توفر الدواء لدى الصيدليات فقط. لا نقدّم استشارة طبية ولا نصرف أو نبيع أدوية، ولا نتحمّل أي مسؤولية عن الأدوية الموصوفة أو صرفها أو استخدامها أو جرعاتها أو آثارها. الصرف يتم من الصيدلية المرخّصة وفق الأنظمة، والأدوية التي تحتاج وصفة لا تُصرف إلا بوصفة سارية. استشر طبيبك أو الصيدلي دائماً.",
+    en: "24avail is an intermediary platform that only helps you find which pharmacy has your medicine. We do not give medical advice and do not dispense or sell medicines, and we accept no liability for prescribed drugs, their dispensing, use, dosage or effects. Dispensing is done by the licensed pharmacy under Saudi regulations; prescription-only medicines require a valid prescription. Always consult your doctor or pharmacist.",
+  },
+  for_pharmacies: { ar: "للصيدليات والشركاء", en: "Pharmacies & partners" },
+  pharmacies_nav: { ar: "دليل الصيدليات", en: "Pharmacy directory" },
+  my_requests: { ar: "طلباتي", en: "My requests" },
+  terms: { ar: "الشروط وإخلاء المسؤولية", en: "Terms & disclaimer" },
+  form_business: { ar: "اسم الجهة", en: "Business name" },
+  form_name: { ar: "اسم المسؤول", en: "Contact name" },
+  form_phone: { ar: "رقم الجوال", en: "Mobile number" },
+  form_msg: { ar: "تفاصيل (اختياري)", en: "Details (optional)" },
+  form_send: { ar: "إرسال", en: "Send" },
+  form_thanks: { ar: "وصلنا طلبك، سنتواصل معك قريباً.", en: "Received — we'll contact you soon." },
+  close: { ar: "إغلاق", en: "Close" },
+  remove: { ar: "حذف", en: "Remove" },
+  data_note: { ar: "البيانات من سجل الأدوية المعتمد ومصادر عامة؛ تحقّق دائماً مع الصيدلي.", en: "Data from the registered-medicines list and public sources; always confirm with the pharmacist." },
+} as const;
+
+export type DictKey = keyof typeof dict;
+export function t(locale: Locale, key: DictKey): string {
+  return dict[key][locale];
+}
+export function dictionary(locale: Locale): Record<DictKey, string> {
+  const out = {} as Record<DictKey, string>;
+  for (const k of Object.keys(dict) as DictKey[]) out[k] = dict[k][locale];
+  return out;
+}
