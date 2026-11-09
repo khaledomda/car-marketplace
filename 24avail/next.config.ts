@@ -1,5 +1,9 @@
 import type { NextConfig } from "next";
 
+// PREVIEW_EMBED=1 only for trying the site inside a preview pane (it is shown in an iframe).
+// Never set it in production: production keeps framing fully blocked (anti-clickjacking).
+const embed = process.env.PREVIEW_EMBED === "1";
+
 const csp = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline'",
@@ -7,17 +11,19 @@ const csp = [
   "font-src 'self' https://fonts.gstatic.com",
   "img-src 'self' data: blob: https:",
   "connect-src 'self'",
-  "frame-ancestors 'none'",
+  embed ? "frame-ancestors *" : "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",
   "object-src 'none'",
-  "upgrade-insecure-requests",
+  ...(embed ? [] : ["upgrade-insecure-requests"]),
 ].join("; ");
 
 const securityHeaders = [
   { key: "Content-Security-Policy", value: csp },
-  { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
-  { key: "X-Frame-Options", value: "DENY" },
+  ...(embed ? [] : [
+    { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
+    { key: "X-Frame-Options", value: "DENY" },
+  ]),
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "Permissions-Policy", value: "camera=(self), geolocation=(self), microphone=()" },

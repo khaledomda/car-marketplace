@@ -47,7 +47,8 @@ export async function middleware(req: NextRequest) {
         return NextResponse.json({ error: "forbidden" }, { status: 403 });
       }
       const origin = req.headers.get("origin");
-      if (req.method !== "GET" && origin && new URL(origin).host !== req.nextUrl.host) {
+      const host = req.headers.get("x-forwarded-host")?.split(",")[0]?.trim() || req.headers.get("host") || req.nextUrl.host;
+      if (req.method !== "GET" && origin && new URL(origin).host !== host) {
         return NextResponse.json({ error: "bad_origin" }, { status: 403 });
       }
     }
@@ -65,8 +66,10 @@ export async function middleware(req: NextRequest) {
   const res = NextResponse.next();
   if (!(await validDevice(req.cookies.get(DEVICE_COOKIE)?.value))) {
     const id = crypto.randomUUID();
+    const https = req.nextUrl.protocol === "https:" || req.headers.get("x-forwarded-proto") === "https";
+    const embed = process.env.PREVIEW_EMBED === "1"; // preview pane = cross-site iframe, needs SameSite=None
     res.cookies.set(DEVICE_COOKIE, `${id}.${await hmac(id)}`, {
-      httpOnly: true, sameSite: "lax", secure: req.nextUrl.protocol === "https:", path: "/", maxAge: 60 * 60 * 24 * 365 * 2,
+      httpOnly: true, sameSite: embed ? "none" : "lax", secure: embed || https, path: "/", maxAge: 60 * 60 * 24 * 365 * 2,
     });
   }
   return res;
